@@ -28,8 +28,10 @@ header {
   line-height: 80px;
   background-color: var(--main-color);
   text-align: center;
+  color: #fff;
 }
 main {
+  margin: 20px;
   padding-bottom: 80px;
 }
 nav {
@@ -44,15 +46,16 @@ nav {
   height: 100%;
   border-top: 1px solid var(--main-color);
   font-size: 0;
-  overflow: hidden;
 }
 .nav-list > li {
   text-align: center;
   line-height: 80px;
   display: inline-block;
+  box-sizing: border-box;
   background-color: #fff;
   width: calc(100% / 3);
   box-sizing: border-box;
+  font-size: 16px;
 }
 li {
   position: relative;
@@ -65,7 +68,7 @@ li {
   right: 0;
   z-index: 100;
   line-height: 80px;
-  content: '';
+  content: ‘’;
   display: block;
   width: 2px;
   height: 80%;
