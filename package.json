@@ -1,20 +1,22 @@
 {
-  "name": "EMO",
+  "name": "emo",
   "version": "1.0.0",
   "description": "이 재료로 모해먹지?",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "json-server --watch db.json --port 5000"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kim-Jaemin420/EMO.git"
+    "url": "git+https://github.com/EeeeeMO/EMO.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kim-Jaemin420/EMO/issues"
+    "url": "https://github.com/EeeeeMO/EMO/issues"
   },
-  "homepage": "https://github.com/Kim-Jaemin420/EMO#readme"
+  "homepage": "https://github.com/EeeeeMO/EMO#readme",
+  "devDependencies": {
+    "json-server": "^0.16.3"
+  }
 }
