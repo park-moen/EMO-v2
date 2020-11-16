@@ -36,6 +36,7 @@ header {
   height: 80px;
   line-height: 80px;
   background-color: var(--main-color);
+  font-size: 20px;
   text-align: center;
   color: #fff;
 }
@@ -63,10 +64,10 @@ nav {
   background-color: #fff;
   width: calc(100% / 3);
   font-size: 16px;
-}
-li {
   position: relative;
-  font-size: 16px;
+}
+.nav-list > li:hover {
+  background-color: #e7ecee;
 }
 .nav-list > li:not(:last-child)::after {
   position: absolute;
