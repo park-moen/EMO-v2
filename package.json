@@ -1,0 +1,20 @@
+{
+  "name": "EMO",
+  "version": "1.0.0",
+  "description": "이 재료로 모해먹지?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kim-Jaemin420/EMO.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kim-Jaemin420/EMO/issues"
+  },
+  "homepage": "https://github.com/Kim-Jaemin420/EMO#readme"
+}
