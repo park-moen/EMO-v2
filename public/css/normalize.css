@@ -17,6 +17,14 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
 }
+
+button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
 body {
   font-family: var(--main-font);
 }
