@@ -5,7 +5,6 @@ button{
   cursor: pointer;
 }
 
-
 .header-memo{
   position: relative;
 }
@@ -87,7 +86,7 @@ main{
     width: 16px;
     height: 16px;
     background-color: #fff;
-    border: 1px solid #cfdadd;
+    border:1px solid orange
   }
   .checkbox:checked + label::after {
     content: "";
@@ -120,6 +119,12 @@ main{
   padding: 10px 15px;
   margin-bottom: -1px;
   list-style: none;
+}
+.cart-all-btns .checkbox + label::after{
+  
+}
+.cart-all-btns .checkbox:checked + label::after{
+  background-color: black;
 }
 .cart-all-remove{
   position: absolute; 
