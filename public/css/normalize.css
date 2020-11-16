@@ -1,12 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200;400;600;700;900&display=swap');
 @font-face {
   font-family: 'GimJe';
   font-style: normal;
   font-weight: 800;
-  src: url('/fonts/GIMJE-L.TTF') format('truetype');
+  src: url('../fonts/GIMJE-L.TTF') format('truetype');
 }
 :root {
-  --main-color: orange;
-  --main-font: 'GimJe';
+  --main-color: #faa93f;
+  --main-font: 'Gothic A1', sans-serif;
+}
+.a11y-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
 }
 body {
   font-family: var(--main-font);
@@ -19,9 +27,11 @@ header {
   line-height: 80px;
   background-color: var(--main-color);
   text-align: center;
+  color: #fff;
 }
 main {
   margin: 20px;
+  padding-bottom: 80px;
 }
 nav {
   width: 100%;
@@ -34,14 +44,30 @@ nav {
   width: 100%;
   height: 100%;
   border-top: 1px solid var(--main-color);
+  font-size: 0;
 }
 .nav-list > li {
   text-align: center;
   line-height: 80px;
   display: inline-block;
+  box-sizing: border-box;
   background-color: #fff;
-  width: 32%;
+  width: calc(100% / 3);
+  font-size: 16px;
 }
 .nav-list > li:not(:last-child) {
   border-right: 1px solid var(--main-color);
+}
+.nav-list > li:not(:last-child)::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  z-index: 100;
+  line-height: 80px;
+  content: ‘’;
+  display: block;
+  width: 2px;
+  height: 80%;
+  background-color: var(--main-color);
 }
