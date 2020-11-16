@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/park-moen/EMO.git"
+    "url": "git+https://github.com/EeeeeMO/EMO.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/park-moen/EMO/issues"
+    "url": "https://github.com/EeeeeMO/EMO/issues"
   },
-  "homepage": "https://github.com/park-moen/EMO#readme",
+  "homepage": "https://github.com/EeeeeMO/EMO#readme",
   "devDependencies": {
     "json-server": "^0.16.3"
   }
