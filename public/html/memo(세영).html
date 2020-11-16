@@ -4,20 +4,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/public/css/reset.css" />
-  <link rel="stylesheet" href="/public/css/normalize.css" />
-  <link rel="stylesheet" href="/public/css/memo.css" />
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/normalize.css" />
+  <link rel="stylesheet" href="../css/memo.css" />
   <title>Document</title>
 </head>
 
 <body>
   <div class="container">
     <header>
-      레시피 상세 보기
+      <h2>장보기메모</h2>
+      <button>뒤로</button>
     </header>
     <main>
-      main에 해당하는 내용을 입력해주세요
-
+      <section>
+        <h3>냉장고 미리보기</h3>
+        <div>
+          <ul>
+            <li><button>소고기</button></li>
+            <li><button>육회</button></li>
+            <li><button>차돌박이</button></li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <h3>장보기 메모추가</h3>
+        <input type="text" placeholder="내용을 입력해주세요">
+        <input id="cart-item1" type ="checkbox" name="">
+        <label for ="cart-item1">소고기</label>
+        <input id="cart-item2" type ="checkbox" name="">
+        <label for ="cart-item2">차돌박이</label>
+        <input id="cart-item3" type ="checkbox" name="">
+        <label for ="cart-item3">육회</label>
+      </section>
     </main>
     <nav>
       <ul class="nav-list">
