@@ -29,9 +29,11 @@ main {
   text-align: center;
   color: #fff;
   background-color: #faa93f;
+  border: 2px solid #faa93f;
   transition: background 0.3s;
 }
 
 .my-ref-button:hover {
-  background-color: #ddd;
+  background-color: #fff;
+  color: var(--main-color);
 }
