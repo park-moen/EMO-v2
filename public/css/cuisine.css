@@ -1,0 +1,19 @@
+main {
+  
+}
+img {
+  width: 90%;
+  
+}
+figure {
+  display: flex;
+  flex-flow: row wrap;
+}
+figcaption {
+  font-size: 15px;
+  display: inline-block;
+}
+
+.fa-bookmark {
+  display: inline-block;
+}

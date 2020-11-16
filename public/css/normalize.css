@@ -2,10 +2,10 @@
   font-family: 'GimJe';
   font-style: normal;
   font-weight: 800;
-  src: url('/fonts/GIMJE-L.TTF') format('truetype');
+  src: url('/public/fonts/GIMJE-L.TTF') format('truetype');
 }
 :root {
-  --main-color: orange;
+  --main-color: #faa93f;
   --main-font: 'GimJe';
 }
 body {
