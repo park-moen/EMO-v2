@@ -1,34 +1,68 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/ingredient.css" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/normalize.css" />
-  <link rel="stylesheet" href="css/ingredient.css" />
-  <title>Document</title>
-</head>
+  <body>
+    <div class="container">
+      <header>
+        재료 추가
+        <button class="prev-btn">뒤로</button>
+        <button class="ingre-add-btn">추가</button>
+      </header>
+      <main>
+        <div class="main-inner">
+          <ul class="category">
+            <h2>카테고리</h2>
+            <li>
+              <select name="" id="">
+                <option value="">---------------</option>
+                <option value="">육류</option>
+                <option value="">채소/과일</option>
+                <option value="">수산물</option>
+                <option value="">곡물/견과류</option>
+                <option value="">가공/유제품</option>
+                <option value="">조미료</option>
+              </select>
+              <input type="text" placeholder="직접입력" />
+            </li>
+          </ul>
 
-<body>
-  <div class="container">
-    <header>
-      재료 추가
-    </header>
-    <main>
-      main에 해당하는 내용을 입력해주세요
+          <ul class="ingredient-name">
+            <h2>재료이름</h2>
+            <li>
+              <input type="text" placeholder="재료를 입력해주세요" />
+              <button class="ingredient-name-btn">재료목록추가</button>
+            </li>
+          </ul>
 
-    </main>
-    <nav>
-      <ul class="nav-list">
-        <li><a href="">나의 냉장고</a></li>
-        <li><a href="">장보기 메모</a></li>
-        <li><a href="">오늘의 요리</a></li>
-        <!-- <li><a href="">회원 정보</a></li> -->
-      </ul>
-    </nav>
-  </div>
-</body>
-<script src=""></script>
-
+          <h2 class="ingredient-list-title">+ 재료목록</h2>
+          <ul class="ingredient-list-plus">
+            <li><a href="">소고기</a><i class="fas fa-minus-circle"></i></li>
+          </ul>
+        </div>
+      </main>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="">나의 냉장고</a></li>
+          <li><a href="">장보기 메모</a></li>
+          <li><a href="">오늘의 요리</a></li>
+          <!-- <li><a href="">회원 정보</a></li> -->
+        </ul>
+      </nav>
+    </div>
+  </body>
+  <script src=""></script>
 </html>
