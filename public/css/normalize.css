@@ -5,6 +5,7 @@
   font-weight: 800;
   src: url('../fonts/GIMJE-L.TTF') format('truetype');
 }
+
 :root {
   --main-color: #faa93f;
   --main-font: 'Gothic A1', sans-serif;

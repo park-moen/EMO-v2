@@ -4,20 +4,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/normalize.css" />
-  <link rel="stylesheet" href="css/memo.css" />
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/normalize.css" />
+  <link rel="stylesheet" href="../css/memo.css" />
   <title>Document</title>
 </head>
 
 <body>
   <div class="container">
-    <header>
-      레시피 상세 보기
+    <header class="header-memo">
+      <h2>장보기메모</h2>
+      <button class="prev">뒤로</button>
     </header>
     <main>
-      main에 해당하는 내용을 입력해주세요
-
+      <section class="ref-preview">
+        <h3>냉장고 미리보기</h3>
+        <div class="ref-preview-btns">
+          <ul>
+            <li><button>소고기</button></li>
+            <li><button>육회</button></li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <h3>장보기 메모추가</h3>
+        <div class="cart-memo">
+          <input type="text" placeholder="내용을 입력해주세요">
+          <ul class="cart-list clearfix">
+            <li>
+              <input id="cart-item1" class="checkbox" type ="checkbox" name="">
+              <label for ="cart-item1">소고기</label>
+              <i class="remove">x</i>
+            </li>
+            <li>
+              <input id="cart-item2" class="checkbox" type ="checkbox" name="">
+              <label for ="cart-item2">돼지고기</label>
+              <i class="remove">x</i>
+            </li>
+            <li>
+              <input id="cart-item3" class="checkbox" type ="checkbox" name="">
+              <label for ="cart-item3">돼지고기</label>
+              <i class="remove">x</i>
+            </li>
+            <li>
+              <input id="cart-item4" class="checkbox" type ="checkbox" name="">
+              <label for ="cart-item4">닭고기</label>
+              <i class="remove">x</i>
+            </li>
+            <li>
+              <input id="cart-item5" class="checkbox" type ="checkbox" name="">
+              <label for ="cart-item5">닭고기</label>
+              <i class="remove">x</i>
+            </li>
+            <li>
+              <input id="cart-item6" class="checkbox" type ="checkbox" name="">
+              <label for ="cart-item6">닭고기</label>
+              <i class="remove">x</i>
+            </li>
+            
+          </ul>
+          <div class="cart-all-btns">
+            <input id="cart-all-check" class="checkbox" type="checkbox">
+            <label for="cart-all-check">전체체크</label>
+            <button class="cart-all-remove"><i>x</i>전체삭제</button>
+          </div>
+          
+        </div>
+      </section>
     </main>
     <nav>
       <ul class="nav-list">

@@ -1,0 +1,135 @@
+button{
+  background-color:transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+.header-memo{
+  position: relative;
+}
+.header-memo .prev {
+  position: absolute;
+  top:14px;
+  left: 20px;
+  padding:15px;
+}
+main{
+  height: 100%;
+}
+.ref-preview-btns {
+  padding:15px 10px;
+  background-color:#ddd;
+  margin:20px 0;
+}
+.ref-preview-btns > ul > li{
+  display: inline-block;
+  margin-right:10px;
+}
+.ref-preview-btns button{
+  background-color: #fff;
+  border: 3px solid black;
+  padding:10px 20px;
+  border-radius: 30px;
+}
+
+.cart-memo{
+  margin-top: 20px;
+}
+.cart-memo > input{
+  width: 100%;
+  padding:15px;
+  border:3px solid #eee;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background-color:#faa93f ;
+  margin-bottom:20px;
+  color:#fff;
+  outline:none;
+  font-size:16px
+}
+.cart-memo > input::placeholder{
+  color:#fff
+}
+.cart-list li{
+  position: relative;
+  /* display: block; */
+  height: 50px;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-color: #e7ecee;
+  list-style: none;
+}
+.checkbox{
+  display: none
+}
+.checkbox + label {
+  position: absolute; 
+  top: 50%;
+  left: 15px;
+  transform: translate3d(0, -50%, 0);
+  display: inline-block;
+  width: 60%;
+  line-height: 2em;
+  padding-left: 35px;
+  cursor: pointer;
+  user-select: none;
+}
+.checkbox + label::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate3d(0, -50%, 0);
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border: 1px solid #cfdadd;
+  }
+  .checkbox:checked + label::after {
+    content: "";
+    width: 14px;
+    position: absolute;
+    top: 50%;
+    left:1;
+    transform: translate3d(0, -50%, 0);
+    height:14px;
+    background-color: orange;
+  }
+  
+  .cart-list i{
+  position: absolute;
+  top:50%;
+  transform: translate3d(0, -50%, 0);
+  right:15px;
+  padding:5px 10px;
+  border:1px solid #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.cart-list i:hover{
+  color:#fff;
+  background-color: rgba(250,169,63,0.8);
+}
+.cart-all-btns{
+  position: relative;
+  height: 50px;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  list-style: none;
+}
+.cart-all-remove{
+  position: absolute; 
+  right:10px;
+  top:50%;
+  transform: translate3d(0, -50%, 0);
+}
+
+.clearfix::after{
+  content: '';
+  display: block;
+  clear: both;
+}

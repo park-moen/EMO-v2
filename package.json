@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EeeeeMO/EMO.git"
+    "url": "git+https://github.com/Jeong-seyoung/EMO.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/EeeeeMO/EMO/issues"
+    "url": "https://github.com/Jeong-seyoung/EMO/issues"
   },
-  "homepage": "https://github.com/EeeeeMO/EMO#readme",
+  "homepage": "https://github.com/Jeong-seyoung/EMO#readme",
   "devDependencies": {
     "json-server": "^0.16.3"
   }
