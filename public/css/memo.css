@@ -16,10 +16,12 @@ button{
 }
 main{
   height: 100%;
+  padding:15px;
+  color:#333
 }
 .ref-preview-btns {
   padding:15px 10px;
-  background-color:#ddd;
+  background-color:rgb(51, 51, 51,0.1);
   margin:20px 0;
 }
 .ref-preview-btns > ul > li{
@@ -27,8 +29,8 @@ main{
   margin-right:10px;
 }
 .ref-preview-btns button{
-  background-color: #fff;
-  border: 3px solid black;
+  border:1px solid rgb(51, 51, 51,0.2);
+  background-color: rgb(255, 255, 255,0.5);
   padding:10px 20px;
   border-radius: 30px;
 }
@@ -39,17 +41,25 @@ main{
 .cart-memo > input{
   width: 100%;
   padding:15px;
-  border:3px solid #eee;
+  border:none;
   box-sizing: border-box;
   border-radius: 30px;
-  background-color:#faa93f ;
+  background-color:rgb(250, 169, 63,0.8) ;
+  /* border:1px solid rgb(250, 169, 63,0.8) ; */
   margin-bottom:20px;
-  color:#fff;
+  color:#333;
   outline:none;
   font-size:16px
 }
 .cart-memo > input::placeholder{
   color:#fff
+}
+.cart-list{
+  height: 100%;
+  max-height:440px;
+  overflow: auto; 
+  border-top:1px solid  rgba(250,169,63,0.3);
+  border-bottom:1px solid rgba(250,169,63,0.3);
 }
 .cart-list li{
   position: relative;
@@ -58,9 +68,11 @@ main{
   padding: 10px 15px;
   margin-bottom: -1px;
   background-color: #fff;
-  border: 1px solid #ddd;
-  border-color: #e7ecee;
+  border: 1px solid rgba(250,169,63,0.3);
   list-style: none;
+}
+.cart-list li:first-child{
+  border-top:none
 }
 .checkbox{
   display: none
@@ -85,18 +97,17 @@ main{
     transform: translate3d(0, -50%, 0);
     width: 16px;
     height: 16px;
-    background-color: #fff;
-    border:1px solid orange
+    background-color: rgba(250,169,63,0.3);
   }
   .checkbox:checked + label::after {
     content: "";
-    width: 14px;
+    width: 16px;
+    height:16px;
     position: absolute;
     top: 50%;
-    left:1;
+    /* left:1; */
     transform: translate3d(0, -50%, 0);
-    height:14px;
-    background-color: orange;
+    background-color:rgba(250,169,63,0.7);
   }
   
   .cart-list i{
@@ -104,13 +115,15 @@ main{
   top:50%;
   transform: translate3d(0, -50%, 0);
   right:15px;
-  padding:5px 10px;
-  border:1px solid #ddd;
+  padding:5px 9px;
+  /* border:1px solid rgba(250,169,63,0.8); */
   border-radius: 20px;
   cursor: pointer;
+  color:rgb(158, 158, 158)
 }
 .cart-list i:hover{
   color:#fff;
+  /* padding:5px 9px; */
   background-color: rgba(250,169,63,0.8);
 }
 .cart-all-btns{
@@ -121,16 +134,22 @@ main{
   list-style: none;
 }
 .cart-all-btns .checkbox + label::after{
-  
+  background-color: transparent;
+  width:20px;
+  height: 20px;
+  border:2px solid rgba(250,169,63,0.7);
+  box-sizing: border-box;
 }
 .cart-all-btns .checkbox:checked + label::after{
-  background-color: black;
+  /* background-color: #faa93f; */
+  background-color: rgba(250,169,63,0.8);
 }
 .cart-all-remove{
   position: absolute; 
   right:10px;
   top:50%;
   transform: translate3d(0, -50%, 0);
+  font-size: 16px;
 }
 
 .clearfix::after{
