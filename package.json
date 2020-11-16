@@ -1,5 +1,5 @@
 {
-  "name": "EMO",
+  "name": "emo",
   "version": "1.0.0",
   "description": "이 재료로 모해먹지?",
   "main": "index.js",
@@ -10,7 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/Jeong-seyoung/EMO.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
