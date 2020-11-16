@@ -12,30 +12,87 @@
 
 <body>
   <div class="container">
-    <header>
+    <header class="header-memo">
       <h2>장보기메모</h2>
-      <button>뒤로</button>
+      <button class="prev">뒤로</button>
     </header>
     <main>
-      <section>
+      <section class="ref-preview">
         <h3>냉장고 미리보기</h3>
-        <div>
+        <div class="ref-preview-btns">
           <ul>
             <li><button>소고기</button></li>
             <li><button>육회</button></li>
-            <li><button>차돌박이</button></li>
           </ul>
         </div>
       </section>
       <section>
         <h3>장보기 메모추가</h3>
-        <input type="text" placeholder="내용을 입력해주세요">
-        <input id="cart-item1" type ="checkbox" name="">
-        <label for ="cart-item1">소고기</label>
-        <input id="cart-item2" type ="checkbox" name="">
-        <label for ="cart-item2">차돌박이</label>
-        <input id="cart-item3" type ="checkbox" name="">
-        <label for ="cart-item3">육회</label>
+        <div class="cart-memo">
+          <input type="text" placeholder="내용을 입력해주세요">
+          <ul class="cart-list clearfix">
+            <li>
+              <input id="cart-item1" type ="checkbox" name="">
+              <label for ="cart-item1">소고기</label>
+              <i class="remove">x</i>
+            </li>
+            <li>
+              <input id="cart-item2" type ="checkbox" name="">
+              <label for ="cart-item2">돼지고기</label>
+              <i class="remove">x</i>
+            </li>
+            <li>
+              <input id="cart-item3" type ="checkbox" name="">
+              <label for ="cart-item3">닭고기</label>
+              <i class="remove">x</i>
+            </li>
+            <li>
+              <input id="cart-item3" type ="checkbox" name="">
+              <label for ="cart-item3">닭고기</label>
+              <i class="remove">x</i>
+            </li>
+            <li>
+              <input id="cart-item3" type ="checkbox" name="">
+              <label for ="cart-item3">닭고기</label>
+              <i class="remove">x</i>
+            </li>
+            <li>
+              <input id="cart-item3" type ="checkbox" name="">
+              <label for ="cart-item3">닭고기</label>
+              <i class="remove">x</i>
+            </li>
+            <li>
+              <input id="cart-item3" type ="checkbox" name="">
+              <label for ="cart-item3">닭고기</label>
+              <i class="remove">x</i>
+            </li>
+            <li>
+              <input id="cart-item3" type ="checkbox" name="">
+              <label for ="cart-item3">닭고기</label>
+              <i class="remove">x</i>
+            </li>
+            <li>
+              <input id="cart-item3" type ="checkbox" name="">
+              <label for ="cart-item3">닭고기</label>
+              <i class="remove">x</i>
+            </li>
+            <li>
+              <input id="cart-item3" type ="checkbox" name="">
+              <label for ="cart-item3">닭고기</label>
+              <i class="remove">x</i>
+            </li>
+            <li>
+              <input id="cart-item3" type ="checkbox" name="">
+              <label for ="cart-item3">닭고기</label>
+              <i class="remove">x</i>
+            </li>
+          </ul>
+          <div class="cart-all-btns clearfix">
+            <input type="checkbox">전체체크
+            <button class="cart-all-remove"><i>x</i>전체삭제</button>
+          </div>
+          
+        </div>
       </section>
     </main>
     <nav>

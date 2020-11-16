@@ -1,0 +1,81 @@
+button{
+  background-color:transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+.header-memo{
+  position: relative;
+}
+.header-memo .prev {
+  position: absolute;
+  top:14px;
+  left: 20px;
+  padding:15px;
+}
+main{
+  height: 100%;
+}
+.ref-preview-btns {
+  padding:15px 10px;
+  background-color:#ddd;
+  margin:20px 0;
+}
+.ref-preview-btns > ul > li{
+  display: inline-block;
+  margin-right:10px;
+}
+.ref-preview-btns button{
+  background-color: #fff;
+  border: 3px solid black;
+  padding:10px 20px;
+  border-radius: 30px;
+}
+
+.cart-memo{
+  margin-top: 20px;
+}
+.cart-memo > input{
+  width: 100%;
+  padding:15px;
+  border:3px solid #eee;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background-color:#faa93f ;
+  margin-bottom:20px;
+  color:#fff;
+  outline:none;
+  font-size:16px
+}
+.cart-memo > input::placeholder{
+  color:#fff
+}
+.cart-list i{
+  margin-right:20px;
+  float:right;
+  padding:5px 10px;
+  border:1px solid #ddd;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.cart-list li{
+  padding:15px 0;
+}
+
+.cart-all-btns{
+  margin-top:15px;
+  padding:10px 0;
+  vertical-align: middle;
+}
+.cart-all-remove{
+  float: right;
+  margin-right:20px
+}
+
+.clearfix::after{
+  content: '';
+  display: block;
+  clear: both;
+}
