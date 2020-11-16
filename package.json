@@ -8,13 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kim-Jaemin420/EMO.git"
+    "url": "git+https://github.com/park-moen/EMO.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kim-Jaemin420/EMO/issues"
+    "url": "https://github.com/park-moen/EMO/issues"
   },
-  "homepage": "https://github.com/Kim-Jaemin420/EMO#readme"
+  "homepage": "https://github.com/park-moen/EMO#readme",
+  "devDependencies": {
+    "json-server": "^0.16.3"
+  }
 }
