@@ -12,46 +12,120 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/ingredient.css" />
+    <script src="./js/ingredient.js" defer></script>
     <title>Document</title>
   </head>
 
   <body>
     <div class="container">
-      <header>
-        재료 추가
-        <button class="prev-btn">뒤로</button>
-        <button class="ingre-add-btn">추가</button>
-      </header>
+      <header>요리 재료 선택</header>
       <main>
-        <div class="main-inner">
-          <ul class="category">
-            <h2>카테고리</h2>
-            <li>
-              <select name="" id="">
-                <option value="">---------------</option>
-                <option value="">육류</option>
-                <option value="">채소/과일</option>
-                <option value="">수산물</option>
-                <option value="">곡물/견과류</option>
-                <option value="">가공/유제품</option>
-                <option value="">조미료</option>
-              </select>
-              <input type="text" placeholder="직접입력" />
-            </li>
-          </ul>
+        <ul>
+          <li>
+            <h3 class="category gogi">육류</h3>
+            <div class="ingredient">
+              <ul>
+                <li class="gogi-item-1">소고기</li>
+                <li class="gogi-item-2">돼지고기</li>
+                <li class="gogi-item-3">닭고기</li>
+              </ul>
+            </div>
+          </li>
 
-          <ul class="ingredient-name">
-            <h2>재료이름</h2>
-            <li>
-              <input type="text" placeholder="재료를 입력해주세요" />
-              <button class="ingredient-name-btn">재료목록추가</button>
-            </li>
-          </ul>
+          <li>
+            <h3 class="category vege">채소/과일</h3>
+            <div class="ingredient">
+              <ul>
+                <li class="vege-item-1">양파</li>
+                <li class="vege-item-2">김치</li>
+                <li class="vege-item-3">대파</li>
+                <li class="vege-item-4">고추</li>
+                <li class="vege-item-5">마늘</li>
+                <li class="vege-item-6">무</li>
+                <li class="vege-item-7">봄동</li>
+              </ul>
+            </div>
+          </li>
 
-          <h2 class="ingredient-list-title">+ 재료목록</h2>
-          <ul class="ingredient-list-plus">
-            <li><a href="">소고기</a><i class="fas fa-minus-circle"></i></li>
-          </ul>
+          <li>
+            <h3 class="category seafood">수산물</h3>
+            <div class="ingredient">
+              <ul>
+                <li class="seafood-item-1">새우</li>
+                <li class="seafood-item-2">꽃게</li>
+                <li class="seafood-item-3">멸치</li>
+                <li class="seafood-item-4">다시마</li>
+                <li class="seafood-item-5">미역</li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <h3 class="category cereal">곡물/견과류</h3>
+            <div class="ingredient">
+              <ul>
+                <li class="cereal-item-1">밥</li>
+                <li class="cereal-item-2">감자</li>
+                <li class="cereal-item-3">고구마</li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <h3 class="category manufact">가공/유제품</h3>
+            <div class="ingredient">
+              <ul>
+                <li class="manufact-item-1">두부</li>
+                <li class="manufact-item-2">라면</li>
+                <li class="manufact-item-3">떡</li>
+                <li class="manufact-item-4">소면</li>
+                <li class="manufact-item-5">소주</li>
+                <li class="manufact-item-6">베이컨</li>
+                <li class="manufact-item-7">햄</li>
+                <li class="manufact-item-8">닭가슴살</li>
+                <li class="manufact-item-9">식빵</li>
+                <li class="manufact-item-10">치즈</li>
+                <li class="manufact-item-11">부침가루</li>
+                <li class="manufact-item-12">단무지</li>
+                <li class="manufact-item-13">달걀</li>
+                <li class="manufact-item-14">어묵</li>
+                <li class="manufact-item-15">참치</li>
+                <li class="manufact-item-16">밀가루</li>
+                <li class="manufact-item-17">김</li>
+                <li class="manufact-item-18">우유</li>
+              </ul>
+            </div>
+          </li>
+
+          <li>
+            <h3 class="category Seasoning">조미료</h3>
+            <div class="ingredient">
+              <ul>
+                <li class="Seasoning-item-1">설탕</li>
+                <li class="Seasoning-item-2">고추장</li>
+                <li class="Seasoning-item-3">소금</li>
+                <li class="Seasoning-item-4">참기름</li>
+                <li class="Seasoning-item-5">마요네즈</li>
+                <li class="Seasoning-item-6">간장</li>
+                <li class="Seasoning-item-7">후추</li>
+                <li class="Seasoning-item-8">국간장</li>
+                <li class="Seasoning-item-9">고춧가루</li>
+                <li class="Seasoning-item-10">된장</li>
+                <li class="Seasoning-item-11">식초</li>
+                <li class="Seasoning-item-12">드레싱</li>
+                <li class="Seasoning-item-13">올리브유</li>
+                <li class="Seasoning-item-14">버터</li>
+                <li class="Seasoning-item-15">물엿</li>
+                <li class="Seasoning-item-16">케첩</li>
+                <li class="Seasoning-item-17">잼</li>
+                <li class="Seasoning-item-18">깨</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+        <div class="ingre-item-container">
+          <li class="ingre-item">12313213<button class="remove-ingre-item">X</button></li>
         </div>
       </main>
       <nav>
