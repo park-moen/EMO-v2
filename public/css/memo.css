@@ -15,32 +15,13 @@ button{
   padding:15px;
 }
 main{
-<<<<<<< HEAD
-  height:100%;
-=======
   height: 100%;
-  padding:15px;
-  color:#333
->>>>>>> Feat-/-cart
+  padding:0 15px;
+  padding-top: 20px;
+  color:#333;
+  /* position: relative; */
 }
-.ref-preview-btns {
-  padding:25px 10px;
-  background-color:rgb(51, 51, 51,0.1);
-  margin:20px 0;
-}
-.ref-preview-btns > ul > li{
-  display: inline-block;
-  margin-right:10px;
-}
-.ref-preview-btns button{
-  border:1px solid rgb(51, 51, 51,0.2);
-  background-color: rgb(255, 255, 255,0.5);
-  padding:10px 20px;
-  border-radius: 30px;
-}
-.ref-preview-btns button:hover{
-  background-color: #fff;
-}
+
 .cart-memo{
   margin-top: 20px;
 }
@@ -59,29 +40,24 @@ main{
 .cart-memo > input::placeholder{
   color:#fff
 }
-.cart-list{
-<<<<<<< HEAD
+.cart-memo-list{
   padding:10px;
   overflow:auto;
-  height: 260px;
-=======
-  height: 300px;
-  overflow: auto; 
-  border-top:1px solid  rgba(250,169,63,0.3);
-  border-bottom:1px solid rgba(250,169,63,0.3);
->>>>>>> Feat-/-cart
+  height: 430px;
+  border:1px solid  rgba(250,169,63,0.6);
 }
-.cart-list li{
+.cart-memo-list li{
   position: relative;
   /* display: block; */
-  height: 50px;
+  height: 30px;
   padding: 10px 15px;
   margin-bottom: -1px;
   background-color: #fff;
-  border: 1px solid rgba(250,169,63,0.3);
+  border-top: 1px solid rgba(250,169,63,0.3);
+  border-bottom: 1px solid rgba(250,169,63,0.3);
   list-style: none;
 }
-.cart-list li:first-child{
+.cart-memo-list li:first-child{
   border-top:none
 }
 .checkbox{
@@ -120,7 +96,7 @@ main{
     background-color:rgba(250,169,63,0.7);
   }
   
-  .cart-list i{
+  .cart-memo-list i{
   position: absolute;
   top:50%;
   transform: translate3d(0, -50%, 0);
@@ -131,7 +107,7 @@ main{
   cursor: pointer;
   color:rgb(158, 158, 158)
 }
-.cart-list i:hover{
+.cart-memo-list i:hover{
   color:#fff;
   /* padding:5px 9px; */
   background-color: rgba(250,169,63,0.8);
