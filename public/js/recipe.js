@@ -40,3 +40,6 @@ const fetchFoodList = async () => {
 };
 // Event Binding
 window.onload = fetchFoodList;
+
+const x = 1;
+console.log(x);
