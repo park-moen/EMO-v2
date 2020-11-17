@@ -39,10 +39,7 @@ const fetchIng = async () => {
         }
       }
 
-      const result1 = new Set(result);
-      console.log([...result1]);
-
-      render([...result1]);
+      render([...new Set(result)]);
     });
   } catch (e) {
     console.error(e);
