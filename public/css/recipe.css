@@ -22,6 +22,7 @@ main {
   max-width: 1024px;
   min-width: 280px;
   overflow: hidden;
+  /* padding-top: 200px; */
 }
 .main-image img {
   display: block;
@@ -45,7 +46,7 @@ main {
 .food-title span {
   line-height: 30px;
   padding-right: 5%;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
 }
 .fa-bookmark {
@@ -60,14 +61,19 @@ main {
 .super-stuff ul {
   display: flex;
   justify-content: start;
+  flex-wrap: wrap;
   margin-bottom: 40px;
   margin-left: 20px;
 }
 .super-stuff ul > li {
-  padding-right: 15px;
+  margin-right: 15px;
+  margin-bottom: 5px;
+  padding: 5px 10px;
   font-size: 14px;
+  border: 1px solid darkgray;
+  border-radius: 15px;
 }
-.sub-stuff h2 {
+/* .sub-stuff h2 {
   margin-bottom: 20px;
   font-size: 16px;
 }
@@ -80,7 +86,7 @@ main {
 .sub-stuff ul > li {
   padding-right: 15px;
   font-size: 14px;
-}
+} */
 .recipe {
   list-style: decimal;
   margin-left: 20px;
