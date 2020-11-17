@@ -14,6 +14,7 @@ const render = () => {
 $ingredientes.onclick = (e) => {
   if (!e.target.matches('.ingredient > ul > li')) return;
   ingredientName = e.target.textContent;
+  $ingreItemContainer.classList.add('active');
 
   if (ingredientes.some((item) => item === ingredientName)) return;
   ingredientes = ingredientes.concat(ingredientName);
@@ -26,4 +27,8 @@ $ingreItemContainer.onclick = (e) => {
 
   const ingredientAdded = e.target.previousSibling.textContent;
   ingredientes = ingredientes.filter((item) => item !== ingredientAdded);
+
+  if (!ingredientes.length) {
+    $ingreItemContainer.classList.remove('active');
+  }
 };
