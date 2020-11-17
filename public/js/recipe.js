@@ -40,3 +40,5 @@ const fetchFoodList = async () => {
 };
 // Event Binding
 window.onload = fetchFoodList;
+
+// 싫어!
