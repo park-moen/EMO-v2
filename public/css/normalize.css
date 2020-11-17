@@ -5,6 +5,7 @@
   font-weight: 800;
   src: url('../fonts/GIMJE-L.TTF') format('truetype');
 }
+
 :root {
   --main-color: #faa93f;
   --main-font: 'Gothic A1', sans-serif;
@@ -16,6 +17,14 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
 }
+
+button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
 body {
   font-family: var(--main-font);
 }
@@ -27,11 +36,11 @@ header {
   height: 80px;
   line-height: 80px;
   background-color: var(--main-color);
+  font-size: 20px;
   text-align: center;
   color: #fff;
 }
 main {
-  margin: 20px;
   padding-bottom: 80px;
 }
 nav {
@@ -44,7 +53,7 @@ nav {
 .nav-list {
   width: 100%;
   height: 100%;
-  border-top: 1px solid var(--main-color);
+  border-top: 2px solid var(--main-color);
   font-size: 0;
 }
 .nav-list > li {
@@ -54,12 +63,11 @@ nav {
   box-sizing: border-box;
   background-color: #fff;
   width: calc(100% / 3);
-  box-sizing: border-box;
   font-size: 16px;
-}
-li {
   position: relative;
-  font-size: 16px;
+}
+.nav-list > li:hover {
+  background-color: #e7ecee;
 }
 .nav-list > li:not(:last-child)::after {
   position: absolute;
@@ -68,7 +76,7 @@ li {
   right: 0;
   z-index: 100;
   line-height: 80px;
-  content: ‘’;
+  content: '';
   display: block;
   width: 2px;
   height: 80%;
