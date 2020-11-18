@@ -14,7 +14,7 @@ const renderMain = res => {
   let html = '';
 
   res.forEach(({ id, name, img, difficulty }) => {
-    html += `<div class="cuisine-container id="${id}">
+    html += `<div class="cuisine-container">
     <a href="http://localhost:5000/recipe.html?id=${id}">
     <figure class="cuisine">
       <div class="img-wrapper">
