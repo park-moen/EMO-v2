@@ -1,6 +1,6 @@
 
 // State
-const result = [];
+let result = [];
 
 
 // DOMs
@@ -9,6 +9,7 @@ const $backBtn = document.querySelector('.back-btn');
 const $cuisineContainer = document.querySelector('.cuisine-container');
 const $preview = document.querySelector('.preview');
 const $previewList = document.querySelector('.preview-list');
+const $previewItem = document.querySelector('.preview-item');
 
 const renderMain = res => {
   let html = '';
@@ -34,11 +35,13 @@ const renderMain = res => {
 const renderPrev = res => {
   let li = '';
 
-  res.forEach(item => { li += `<li>${item}</li>`; });
+  res.forEach(item => { li += `<li class="preview-item">${item}</li>`; });
   $previewList.innerHTML = li;
 };
 
 const fetchIng = async ingredientes => {
+  console.log(ingredientes);
+  result = [];
   try {
     const data = await fetch('/cuisine');
     const res = await data.json();
@@ -59,8 +62,14 @@ const fetchIng = async ingredientes => {
 $backBtn.onclick = () => { window.location.assign('/ingredient.html'); };
 
 $previewList.onclick = ({ target }) => {
-  if (target !== $previewList.children) return;
-  console.log(target);
+  if (!target.classList.contains('preview-item')) return;
+  [...target].forEach(target => {
+
+  })
+  target.style.backgroundColor = '#faa93f';
+  console.log(target.style);
+
+  fetchIng([target.textContent]);
 };
 
 window.onload = () => {
