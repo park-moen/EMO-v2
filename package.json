@@ -4,7 +4,7 @@
   "description": "이 재료로 모해먹지?",
   "main": "index.js",
   "scripts": {
-    "start": "json-server --watch db.json"
+    "start": "json-server --watch db.json --port 5000"
   },
   "repository": {
     "type": "git",
