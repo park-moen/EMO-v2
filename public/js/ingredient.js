@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-const $ingredientes = document.querySelector('.ingredientes');
-
-=======
 let ingredientes = [];
 let ingredientName = '';
 
@@ -36,4 +32,3 @@ $ingreItemContainer.onclick = (e) => {
     $ingreItemContainer.classList.remove('active');
   }
 };
->>>>>>> 5141c7198540fbd22b509574c132f342343682d5
