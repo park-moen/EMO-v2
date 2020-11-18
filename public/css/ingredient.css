@@ -95,6 +95,8 @@ header {
   color: #333;
   z-index: 15;
   transition: all 0.2s;
+  border-bottom: 1px solid #666;
+  cursor: pointer;
 }
 
 .ingredient {
