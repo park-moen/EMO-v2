@@ -25,9 +25,16 @@ const render = ({ ingredient, recipe }) => {
   $recipe.innerHTML = recipeHtml;
 };
 
+const getQueryString = url => {
+  const str = url.split('=');
+  const qureyId = str[str.length - 1];
+
+  return qureyId;
+};
+
 const fetchFoodList = async () => {
   try {
-    const data = await fetch('/cuisine/6');
+    const data = await fetch(`/cuisine/${getQueryString(window.location.href)}`);
     const res = await data.json();
     foodList = res;
     $foodName.textContent = foodList.name;
@@ -38,8 +45,11 @@ const fetchFoodList = async () => {
     console.error(`error: ${e}`);
   }
 };
+
 // Event Binding
-window.onload = fetchFoodList;
+window.onload = () => {
+  fetchFoodList();
+};
 
 $backBtn.onclick = () => {
   window.location.assign('cuisine.html');
