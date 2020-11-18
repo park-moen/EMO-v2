@@ -8,6 +8,7 @@ const $lastSpan = document.querySelector('.food-title span:nth-child(3)');
 const $superStuffList = document.querySelector('.super-stuff > ul');
 const $recipe = document.querySelector('.recipe');
 // const $subStuffList = document.querySelector('.sub-stuff > ul');
+
 // function
 const render = ({ ingredient, recipe }) => {
   let stuffHtml = '';
@@ -18,14 +19,17 @@ const render = ({ ingredient, recipe }) => {
   recipe.forEach(($list) => {
     recipeHtml += `<li>${$list}</li>`;
   });
+
   $superStuffList.innerHTML = stuffHtml;
   $recipe.innerHTML = recipeHtml;
 };
+
 const getQueryString = (url) => {
   const str = url.split('=');
   const qureyId = str[str.length - 1];
   return qureyId;
 };
+
 const fetchFoodList = async () => {
   try {
     const data = await fetch(`/cuisine/${getQueryString(window.location.href)}`);
@@ -35,6 +39,15 @@ const fetchFoodList = async () => {
     $lastSpan.textContent = foodList.difficulty;
     $mainImage.setAttribute('src', `${foodList.img}`);
     render(res);
+
+    const localData = JSON.parse(window.sessionStorage.getItem('ingredientes'));
+    const filterData = res.ingredient.filter((_, i) => !localData.includes(res.ingredient[i]));
+    [...$superStuffList.children].forEach(li => {
+      if (filterData.includes(li.textContent)) li.classList.add('not-stuff');
+    });
+    // filterData.forEach(elem => {
+    //   if ()
+    // });
   } catch (e) {
     console.error(`error: ${e}`);
   }
