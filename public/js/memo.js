@@ -4,13 +4,13 @@ const $cartMemoList = document.querySelector('.cart-memo-list')
 const $cartAllBtns = document.querySelector('.cart-all-btns')
 const $cartAllRemove = document.querySelector('.cart-all-remove')
 
-const fetchCartMemo = async () => {
+const fetchCartMemo = async() => {
   try{
-    const res = await fetch('/cartmemos');
+    const res = await fetch('./cartmemos');
     cartmemos = await res.json();
     render();
-  } catch (e) {
-    console.error(`ERROR:${e}`)
+  } catch (err) {
+    console.error(`ERROR:${err}`)
   }
 }
 
@@ -30,7 +30,6 @@ const render = () => {
 window.onload = fetchCartMemo
 
 const getnewMemoId = () => {
-
   return cartmemos.length ? Math.max(...cartmemos.map(cartmemo =>cartmemo.id.substring(9)))+1:1
 } 
   
@@ -73,12 +72,3 @@ cartmemos = []
 render()
 }
 
-const $navList = document.querySelector('.nav-list')
-$navList.onclick = () => {
-  console.log($navList.childNodes)
-  // if(e.target ===$navList.childNodes[1]){
-  //   window.location.assign('cuisine.html');
-  // }
- 
-
-}
