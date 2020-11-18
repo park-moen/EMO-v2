@@ -24,27 +24,44 @@
           <span class="my-name"><span>닉네임</span></span>
         </div>
       </section>
-      <section>
+      <section class="category-wrapper">
         <h3>카테고리</h3>
-        <ul class="my-info-category">
-          <li>
-            <section class="bookmark-recipe">
-              <h5>찜한 레시피 보기</h5>
-              <ul>
-                <li><div>요리보기</div></li>
-                <li><div>요리보기</div></li>
-                <li><div>요리보기</div></li>
-                <li><div>요리보기</div></li>
-              </ul>
-            </section>
-          </li>
-          <li>
-            <section class="add-recipe">
-              <h5>나의 레시피 추가</h5>
-              <div><button>+</button></div>
-            </section>
-          </li>
-        </ul>
+          <ul class="my-info-category clearfix">
+            <li class="like-recipe">
+              <button id="tab1"># 찜한 레시피 보기</button>
+              <div class="tab1 active">
+                <span># 찜한 레시피 보기</span>
+                <ul class="like-recipe-inner clearfix">
+                  <li><img src=''><span></span></li>
+                  <li><img src=''><span></span></li>
+                  <li><img src=''><span></span></li>
+                  <li><img src=''><span></span></li>
+                </ul>
+              </div>
+            </li>
+            <li class="add-my-recipe">
+              <button id="tab2"># 나의 레시피 추가</button>
+              <div class="tab2">
+                <span>나의 레시피 추가</span>
+                <div class="my-recipe-inner">
+                  <!-- <p>이 기능은 현재 개발중입니다.</p> -->
+                  <button>+</button>
+                </div>
+              </div>
+            </li>
+            <li class="view-my-post">
+              <button id="tab3"># 나의 게시물 보기</button>
+              <div class="tab3">
+                <span>나의 게시물 보기</span>
+                <ul>
+                  <li>나의 게시물</li>
+                  <li>나의 게시물</li>
+                  <li>나의 게시물</li>
+                  <li>나의 게시물</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
       </section>
     </main>
     <nav>
