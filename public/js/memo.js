@@ -40,14 +40,6 @@ $cartInput.onkeypress = (e) => {
   if(e.key !=='Enter' || !e.target.value) return;
   const content = $cartInput.value  
   const newMemo = {id:`cart-item${getnewMemoId()}`, content, completed:false}
-
-  try {
-    const res = await fetch('/cartmemos',{
-
-    })
-  } catch (e) {
-
-  }
   cartmemos =[...cartmemos,newMemo]
   render();
   $cartInput.value = ''

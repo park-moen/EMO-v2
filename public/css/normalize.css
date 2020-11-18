@@ -86,7 +86,12 @@ nav {
   background-color: #fff;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 @media (min-width: 319px) and (max-width: 400px) {
+=======
+
+@media (min-width: 319px) and (max-width: 375px) {
+>>>>>>> a941329c51c746fd85f3b1bbbc7698dfd13b0a2d
   .nav-list > li {
     font-size: 13px;
     line-height: 60px;
@@ -97,6 +102,7 @@ nav {
     vertical-align: middle;
     line-height: 1.2;
     word-spacing: 1.3rem;
+<<<<<<< HEAD
 =======
 
 @media (max-width: 375px) {
@@ -109,5 +115,7 @@ nav {
     /* padding: 0 10px; */
     box-sizing: border-box;
 >>>>>>> 0a79372efe5634e1c6b503f341e58fd7878fe123
+=======
+>>>>>>> a941329c51c746fd85f3b1bbbc7698dfd13b0a2d
   }
 }

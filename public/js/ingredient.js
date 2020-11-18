@@ -47,11 +47,14 @@ const fetchIngre = async () => {
     const cuisineDb = await fetch('/cuisine');
     const ingreData = cuisineDb.json();
     console.log(ingreData);
-  } catch {}
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 fetchIngre();
 
 $cookEnter.onclick = (e) => {
   window.sessionStorage.setItem('ingredientes', JSON.stringify(ingredientes));
+  window.location.assign('/cuisine.html');
 };

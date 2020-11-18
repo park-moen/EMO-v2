@@ -8,26 +8,27 @@ const $lastSpan = document.querySelector('.food-title span:nth-child(3)');
 const $superStuffList = document.querySelector('.super-stuff > ul');
 const $recipe = document.querySelector('.recipe');
 // const $subStuffList = document.querySelector('.sub-stuff > ul');
-
 // function
 const render = ({ ingredient, recipe }) => {
   let stuffHtml = '';
   let recipeHtml = '';
-
-  ingredient.forEach($list => {
+  ingredient.forEach(($list) => {
     stuffHtml += `<li>${$list}</li>`;
   });
-  recipe.forEach($list => {
+  recipe.forEach(($list) => {
     recipeHtml += `<li>${$list}</li>`;
   });
-
   $superStuffList.innerHTML = stuffHtml;
   $recipe.innerHTML = recipeHtml;
 };
-
+const getQueryString = (url) => {
+  const str = url.split('=');
+  const qureyId = str[str.length - 1];
+  return qureyId;
+};
 const fetchFoodList = async () => {
   try {
-    const data = await fetch('/cuisine/6');
+    const data = await fetch(`/cuisine/${getQueryString(window.location.href)}`);
     const res = await data.json();
     foodList = res;
     $foodName.textContent = foodList.name;
@@ -38,8 +39,11 @@ const fetchFoodList = async () => {
     console.error(`error: ${e}`);
   }
 };
+
 // Event Binding
-window.onload = fetchFoodList;
+window.onload = () => {
+  fetchFoodList();
+};
 
 $backBtn.onclick = () => {
   window.location.assign('cuisine.html');
