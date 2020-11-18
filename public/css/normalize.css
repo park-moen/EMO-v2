@@ -85,3 +85,16 @@ nav {
   height: 80%;
   background-color: #fff;
 }
+@media (min-width: 319px) and (max-width: 400px) {
+  .nav-list > li {
+    font-size: 13px;
+    line-height: 60px;
+  }
+  .nav-list > li > a {
+    width: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.2;
+    word-spacing: 1.3rem;
+  }
+}

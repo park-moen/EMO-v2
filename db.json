@@ -161,5 +161,22 @@
         "맛있게 먹는다😆"
       ]
     }
+  ],
+  "cartmemos": [
+    { 
+      "id":"cart-item1",
+      "content":"양파", 
+      "completed":false
+    },
+    { 
+      "id":"cart-item2",
+      "content":"대파", 
+      "completed":true
+    },
+    { 
+      "id":"cart-item4",
+      "content":"쪽파", 
+      "completed":false
+    }
   ]
 }
