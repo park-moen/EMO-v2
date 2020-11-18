@@ -39,10 +39,12 @@ const fetchFoodList = async () => {
     console.error(`error: ${e}`);
   }
 };
+
 // Event Binding
 window.onload = () => {
   fetchFoodList();
 };
+
 $backBtn.onclick = () => {
   window.location.assign('cuisine.html');
 };
