@@ -1,0 +1,67 @@
+body {
+  background-color: var(--main-color);
+}
+
+.container {
+  background-color: red;
+  /* position: relative; */
+}
+
+.container .login-inner {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.login-title {
+  font-size: 4rem;
+  text-align: center;
+  color: #fff;
+  padding: 50px;
+  transform: translateY(-50%);
+}
+
+#idInput,
+#pwInput {
+  min-width: 200px;
+  display: block;
+  outline: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  padding: 10px 0px;
+  margin: 0 auto;
+  color: #fff;
+  /* text-align: center; */
+}
+
+.joinBtn,
+.submitBtn {
+  border: 2px solid #fff;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+  color: var(--main-color);
+  background-color: #fff;
+}
+
+.joinBtn:hover,
+.submitBtn:hover {
+  color: #fff;
+  background-color: var(--main-color);
+  box-sizing: border-box;
+}
+
+.btn-wrap {
+  position: relative;
+  top: 70px;
+  left: 30px;
+  text-align: center;
+}
+
+::placeholder {
+  color: #fff;
+  font-size: 0.8rem;
+}

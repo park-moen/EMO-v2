@@ -6,24 +6,29 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/index.css" />
+    <script src="index.js" defer></script>
     <title>Document</title>
   </head>
 
   <body>
     <div class="container">
-      <header>메인 페이지</header>
-      <main>main에 해당하는 내용을 입력해주세요</main>
-      <nav>
-        <ul class="nav-list">
-          <li><a href="ingredient.html">요리재료 선택</a></li>
-          <li><a href="memo.html">장보기 메모</a></li>
-          <li><a href="recommend.html">오늘의 요리</a></li>
-          <li><a href="myinfo.html">회원 정보</a></li>
-        </ul>
-      </nav>
+      <main class="login-inner">
+        <h1 class="login-title">로그인</h1>
+        <form action="" method="POST" class="login-form">
+          <fieldset>
+            <legend class="a11y-hidden">로그인</legend>
+            <input type="text" placeholder="아이디" id="idInput" />
+            <input type="text" placeholder="패스워드" id="pwInput" />
+            <div class="btn-wrap">
+              <button class="joinBtn">회원가입</button>
+              <input type="submit" class="submitBtn" value="로그인" />
+            </div>
+          </fieldset>
+        </form>
+      </main>
     </div>
     <script>
-      window.location.assign('/ingredient.html');
+      // window.location.assign('/ingredient.html');
     </script>
   </body>
 </html>
