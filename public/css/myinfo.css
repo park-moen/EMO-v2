@@ -57,8 +57,8 @@ text-decoration: underline;
   border:1px solid red;
   float: left;
   box-sizing: border-box;
-  width:calc(100% / 3);
-  height:170px;
+  width:calc(100% / 4);
+  height:100px;
 }
 
 .my-info-category li h5{
