@@ -27,7 +27,7 @@ main section h3 {
   color:#fff;
 }
 .my-name span{
-margin-left: 200px;
+/* margin-left: 200px; */
 font-size: 20px;
 text-decoration: underline;
 }
@@ -57,8 +57,8 @@ text-decoration: underline;
   border:1px solid red;
   float: left;
   box-sizing: border-box;
-  width:calc(100% / 4);
-  height:100px;
+  width:calc(100% / 3);
+  height:200px;
 }
 
 .my-info-category li h5{
@@ -74,4 +74,14 @@ text-decoration: underline;
   font-size: 40px;
   padding:70px;
   
+}
+@media (min-width:319px) and (max-width:400px){
+  .bookmark-recipe {
+    border:1px solid blue;
+    overflow: hidden;
+  }
+  .bookmark-recipe li {
+    width:calc(100% / 4);
+    height:100px;
+  }
 }
