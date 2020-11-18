@@ -8,7 +8,6 @@ const fetchCartMemo = async () => {
   try{
     const res = await fetch('/cartmemos');
     cartmemos = await res.json();
-    console.log(typeof res)
     render();
   } catch (e) {
     console.error(`ERROR:${e}`)
@@ -76,5 +75,10 @@ render()
 
 const $navList = document.querySelector('.nav-list')
 $navList.onclick = () => {
-  window.location
+  console.log($navList.childNodes)
+  // if(e.target ===$navList.childNodes[1]){
+  //   window.location.assign('cuisine.html');
+  // }
+ 
+
 }

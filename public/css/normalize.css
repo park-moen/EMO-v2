@@ -85,37 +85,18 @@ nav {
   height: 80%;
   background-color: #fff;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-@media (min-width: 319px) and (max-width: 400px) {
-=======
 
-@media (min-width: 319px) and (max-width: 375px) {
->>>>>>> a941329c51c746fd85f3b1bbbc7698dfd13b0a2d
+@media (min-width: 319px) and (max-width: 400px) {
   .nav-list > li {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 60px;
+    text-align: center;
   }
   .nav-list > li > a {
-    width: 50px;
+    width: 60px;
     display: inline-block;
     vertical-align: middle;
     line-height: 1.2;
-    word-spacing: 1.3rem;
-<<<<<<< HEAD
-=======
-
-@media (max-width: 375px) {
-  .nav-list li {
-    font-size: 12px;
-   
-  }
-  .nav-list > li > a {
-    display: inline-block;
-    /* padding: 0 10px; */
-    box-sizing: border-box;
->>>>>>> 0a79372efe5634e1c6b503f341e58fd7878fe123
-=======
->>>>>>> a941329c51c746fd85f3b1bbbc7698dfd13b0a2d
+    word-spacing: 1.2rem;
   }
 }
