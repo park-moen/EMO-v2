@@ -41,4 +41,6 @@ const fetchFoodList = async () => {
 // Event Binding
 window.onload = fetchFoodList;
 
-// 싫어!
+$backBtn.onclick = () => {
+  window.location.assign('cuisine.html');
+};

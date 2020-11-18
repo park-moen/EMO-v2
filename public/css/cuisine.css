@@ -1,7 +1,24 @@
 body {
   background-color: #F8F8F8;
 }
-
+.difficulty {
+  border: 2px solid;
+  border-radius: 50%;
+  background-color: #fff;
+  padding: 5px;
+  position: absolute;
+  font-size: 25px;
+  font-weight: 400;
+  top: 15px;
+  right: 15px;
+}
+.img-wrapper {
+  position: relative;
+}
+.preview {
+  height: 60px;
+  background-color: pink;
+}
 /* 데스크탑 사이즈 */
 @media (min-width: 1024px) {
   .container-wrap {
@@ -44,7 +61,7 @@ body {
     margin-top: 20px;
   }
   .fa-bookmark {
-    margin-top: 20px;
+    margin-top: 10px;
     margin-right: 10px;
     float: right;
   }
@@ -92,14 +109,13 @@ body {
   }
   figcaption {
     display: inline-block;
-    margin-top: 10px;
+
     margin-left: 10px;
     padding: 10px 0;
   }
   .fa-bookmark {
     margin-top: 10px;
     margin-right: 20px;
-    padding: 10px 0;
     float: right;
   } 
 }
@@ -138,10 +154,11 @@ body {
   figcaption {
     display: inline-block;
     margin-left: 10px;
+    
   }
   .fa-bookmark {
     display: inline-block;
     margin-right: 10px;
-    padding: 10px 0;
+    
   } 
 }
