@@ -36,6 +36,9 @@ header {
   overflow-x: scroll;
   white-space: nowrap;
 }
+.preview::-webkit-scrollbar {
+  display: none;
+}
 .preview-list > li {
   font-weight: 600;
   color: #777;
@@ -47,9 +50,9 @@ header {
   cursor: pointer;
 }
 /* 데스크탑 사이즈 */
-@media (min-width: 1024px) {
+/* @media (min-width: 1025px) {
   .container-wrap {
-    margin: 10px 20px;
+    margin: 10px 0;
   }
   main {
     width: 100%;
@@ -66,6 +69,7 @@ header {
     box-sizing: border-box;
     background-color: #fff;
     box-shadow: 0px 3px 10px 0 rgba(0,0,0,0.1);
+
   }
   figure {
     max-width: 90%;
@@ -97,10 +101,10 @@ header {
     display: block;
     clear: both;
   }
-}
+} */
 
 /* 중간 사이즈 */
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .container-wrap {
     margin: 10px 0;
   }
