@@ -10,12 +10,13 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 20;
 }
 
 .fa-chevron-down {
   float: right;
   cursor: pointer;
+  transition: all 1s;
 }
 
 .fa-chevron-down.active {
@@ -34,19 +35,15 @@ header {
   text-align: center;
 }
 
-.category > h2 {
-  display: inline-block;
-}
-
-.ingredient-name h2,
-.category h2 {
+.ingredient-name h3,
+.category h3 {
   display: inline-block;
   padding: 20px;
   text-align: left;
   /* background-color: #444; */
 }
 
-.ingredient-list-title {
+.category h3 .ingredient-list-title {
   padding: 20px 0;
   text-align: left;
 }
@@ -91,9 +88,21 @@ header {
 }
 
 .category {
+  position: relative;
+  display: block;
   padding: 15px;
   background-color: #ddd;
   color: #333;
+  z-index: 15;
+  transition: all 0.2s;
+}
+
+.ingredient {
+  display: none;
+}
+
+.ingredient.view {
+  display: block;
 }
 
 .ingredient ul {
@@ -125,13 +134,13 @@ header {
   width: 100%;
   height: 200px;
   bottom: 60px;
-  z-index: 1;
+  z-index: 20;
   border: 2px solid black;
   border-radius: 20px 20px 0 0;
   box-sizing: border-box;
   background-color: #ddd587;
   padding: 10px;
-  transition: all 1s ease;
+  transition: all 0.8s ease;
   transform: translateY(750px);
 }
 
@@ -166,8 +175,8 @@ header {
   width: 100px;
   height: 50px;
   border-radius: 10px;
-  right: 11.5%;
-  bottom: 37.5%;
+  right: 80px;
+  bottom: 270px;
   transform: translate(50%);
   z-index: 15;
   line-height: 50px;
@@ -176,7 +185,7 @@ header {
   color: #e47921;
   border: 2px solid #e47921;
   box-sizing: border-box;
-  transition: all 1s ease;
+  transition: all 0.8s ease;
   transform: translateY(750px);
 }
 
@@ -191,8 +200,8 @@ header {
   width: 50px;
   height: 50px;
   border-radius: 10px;
-  right: 5%;
-  bottom: 37.5%;
+  right: 25px;
+  bottom: 270px;
   transform: translate(50%);
   z-index: 15;
   line-height: 50px;
@@ -201,7 +210,7 @@ header {
   color: #e47921;
   border: 2px solid #e47921;
   box-sizing: border-box;
-  transition: all 1s ease;
+  transition: all 0.8s ease;
   transform: translateY(750px);
 }
 
