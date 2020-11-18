@@ -1,16 +1,16 @@
 
 // State
-const ingredient = ['목살', '마늘', '설탕', '김치'];
 const result = [];
 
 
 // DOMs
 const $containerWrap = document.querySelector('.container-wrap');
+const $backBtn = document.querySelector('.back-btn');
 const $cuisineContainer = document.querySelector('.cuisine-container');
-const $img = document.querySelector('img');
-const $figcaption = document.querySelector('figcaption');
+const $preview = document.querySelector('.preview');
+const $previewList = document.querySelector('.preview-list');
 
-const render = res => {
+const renderMain = res => {
   let html = '';
 
   res.forEach(({ id, name, img, difficulty }) => {
@@ -29,10 +29,16 @@ const render = res => {
   });
 
   $containerWrap.innerHTML = html;
-
 };
 
-const fetchIng = async () => {
+const renderPrev = res => {
+  let li = '';
+
+  res.forEach(item => { li += `<li>${item}</li>`; });
+  $previewList.innerHTML = li;
+};
+
+const fetchIng = async ingredientes => {
   try {
     const data = await fetch('/cuisine');
     const res = await data.json();
@@ -40,22 +46,26 @@ const fetchIng = async () => {
     res.forEach(cuisine => {
       for (let i = 0; i < cuisine.ingredient.length; i++) {
         // console.log(cuisine.ingredient[i]);
-        if (cuisine.ingredient.includes(ingredient[i])) {
+        if (cuisine.ingredient.includes(ingredientes[i])) {
+          console.log(cuisine);
+
           result.push(cuisine);
         }
       }
 
-      render([...new Set(result)]);
-
+      renderMain([...new Set(result)]);
     });
   } catch (e) {
     console.error(e);
   }
 };
 
-window.onload = () => {
-  fetchIng();
-  const ingredientes = window.sessionStorage.getItem('ingredientes');
-  console.log(ingredientes);
+$backBtn.onclick = () => { window.location.assign('/ingredient.html'); };
 
+window.onload = () => {
+  const ingredientes = JSON.parse(window.sessionStorage.getItem('ingredientes'));
+  console.log(ingredientes);
+  fetchIng(ingredientes);
+  renderPrev(ingredientes);
+  $preview.scrollLeft += 10;
 };
