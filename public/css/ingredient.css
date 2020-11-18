@@ -101,6 +101,11 @@ header {
   display: none;
 }
 
+.ingredient > ul > li.active {
+  color: #e47921;
+  border: 2px solid #e47921;
+}
+
 .ingredient.view {
   display: block;
 }
