@@ -14,7 +14,7 @@ const renderMain = res => {
   let html = '';
 
   res.forEach(({ id, name, img, difficulty }) => {
-    html += `<div class="cuisine-container id="${id}">
+    html += `<div class="cuisine-container">
     <a href="http://localhost:5000/recipe.html?id=${id}">
     <figure class="cuisine">
       <div class="img-wrapper">
@@ -45,14 +45,10 @@ const fetchIng = async ingredientes => {
 
     res.forEach(cuisine => {
       for (let i = 0; i < cuisine.ingredient.length; i++) {
-        // console.log(cuisine.ingredient[i]);
         if (cuisine.ingredient.includes(ingredientes[i])) {
-          console.log(cuisine);
-
           result.push(cuisine);
         }
       }
-
       renderMain([...new Set(result)]);
     });
   } catch (e) {
@@ -62,9 +58,13 @@ const fetchIng = async ingredientes => {
 
 $backBtn.onclick = () => { window.location.assign('/ingredient.html'); };
 
+$previewList.onclick = ({ target }) => {
+  if (target !== $previewList.children) return;
+  console.log(target);
+};
+
 window.onload = () => {
   const ingredientes = JSON.parse(window.sessionStorage.getItem('ingredientes'));
-  console.log(ingredientes);
   fetchIng(ingredientes);
   renderPrev(ingredientes);
   $preview.scrollLeft += 10;
