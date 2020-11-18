@@ -4,13 +4,15 @@ const $cartMemoList = document.querySelector('.cart-memo-list')
 const $cartAllBtns = document.querySelector('.cart-all-btns')
 const $cartAllRemove = document.querySelector('.cart-all-remove')
 
-const fetchCartMemo = () => {
-  cartmemos = [
-    {id:'cart-item1', content:'양파', completed:false},
-    {id:'cart-item2', content:'대파', completed:true},
-    {id:'cart-item3', content:'버섯', completed:false},
-  ]
-  render();
+const fetchCartMemo = async () => {
+  try{
+    const res = await fetch('/cartmemos');
+    cartmemos = await res.json();
+    console.log(typeof res)
+    render();
+  } catch (e) {
+    console.error(`ERROR:${e}`)
+  }
 }
 
 const render = () => {
@@ -35,13 +37,22 @@ const getnewMemoId = () => {
   
 
 $cartInput.onkeypress = (e) => {
-  if(e.key !=='Enter') return;
+  if(e.key !=='Enter' || !e.target.value) return;
   const content = $cartInput.value  
   const newMemo = {id:`cart-item${getnewMemoId()}`, content, completed:false}
+
+  try {
+    const res = await fetch('/cartmemos',{
+
+    })
+  } catch (e) {
+
+  }
   cartmemos =[...cartmemos,newMemo]
   render();
   $cartInput.value = ''
 }
+
 $cartMemoList.onchange = (e) => {
   const inputId = e.target.id;
   cartmemos = cartmemos.map(cartmemo => {
@@ -69,4 +80,9 @@ $cartAllBtns.onchange = (e) => {
 $cartAllRemove.onclick = (e) => {
 cartmemos = []
 render()
+}
+
+const $navList = document.querySelector('.nav-list')
+$navList.onclick = () => {
+  window.location
 }

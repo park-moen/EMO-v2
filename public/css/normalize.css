@@ -60,9 +60,9 @@ nav {
 .nav-list > li {
   color: #fff;
   text-align: center;
-  line-height: 60px;
   display: inline-block;
   box-sizing: border-box;
+  line-height: 60px;
   background-color: var(--main-color);
   width: calc(100% / 4);
   font-size: 16px;
@@ -84,4 +84,18 @@ nav {
   width: 2px;
   height: 80%;
   background-color: #fff;
+}
+
+@media (min-width: 319px) and (max-width: 375px) {
+  .nav-list > li {
+    font-size: 13px;
+    line-height: 60px;
+  }
+  .nav-list > li > a {
+    width: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.2;
+    word-spacing: 1.3rem;
+  }
 }
