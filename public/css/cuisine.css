@@ -61,7 +61,7 @@ body {
     margin-top: 20px;
   }
   .fa-bookmark {
-    margin-top: 20px;
+    margin-top: 10px;
     margin-right: 10px;
     float: right;
   }
@@ -109,14 +109,13 @@ body {
   }
   figcaption {
     display: inline-block;
-    margin-top: 10px;
+
     margin-left: 10px;
     padding: 10px 0;
   }
   .fa-bookmark {
     margin-top: 10px;
     margin-right: 20px;
-    padding: 10px 0;
     float: right;
   } 
 }
@@ -148,17 +147,18 @@ body {
   img {
     width: 100%;
   }
-  /* .img-wrapper {
+  .img-wrapper {
     width: 100%;
     height: auto;
-  } */
+  }
   figcaption {
     display: inline-block;
     margin-left: 10px;
+    
   }
   .fa-bookmark {
     display: inline-block;
     margin-right: 10px;
-    padding: 10px 0;
+    
   } 
 }

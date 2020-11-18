@@ -53,4 +53,9 @@ const fetchIng = async () => {
   }
 };
 
-window.onload = fetchIng;
+window.onload = () => {
+  fetchIng();
+  const ingredientes = window.sessionStorage.getItem('ingredientes');
+  console.log(ingredientes);
+
+};

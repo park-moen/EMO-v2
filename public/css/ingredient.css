@@ -124,7 +124,7 @@ header {
   position: fixed;
   width: 100%;
   height: 200px;
-  bottom: 80px;
+  bottom: 60px;
   z-index: 1;
   border: 2px solid black;
   border-radius: 20px 20px 0 0;
@@ -134,10 +134,11 @@ header {
   transition: all 1s ease;
   transform: translateY(750px);
 }
+
 .ingre-item-container.active {
-  /* transition: all 1s ease; */
   transform: translateY(0px);
 }
+
 .ingre-item {
   font-weight: 600;
   color: #777;
@@ -158,4 +159,59 @@ header {
   text-align: center;
   text-indent: -2.5px;
   line-height: 15px;
+}
+
+.cookEnter {
+  position: fixed;
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  right: 11.5%;
+  bottom: 37.5%;
+  transform: translate(50%);
+  z-index: 15;
+  line-height: 50px;
+  text-align: center;
+  background-color: #fff;
+  color: #e47921;
+  border: 2px solid #e47921;
+  box-sizing: border-box;
+  transition: all 1s ease;
+  transform: translateY(750px);
+}
+
+.cookEnter:hover {
+  background-color: #e47921;
+  color: #fff;
+  border: 2px solid #e47921;
+}
+
+.refresh {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  right: 5%;
+  bottom: 37.5%;
+  transform: translate(50%);
+  z-index: 15;
+  line-height: 50px;
+  text-align: center;
+  background-color: #fff;
+  color: #e47921;
+  border: 2px solid #e47921;
+  box-sizing: border-box;
+  transition: all 1s ease;
+  transform: translateY(750px);
+}
+
+.refresh.active,
+.cookEnter.active {
+  transform: translateY(0px);
+}
+
+.refresh:hover {
+  background-color: #e47921;
+  color: #fff;
+  border: 2px solid #e47921;
 }
