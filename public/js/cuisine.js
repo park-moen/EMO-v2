@@ -1,17 +1,21 @@
+
 // State
 const ingredient = ['목살', '마늘', '설탕', '김치'];
-// import ingredient from './my-ref.js'
+const result = [];
 
-let result = [];
 
 // DOMs
 const $containerWrap = document.querySelector('.container-wrap');
+const $cuisineContainer = document.querySelector('.cuisine-container');
+const $img = document.querySelector('img');
+const $figcaption = document.querySelector('figcaption');
 
 const render = res => {
   let html = '';
 
-  res.forEach(({ name, img, difficulty }) => {
-    html += `<div class="cuisine-container">
+  res.forEach(({ id, name, img, difficulty }) => {
+    html += `<div class="cuisine-container id="${id}">
+    <a href="http://localhost:5000/recipe.html?id=${id}">
     <figure class="cuisine">
       <div class="img-wrapper">
         <img src="${img}" alt="${name}" />
@@ -20,10 +24,12 @@ const render = res => {
       <figcaption>${name}</figcaption>
       <i class="fas fa-bookmark"></i>
     </figure>
+    </a>
   </div>`;
   });
 
   $containerWrap.innerHTML = html;
+
 };
 
 const fetchIng = async () => {
@@ -40,6 +46,7 @@ const fetchIng = async () => {
       }
 
       render([...new Set(result)]);
+
     });
   } catch (e) {
     console.error(e);
