@@ -68,3 +68,6 @@ span[class^='alert'] {
   left: 0;
   display: none;
 }
+.block {
+  display: block !important; 
+}
