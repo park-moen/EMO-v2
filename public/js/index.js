@@ -13,14 +13,7 @@ const fetchUsers = async () => {
 
     $loginForm.onkeyup = (e) => {
       if (e.key !== 'Enter' || $idInput.value === '') return;
-      const newitem = [...userChecks].filter(({ id, password }) => {
-        return id === $idInput.value && password === $pwInput.value;
-      });
-      if (newitem.length) {
-        window.location.assign('/ingredient.html');
-      } else {
-        document.querySelector('label[for="checkInput"]').style.display = 'block';
-      }
+      Checksusers();
     };
 
     $idInput.addEventListener('focusout', (e) => {
@@ -63,10 +56,18 @@ const fetchUsers = async () => {
 
     $submitBtn.onclick = (e) => {
       if (!e.target.matches('.btn-wrap > .submitBtn')) return;
-      const newitem = [...userChecks].filter(({ id, password }) => {
+      Checksusers();
+    };
+
+    const Checksusers = () => {
+      const newitem = [...userChecks].find(({ id, password }) => {
         return id === $idInput.value && password === $pwInput.value;
       });
-      if (newitem.length) {
+      if (newitem) {
+        sessionStorage.setItem(
+          'login',
+          JSON.stringify({ id: newitem.id, password: newitem.password, nickName: newitem.nickName })
+        );
         window.location.assign('/ingredient.html');
       } else {
         $checkInput.textContent = '아이디/비밀번호를 확인해주세요';

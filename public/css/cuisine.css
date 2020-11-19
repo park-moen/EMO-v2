@@ -30,6 +30,9 @@ header {
 .img-wrapper {
   position: relative;
 }
+.bookmark {
+  padding: 10px;
+}
 .preview {
   height: 60px;
   border-bottom: 2px solid #888;
@@ -104,7 +107,7 @@ header {
 } */
 
 /* 중간 사이즈 */
-@media (max-width: 1024px) {
+@media (max-width: 1440px) {
   .container-wrap {
     margin: 10px 0;
   }
