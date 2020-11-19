@@ -4,6 +4,7 @@ const $joinBtn = document.querySelector('.joinBtn');
 const $submitBtn = document.querySelector('.submitBtn');
 const $loginForm = document.querySelector('.login-form');
 const $checkInput = document.querySelector('label[for="checkInput"]');
+const $intro = document.querySelector('.intro');
 
 const fetchUsers = async () => {
   try {
@@ -22,7 +23,7 @@ const fetchUsers = async () => {
       }
     };
 
-    $idInput.addEventListener('focusin', (e) => {
+    $idInput.addEventListener('focusout', (e) => {
       if ($idInput.value === '') {
         $checkInput.textContent = '아이디를 입력해주세요';
         $checkInput.style.display = 'block';
@@ -31,11 +32,11 @@ const fetchUsers = async () => {
       }
     });
 
-    $pwInput.addEventListener('focusin', (e) => {
+    $pwInput.addEventListener('focusout', (e) => {
       if ($pwInput.value === '') {
         $checkInput.textContent = '비밀번호를 입력해주세요';
         $checkInput.style.display = 'block';
-        $pwInput.focus();
+        // $pwInput.focus();
         return;
       }
     });
@@ -83,3 +84,5 @@ window.onload = fetchUsers;
 $loginForm.onsubmit = (e) => {
   e.preventDefault();
 };
+
+$intro.classList.add('play');
