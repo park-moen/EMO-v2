@@ -30,6 +30,9 @@ header {
 .img-wrapper {
   position: relative;
 }
+.bookmark {
+  padding: 10px;
+}
 .preview {
   height: 60px;
   border-bottom: 2px solid #888;

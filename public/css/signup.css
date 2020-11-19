@@ -9,6 +9,29 @@ body {
   background-color: #fff;
   color: #faa93f;
 }
+.popup {
+  border: 1px solid;
+  text-align: center;
+  width: 500px;
+  height: auto;
+  background-color: #fff;
+  padding: 20px;
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
 .container {
   max-width: 1024px;
   width: 780px;

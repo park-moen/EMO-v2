@@ -10,6 +10,8 @@ const $cuisineContainer = document.querySelector('.cuisine-container');
 const $preview = document.querySelector('.preview');
 const $previewList = document.querySelector('.preview-list');
 const $previewItem = document.querySelector('.preview-item');
+const $link = document.querySelector('.bookmark');
+
 
 const renderMain = res => {
   let html = '';
@@ -23,7 +25,7 @@ const renderMain = res => {
         <span class="difficulty">${difficulty}</span>
       </div>
       <figcaption>${name}</figcaption>
-      <i class="fas fa-bookmark"></i>
+      <a class="bookmark" href="http://localhost:5000/myinfo.html?id=${id}"><i class="fas fa-bookmark"></i></a>
     </figure>
     </a>
   </div>`;
@@ -53,6 +55,7 @@ const fetchIng = async ingredientes => {
         }
       }
       renderMain([...new Set(result)]);
+
     });
   } catch (e) {
     console.error(e);
@@ -61,20 +64,31 @@ const fetchIng = async ingredientes => {
 
 $backBtn.onclick = () => { window.location.assign('/ingredient.html'); };
 
-$previewList.onclick = ({ target }) => {
-  if (!target.classList.contains('preview-item')) return;
-  [...target].forEach(target => {
+// $previewList.onclick = ({ target }) => {
+//   if (!target.classList.contains('preview-item')) return;
+//   [...target].forEach(target => {
 
-  })
-  target.style.backgroundColor = '#faa93f';
-  console.log(target.style);
+//   })
+//   target.style.backgroundColor = '#faa93f';
+//   console.log(target.style);
 
-  fetchIng([target.textContent]);
-};
+//   fetchIng([target.textContent]);
+// };
 
 window.onload = () => {
   const ingredientes = JSON.parse(window.sessionStorage.getItem('ingredientes'));
   fetchIng(ingredientes);
   renderPrev(ingredientes);
   $preview.scrollLeft += 10;
+};
+
+$containerWrap.onclick = e => {
+  if (!e.target.matches('.bookmark')) return;
+  e.preventDefault();
+
+  console.log(e.target);
+  console.log(e.target.getAttribute('href'));
+  const userInfo = JSON.parse(window.sessionStorage.getItem('login'));
+  window.sessionStorage.setItem(userInfo.id, JSON.stringify(e.target.getAttribute('href')))
+
 };
