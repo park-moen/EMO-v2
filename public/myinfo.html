@@ -19,9 +19,14 @@
     <main>
       <section>
         <h3>회원정보</h3>
-        <div class="my-info">
-          <span class="my-img"><span>회원사진</span></span>
-          <span class="my-name"><span>닉네임</span></span>
+        <div class="my-info clearfix">
+          <span class="my-img a11y-hidden">회원사진</span>
+          <form method="GET">
+            <fieldset class="input-wrapper">
+              <input class="img-submit" type="file" accept="image/*" onchange="alert(this.value)">
+            </fieldset>
+          </form>
+          <span class="my-name">닉네임</span>
         </div>
       </section>
       <section class="category-wrapper">
