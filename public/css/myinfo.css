@@ -97,8 +97,13 @@ font-size:20px;
   position: absolute;
   top:50px;
   color:#000;
+  display: none;
   /* z-index: 0; */
 }
+.tab.active{
+  display: block;
+}
+
 .tab>span::after{
   content: '';
   display: block;
@@ -111,9 +116,6 @@ font-size:20px;
   display: inline-block;
   width: 100%;
   margin: 15px 0;
-}
-.my-info-category > li > div{
-  display: none;
 }
 
 .like-recipe-content li {
@@ -136,26 +138,25 @@ background-color: rgba(0, 0, 0, 0.815);
 border:3px dashed #ddd;
 margin-top:10px;
 }
-.my-recipe-content button{
+.my-recipe-content a{
   display: inline-block;
+  padding:0;
+  margin:0;
+  border:0;
   width: 100%;
   height: 100%;
   font-size:50px;
   text-align: center;
 }
-.my-recipe-content:hover,
-.my-recipe-content button:hover{
+
+.my-recipe-content a:hover,
+.my-recipe-content a:active{
   background-color: #333;
   color:#fff;
-  border:none
-}
-.my-info-category > li > div.tab1 {
-  display: block;
+  border-style: none;
+  box-sizing: border-box;
 }
 
-.my-post-content{
-  /* border:1px solid red; */
-}
 .my-post-content li{
   height: 130px;
   margin:10px 0;
