@@ -38,7 +38,7 @@ main {
   justify-content: space-around;
 }
 .food-name {
-  display: inline;
+  /* display: inline; */
   font-size: 30px;
   font-weight: 600;
   flex-grow: 2;
@@ -58,21 +58,46 @@ main {
   margin-bottom: 20px;
   font-size: 16px;
 }
+.fa-bell {
+  color: rgb(153, 153, 40);
+  margin-left: 10px;
+  /* border: 2px double rgb(153, 153, 40); */
+  border-radius: 50%;
+  padding: 3px;
+  font-size: 14px;
+}
+.fa-bell + span {
+  color: rgb(153, 153, 40);
+  font-size: 14px;
+}
+/* .fa-bell:active {
+  color: rgba(255, 255, 0, 0.89);
+} */
 .super-stuff ul {
   display: flex;
   justify-content: start;
   flex-wrap: wrap;
+  margin: 10px;
   margin-bottom: 40px;
-  margin-left: 20px;
 }
 .super-stuff ul > li {
-  margin-right: 15px;
-  margin-bottom: 5px;
-  padding: 5px 10px;
+  /* margin-right: 15px; */
+  /* margin-bottom: 5px; */
+  margin: 5px;
+  padding: 10px 15px;
   font-size: 14px;
-  border: 1px solid darkgray;
+  border: 2px solid #888;
   border-radius: 15px;
+  background-color: var(--main-color);
+  color: rgb(241, 238, 238);
 }
+.super-stuff ul > .not-stuff {
+  background-color: #fff;
+  color: #333;
+}
+/* .red:active {
+  background-color: blueviolet;
+} */
 /* .sub-stuff h2 {
   margin-bottom: 20px;
   font-size: 16px;
