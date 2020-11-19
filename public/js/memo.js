@@ -76,7 +76,6 @@ $cartMemoList.onchange = async (e) => {
 
 
 $cartAllBtns.onchange = async (e) => {
-  const res
 }
 
 

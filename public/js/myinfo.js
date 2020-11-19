@@ -1,20 +1,10 @@
-let users = '';
-const $myName = document.querySelector('.my-name');
+const $myInfoCategory = document.querySelector('.my-info-category') 
 
-const fetchUsers = async () => {
-  try {
-    const res = await fetch(`/users/${guestInfoId}`);
-    users = await res.json();
-    render()
-  } catch (err) {
-    console.error(err);
+$myInfoCategory.onclick = (e) => {
+  if(e.target.matches('#tab1,#tab2,#tab3')){
+    document.querySelectorAll('.tab').forEach($tab => {
+      $tab.classList.toggle('active', e.target.id=== $tab.classList[1] )
+    })
+    // e.target.nextElementSibling.classList.add('active');
   }
 }
-
-const render = () => {
-  $myName.textContent = users.nickName;
-}
-
-
-
-window.onload = fetchUsers;
