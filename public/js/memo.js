@@ -17,8 +17,8 @@ const fetchCartMemo = async () => {
 const render = async() => {
    let htmlMemos ='';
   try {
-    const data = await fetch('./cartmemos');
-    cartmemos =await data.json();
+    // const data = await fetch('./cartmemos');
+    // cartmemos =await data.json();
     cartmemos.forEach(({id,content,completed}) =>{
       htmlMemos = `<li>
     <input id="${id}" class="checkbox" type ="checkbox" ${completed ? 'checked' : ''}>
@@ -51,7 +51,6 @@ $cartInput.onkeyup = async (e) => {
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify(newMemo)
     })
-
     cartmemos = await res.json();
     render();
   } catch(err){
@@ -61,33 +60,55 @@ $cartInput.onkeyup = async (e) => {
 }
 
 $cartMemoList.onchange = async (e) => {
-  const inputId = e.target.id;
+  const targetId = e.target.id;
+  try {
+    const res = await fetch (`./cartmemos/${targetId}`,{
+      method:'PATCH',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({completed:e.target.checked})
+    });
+    cartmemos = await res.json();
+    render()
+  } catch(err){
+    console.error(`[ERROR]:${err}`)
+  }
 
   
-
-  cartmemos = cartmemos.map(cartmemo => {
-  return cartmemo.id === inputId ? ({...cartmemo,completed:e.target.checked}):cartmemo })
-  render()
 }
 
 
+$cartAllBtns.onchange = async (e) => {
+ try{
+  const res = await fetch('/cartmemos');
+  cartmemos = await res.json();
+  cartmemos.forEach(({id}) => 
+    fetch(`./cartmemos/${id}`,{
+    method:'PATCH',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({completed:e.target.checked})
+    })
+  )
+  render()
+ } catch(err){
+  console.error(`[ERROR]:${err}`)
+ }
+}
 
-$cartMemoList.onclick = (e) => {
+$cartMemoList.onclick = async (e) => {
   if(!e.target.matches('.cart-memo-list > li >i')) return;
   const targetId = e.target.parentNode.firstElementChild.id;
-  cartmemos = cartmemos.filter(({id})=> id !== targetId)
-  render()
+  try{
+    const res = await fetch(`./cartmemos/${targetId}`,{method:'DELETE'})
+    cartmemos = await res.json();
+    render()
+  } catch(err){
+    console.error(`[ERROR]:${err}`)
+  }
+  // cartmemos = cartmemos.filter(({id})=> id !== targetId)
 }
 
-
-$cartAllBtns.onchange = (e) => {
-  cartmemos = cartmemos.map(cartmemo=> ({...cartmemo ,completed:e.target.checked}))
-  render();
-}
-
-
-$cartAllRemove.onclick = (e) => {
-cartmemos = []
-render()
+$cartAllRemove.onclick = async (e) => {
+ 
+    // cartmemos = []
 }
 

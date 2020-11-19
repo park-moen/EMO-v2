@@ -252,17 +252,22 @@
   "cartmemos": [
     {
       "id": "cart-item1",
-      "content": "양파",
-      "completed": false
-    },
-    {
-      "id": "cart-item2",
-      "content": "대파",
+      "content": "ㄴㄴㄴㄴㄴ",
       "completed": true
     },
     {
+      "id": "cart-item2",
+      "content": "dddd",
+      "completed": true
+    },
+    {
+      "id": "cart-item3",
+      "content": "dddd",
+      "completed": false
+    },
+    {
       "id": "cart-item4",
-      "content": "쪽파",
+      "content": "ddddd",
       "completed": false
     }
   ],
