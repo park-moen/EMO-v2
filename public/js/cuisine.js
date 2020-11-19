@@ -11,6 +11,8 @@ const $preview = document.querySelector('.preview');
 const $previewList = document.querySelector('.preview-list');
 const $previewItem = document.querySelector('.preview-item');
 const $link = document.querySelector('.bookmark');
+const $popup = document.querySelector('.popup');
+const $overlay = document.querySelector('.overlay');
 
 
 const renderMain = res => {
@@ -55,7 +57,6 @@ const fetchIng = async ingredientes => {
         }
       }
       renderMain([...new Set(result)]);
-
     });
   } catch (e) {
     console.error(e);
@@ -83,12 +84,15 @@ window.onload = () => {
 };
 
 $containerWrap.onclick = e => {
-  if (!e.target.matches('.bookmark')) return;
+  if (!e.target.matches('.fa-bookmark') && !e.target.matches('.bookmark')) return;
   e.preventDefault();
 
-  console.log(e.target);
-  console.log(e.target.getAttribute('href'));
   const userInfo = JSON.parse(window.sessionStorage.getItem('login'));
-  window.sessionStorage.setItem(userInfo.id, JSON.stringify(e.target.getAttribute('href')))
-
+  window.sessionStorage.setItem(userInfo.id, JSON.stringify(e.target.getAttribute('href')));
+  $popup.style.display = 'block';
+  $overlay.style.display = 'block';
+  setTimeout(() => {
+    $popup.style.display = 'none';
+    $overlay.style.display = 'none';
+  }, 1500);
 };
