@@ -9,6 +9,9 @@ const $alertName = document.querySelector('.alert-name');
 const $idReg = document.querySelector('.alert-idReg');
 const $pwReg = document.querySelector('.alert-pwReg');
 const $signUp = document.querySelector('.sign-up');
+const $popup = document.querySelector('.popup');
+const $overlay = document.querySelector('.overlay');
+const $btnOk = document.querySelector('.btn-ok');
 
 $form.onsubmit = (() => {
   const validationStatus = {
@@ -122,8 +125,9 @@ $form.onsubmit = (() => {
     }, 100);
   })();
 
-  $signUp.onclick = () => {
-    alert('hi');
+  $signUp.onclick = ({ target }) => {
+    $popup.style.display = 'block';
+    $overlay.style.display = 'block';
   };
 
   return async e => {
@@ -136,3 +140,16 @@ $form.onsubmit = (() => {
     });
   };
 })();
+
+
+$btnOk.onclick = () => {
+  $popup.style.display = 'none';
+  $overlay.style.display = 'none';
+  window.location.assign('ingredient.html');
+};
+
+$overlay.onclick = () => {
+  $popup.style.display = 'none';
+  $overlay.style.display = 'none';
+  window.location.assign('ingredient.html');
+}
