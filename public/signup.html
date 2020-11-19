@@ -13,7 +13,7 @@
       <h1 class="title">회원가입</h1>
     </header>
     <main class="main">
-      <form>
+      <form class="signup-form">
         <div class="id-container">
           <input type="text" id="user-id" autocomplete="off" placeholder="아이디">
           <label for="user-id" class="a11y-hidden">ID</label>
@@ -32,10 +32,11 @@
           <label for="user-ninkname" class="a11y-hidden">NickName</label>
           <span class="alert-name">특수문자를 제외한 10글자 이내로 작성해주세요.</span>
         </div>
-        <button class="sign-up" autocomplete="off">가입하기</button>
+        <button class="sign-up" autocomplete="off" disabled>가입하기</button>
       </form>
     </main>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
   <script src="./js/signup.js"></script>
 </body>
 </html>

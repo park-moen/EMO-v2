@@ -257,12 +257,17 @@
     },
     {
       "id": "cart-item2",
-      "content": "감자",
+      "content": "깍두기",
       "completed": false
     },
     {
       "id": "cart-item3",
-      "content": "감자",
+      "content": "깍두기",
+      "completed": false
+    },
+    {
+      "id": "cart-item4",
+      "content": "깍두기",
       "completed": false
     }
   ],
