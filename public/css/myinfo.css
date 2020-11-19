@@ -129,9 +129,9 @@ font-size:20px;
   max-height: 100%;
   transform: scale(1.3);
 }
-.like-recipe-content li:hover{
+/* .like-recipe-content li:hover{
 background-color: rgba(0, 0, 0, 0.815);
-}
+} */
 .my-recipe-content {
 border:3px dashed #ddd;
 margin-top:10px;

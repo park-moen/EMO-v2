@@ -60,8 +60,11 @@ $cartInput.onkeyup = async (e) => {
   $cartInput.value = ''
 }
 
-$cartMemoList.onchange = (e) => {
+$cartMemoList.onchange = async (e) => {
   const inputId = e.target.id;
+
+  
+
   cartmemos = cartmemos.map(cartmemo => {
   return cartmemo.id === inputId ? ({...cartmemo,completed:e.target.checked}):cartmemo })
   render()

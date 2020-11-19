@@ -264,26 +264,6 @@
       "id": "cart-item4",
       "content": "쪽파",
       "completed": false
-    },
-    {
-      "id": "cart-item5",
-      "content": "dddd",
-      "completed": false
-    },
-    {
-      "id": "cart-item6",
-      "content": "ddd",
-      "completed": false
-    },
-    {
-      "id": "cart-item7",
-      "content": "dddd",
-      "completed": false
-    },
-    {
-      "id": "cart-item8",
-      "content": "ddd",
-      "completed": false
     }
   ],
   "users": [
