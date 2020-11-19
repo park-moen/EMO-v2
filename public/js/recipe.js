@@ -39,10 +39,12 @@ const getLocation = () => JSON.parse(window.sessionStorage.getItem('ingredientes
 //   changeLocal = [...changeLocal, target];
 //   setLocation();
 // };
+
 // const getMemoId = res => {
 //   console.log(res);
 //   return res.length ? Math.max(res.map(elem => elem.id.substring(9)) + 1) : 1;
 // };
+
 const filterData = (ingredient) => {
   const data = ingredient.filter((_, i) => !getLocation().includes(ingredient[i]));
   [...$superStuffList.children].forEach((li) => {
@@ -115,7 +117,25 @@ window.onload = () => {
 $backBtn.onclick = () => {
   window.location.assign('cuisine.html');
 };
-try {
-} catch (err) {
-  console.error(err);
-}
+$stuffList.onclick = async ({ target }) => {
+  if (!target.matches('.stuff-list > li')) return;
+  target.classList.remove('not-stuff');
+  console.log(target.textContent);
+  const ReadData = await fetch(`/cartmemos?content=\\b${target.textContent}\\b`);
+  const res = await ReadData.json();
+  console.log(res);
+  // const dataInfo = res.map(elem => elem.content);
+  // console.log(dataInfo);
+  // memoState.push(target.textContent);
+  // memoState = [...new Set(memoState)];
+
+  // const dataId = res.length ? Math.max(...res.map(data => data.id.substring(9))) + 1 : 1;
+
+  // memoState.forEach(async item => {
+  //   const createData = await fetch('/cartmemos', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({ id: `cart-item${dataId}`, content: item, completed: false })
+  //   });
+  // });
+};

@@ -257,8 +257,13 @@
     },
     {
       "id": "cart-item2",
-      "content": "dddd",
-      "completed": true
+      "content": "깍두기",
+      "completed": false
+    },
+    {
+      "id": "cart-item3",
+      "content": "깍두기",
+      "completed": false
     },
     {
       "id": "cart-item3",
@@ -267,7 +272,7 @@
     },
     {
       "id": "cart-item4",
-      "content": "ddddd",
+      "content": "깍두기",
       "completed": false
     }
   ],
@@ -291,31 +296,6 @@
       "id": "asdqs",
       "password": "xzcs123",
       "nickName": "asdxzc"
-    },
-    {
-      "id": "-OR35hP",
-      "password": "",
-      "nickName": ""
-    },
-    {
-      "id": "zl2UpjU",
-      "password": "",
-      "nickName": ""
-    },
-    {
-      "id": "XUtNihb",
-      "password": "",
-      "nickName": ""
-    },
-    {
-      "id": "LRweNVo",
-      "password": "",
-      "nickName": ""
-    },
-    {
-      "id": "vmus7K1",
-      "password": "",
-      "nickName": ""
     }
   ]
 }
