@@ -252,8 +252,8 @@
   "cartmemos": [
     {
       "id": "cart-item1",
-      "content": "양파",
-      "completed": false
+      "content": "ㄴㄴㄴㄴㄴ",
+      "completed": true
     },
     {
       "id": "cart-item2",
@@ -263,6 +263,11 @@
     {
       "id": "cart-item3",
       "content": "깍두기",
+      "completed": false
+    },
+    {
+      "id": "cart-item3",
+      "content": "dddd",
       "completed": false
     },
     {

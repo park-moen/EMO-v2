@@ -6,29 +6,29 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/index.css" />
-    <script src="index.js" defer></script>
-    <title>Document</title>
+    <script src="./js/index.js" defer></script>
+    <title>로그인</title>
   </head>
 
   <body>
+    <div class="intro"></div>
+
     <div class="container">
       <main class="login-inner">
         <h1 class="login-title">로그인</h1>
-        <form action="" method="POST" class="login-form">
+        <form class="login-form">
           <fieldset>
             <legend class="a11y-hidden">로그인</legend>
-            <input type="text" placeholder="아이디" id="idInput" />
-            <input type="text" placeholder="패스워드" id="pwInput" />
+            <input type="text" placeholder="아이디" id="idInput" autocomplete="off" />
+            <input type="text" placeholder="패스워드" id="pwInput" autocomplete="off" />
+            <label for="checkInput">아이디/비밀번호를 확인해주세요</label>
             <div class="btn-wrap">
-              <button class="joinBtn">회원가입</button>
-              <input type="submit" class="submitBtn" value="로그인" />
+              <!-- <a href="./signup.html" class="joinBtn"> 회원가입 </a> -->
+              <input type="button" class="submitBtn" value="로그인" />
             </div>
           </fieldset>
         </form>
       </main>
     </div>
-    <script>
-      // window.location.assign('/ingredient.html');
-    </script>
   </body>
 </html>
