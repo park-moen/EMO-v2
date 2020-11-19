@@ -85,3 +85,63 @@ nav {
   height: 80%;
   background-color: #fff;
 }
+@media (min-width: 1024px) {
+  .container-wrapper {
+    width:100%;
+    /* background-color:rgb(255, 173, 42,0.3) */
+    background-color: rgba(3, 3, 3, 0.8);
+  }
+  .container {
+    max-width: 1024px;
+    margin: 0 auto;
+    background-color: rgb(247, 247, 247);
+    /* box-shadow: 0 0 10px 0 rgb(247, 247, 247,0.7); */
+  }
+  
+  header {
+    width: 1024px;
+    height: 80px;
+    line-height: 80px;
+    background-color: var(--main-color);
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    left:calc(50% - 512px);
+    /* display: none; */
+  }
+  nav{
+    width: 1024px;
+    left: calc(50% - 512px);
+  }
+  .banner{
+    display: block;
+    width: 100%;
+    height: 400px;
+    background:url(../image/bg2.jpg) no-repeat;
+    background-size:100%;
+    position: relative;
+    text-align: center;
+    line-height: 50px;
+}
+  .banner::after{
+    content: '';
+     position:  absolute;
+    width:100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    background-color: rgba(29, 29, 29, 0.3);
+  }
+  .banner h2 {
+    font-size: 24px;
+  }
+  .banner div {
+    position:absolute;
+    margin-top: 100px;
+    z-index: 100;
+    width: 600px;
+    padding: 20px;
+    left: calc(50% - 300px);
+    color:#fff;
+    word-wrap: break-word;
+  }
