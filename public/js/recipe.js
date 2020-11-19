@@ -67,6 +67,15 @@ $backBtn.onclick = () => {
 $stuffList.onclick = async ({ target }) => {
   if (!target.matches('.stuff-list > li')) return;
   target.classList.remove('not-stuff');
+};
+
+$bookMark.onclick = e => {
+  e.preventDefault();
+  const url = window.location.href;
+  const userId = JSON.parse(window.sessionStorage.getItem('login'));
+  window.sessionStorage.setItem(userId.id, JSON.stringify(url));
+};
+
   // console.log(target.textContent);
   // const ReadData = await fetch('/cartmemos');
   // const res = await ReadData.json();
@@ -86,11 +95,3 @@ $stuffList.onclick = async ({ target }) => {
   //     body: JSON.stringify({ id: `cart-item${dataId}`, content: item, completed: false })
   //   });
   // });
-};
-
-$bookMark.onclick = e => {
-  e.preventDefault();
-  const url = window.location.href;
-  const userId = JSON.parse(window.sessionStorage.getItem('login'));
-  window.sessionStorage.setItem(userId.id, JSON.stringify(url));
-};
