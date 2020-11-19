@@ -251,27 +251,7 @@
   ],
   "cartmemos": [
     {
-      "id": "cart-item1",
-      "content": "ㄴㄴㄴㄴㄴ",
-      "completed": true
-    },
-    {
       "id": "cart-item2",
-      "content": "깍두기",
-      "completed": false
-    },
-    {
-      "id": "cart-item3",
-      "content": "깍두기",
-      "completed": false
-    },
-    {
-      "id": "cart-item3",
-      "content": "dddd",
-      "completed": false
-    },
-    {
-      "id": "cart-item4",
       "content": "깍두기",
       "completed": false
     }
@@ -279,7 +259,7 @@
   "users": [
     {
       "id": "asd",
-      "password": "asdsa",
+      "password": "11",
       "nickName": "sadasd"
     },
     {
@@ -296,6 +276,11 @@
       "id": "asdqs",
       "password": "xzcs123",
       "nickName": "asdxzc"
+    },
+    {
+      "id": "asd123123",
+      "password": "111111",
+      "nickname": "111111"
     }
   ]
 }
