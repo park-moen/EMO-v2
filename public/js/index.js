@@ -55,18 +55,22 @@ const fetchUsers = async () => {
     };
 
     $submitBtn.onclick = (e) => {
+      e.preventDefault();
       if (!e.target.matches('.btn-wrap > .submitBtn')) return;
       Checksusers();
     };
 
     const Checksusers = () => {
       const newitem = [...userChecks].find(({ id, password }) => {
+
+
         return id === $idInput.value && password === $pwInput.value;
       });
+      console.log(newitem);
       if (newitem) {
-        sessionStorage.setItem(
+        window.sessionStorage.setItem(
           'login',
-          JSON.stringify({ id: newitem.id, password: newitem.password, nickName: newitem.nickName })
+          JSON.stringify({ id: newitem.id, password: newitem.password, nickname: newitem.nickname })
         );
         window.location.assign('/ingredient.html');
       } else {
