@@ -14,11 +14,9 @@ const fetchCartMemo = async () => {
   }
 }
 
-const render = async() => {
+const render = () => {
    let htmlMemos ='';
-  try {
-    // const data = await fetch('./cartmemos');
-    // cartmemos =await data.json();
+  
     cartmemos.forEach(({id,content,completed}) =>{
       htmlMemos = `<li>
     <input id="${id}" class="checkbox" type ="checkbox" ${completed ? 'checked' : ''}>
@@ -28,9 +26,6 @@ const render = async() => {
     })
   
     $cartMemoList.innerHTML = htmlMemos
-  } catch(err){
-    console.error(`[ERROR]:${err}`)
-  }
 
 }
 
@@ -51,13 +46,16 @@ $cartInput.onkeyup = async (e) => {
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify(newMemo)
     })
-    cartmemos = await res.json();
-    render();
+    // render()
+    fetchCartMemo()
   } catch(err){
     console.error(`[ERROR],${err}`)
   }
   $cartInput.value = ''
 }
+
+
+//check
 
 $cartMemoList.onchange = async (e) => {
   const targetId = e.target.id;
@@ -67,8 +65,8 @@ $cartMemoList.onchange = async (e) => {
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({completed:e.target.checked})
     });
-    cartmemos = await res.json();
-    render()
+    // render()
+    fetchCartMemo()
   } catch(err){
     console.error(`[ERROR]:${err}`)
   }
@@ -78,21 +76,11 @@ $cartMemoList.onchange = async (e) => {
 
 
 $cartAllBtns.onchange = async (e) => {
- try{
-  const res = await fetch('/cartmemos');
-  cartmemos = await res.json();
-  cartmemos.forEach(({id}) => 
-    fetch(`./cartmemos/${id}`,{
-    method:'PATCH',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({completed:e.target.checked})
-    })
-  )
-  render()
- } catch(err){
-  console.error(`[ERROR]:${err}`)
- }
+  const res
 }
+
+
+//DELETE
 
 $cartMemoList.onclick = async (e) => {
   if(!e.target.matches('.cart-memo-list > li >i')) return;
@@ -100,7 +88,7 @@ $cartMemoList.onclick = async (e) => {
   try{
     const res = await fetch(`./cartmemos/${targetId}`,{method:'DELETE'})
     cartmemos = await res.json();
-    render()
+    fetchCartMemo()
   } catch(err){
     console.error(`[ERROR]:${err}`)
   }
