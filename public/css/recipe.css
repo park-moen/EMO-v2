@@ -38,7 +38,7 @@ main {
   justify-content: space-around;
 }
 .food-name {
-  display: inline;
+  /* display: inline; */
   font-size: 30px;
   font-weight: 600;
   flex-grow: 2;
@@ -68,8 +68,7 @@ main {
 }
 .fa-bell + span {
   color: rgb(153, 153, 40);
-  font-size: 12px;
-  vertical-align: text-top;
+  font-size: 14px;
 }
 /* .fa-bell:active {
   color: rgba(255, 255, 0, 0.89);
