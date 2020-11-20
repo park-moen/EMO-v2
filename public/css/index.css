@@ -1,4 +1,5 @@
 body {
+  background-color: var(--main-color);
 }
 .intro {
   position: absolute;
@@ -38,10 +39,11 @@ fieldset {
 }
 
 .login-title {
-  font-size: 4rem;
+  font-size: 3.5rem;
   text-align: center;
   color: #fff;
-  padding: 50px 0;
+  padding: 0px 0px 100px;
+  /* background-color: #555; */
 }
 
 #idInput,
