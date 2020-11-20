@@ -1,3 +1,5 @@
+// DOMs
+const $likeRecipe = document.querySelector('.like-recipe-content');
 const $myInfoCategory = document.querySelector('.my-info-category');
 
 $myInfoCategory.onclick = (e) => {
@@ -16,7 +18,6 @@ const render = () => {
   $myName.textContent = users.nickname;
 };
 
-// 닉네임으로 렌더하기
 const fetchUsers = async () => {
   try {
     const getLoginData = sessionStorage.getItem('login');
@@ -31,13 +32,44 @@ const fetchUsers = async () => {
   }
 };
 
-window.onload = fetchUsers;
+const renderImg = (imgId, res) => {
+  let html = '';
 
-// // const getQueryString = (url) => {
-// //   const str = url.split('=');
-// //   const qureyId = str[str.length - 1];
-// //   return qureyId;
-// // };
+  imgId.forEach(id => {
+    html += `
+    <li>
+    <a href="http://localhost:5000/recipe.html?id=${id}">
+    <img src='${res[id - 1].img}'>
+    </a>
+    </li>`;
+  });
 
-// // console.log(getQueryString(window.location.href));
-// >>>>>>> 7fdfbdd0312fa948b76c812dd90711d040d2c26c
+  $likeRecipe.innerHTML = html;
+};
+
+const fetchImg = () => {
+  const parse = JSON.parse(window.sessionStorage.getItem('login'));
+  const imgArray = JSON.parse(window.sessionStorage.getItem(parse.id));
+  const imgId = [];
+  imgArray.forEach(img => {
+    const num = img.split('=');
+    imgId.push(num[num.length - 1]);
+  });
+  window.sessionStorage.setItem(parse.id, JSON.stringify([...new Set(imgId)]));
+
+  const getfetch = (async () => {
+    try {
+      const data = await fetch('/cuisine');
+      const res = await data.json();
+
+      renderImg([...new Set(imgId)], res);
+    } catch (e) {
+      console.error(e);
+    }
+  })();
+};
+
+window.onload = () => {
+  fetchUsers();
+  fetchImg();
+};
