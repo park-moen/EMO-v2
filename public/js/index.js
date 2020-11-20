@@ -34,10 +34,6 @@ const fetchUsers = async () => {
       }
     });
 
-    // console.log(!$idInput.value);
-    // if (!$idInput.value) {
-    // }
-
     $idInput.onkeyup = (e) => {
       if (!$idInput.value) return;
       $checkInput.textContent = '';
@@ -66,7 +62,6 @@ const fetchUsers = async () => {
 
         return id === $idInput.value && password === $pwInput.value;
       });
-      console.log(newitem);
       if (newitem) {
         window.sessionStorage.setItem(
           'login',

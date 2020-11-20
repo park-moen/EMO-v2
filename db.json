@@ -249,48 +249,22 @@
       ]
     }
   ],
-  "cartmemos": [
-    {
-      "id": "cart-item3",
-      "content": "dddd",
-      "completed": false
-    },
-    {
-      "id": "cart-item4",
-      "content": "sfsffssf",
-      "completed": false
-    }
-  ],
+  "cartmemos": [],
   "users": [
     {
       "id": "asd",
       "password": "11",
-      "nickName": "sadasd"
-    },
-    {
-      "id": "asd123",
-      "password": "asdsa123",
-      "nickName": "sadasd213"
-    },
-    {
-      "id": "asda",
-      "password": "1qad",
-      "nickName": "xzcasd"
-    },
-    {
-      "id": "asdqs",
-      "password": "xzcs123",
-      "nickName": "asdxzc"
-    },
-    {
-      "id": "asd123123",
-      "password": "111111",
-      "nickname": "111111"
+      "nickname": "명재짱짱맨"
     },
     {
       "id": "rlawoals",
       "password": "rlawoals",
       "nickname": "rlawoals"
+    },
+    {
+      "id": "tpdudsnsk",
+      "password": "tpdudsnsk",
+      "nickname": "세영누나화이팅"
     }
   ]
 }

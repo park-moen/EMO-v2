@@ -1,20 +1,18 @@
 // DOMs
 const $likeRecipe = document.querySelector('.like-recipe-content');
-
-const $myInfoCategory = document.querySelector('.my-info-category')
+const $myInfoCategory = document.querySelector('.my-info-category');
 
 $myInfoCategory.onclick = (e) => {
   if (e.target.matches('#tab1,#tab2,#tab3')) {
-    document.querySelectorAll('.tab').forEach($tab => {
-      $tab.classList.toggle('active', e.target.id === $tab.classList[1])
+    document.querySelectorAll('.tab').forEach(($tab) => {
+      $tab.classList.toggle('active', e.target.id === $tab.classList[1]);
     });
     // e.target.nextElementSibling.classList.add('active');
   }
 };
+
 let users = '';
 const $myName = document.querySelector('.my-name');
-
-// 닉네임으로 렌더하기
 
 const render = () => {
   $myName.textContent = users.nickname;
