@@ -1,12 +1,11 @@
-
- /* 기본 css*/
-.banner{
+/* 기본 css*/
+.banner {
   display: none;
 }
 .fa-chevron-down {
   float: right;
   cursor: pointer;
-  transition: all 1s;
+  transition: transform 1s;
 }
 
 .fa-chevron-down.active {
@@ -47,8 +46,8 @@
   /* background-color: #fff; */
 }
 
-.ingredient-name-btn {
-  /* border: 1px solid black; */
+/* .ingredient-name-btn {
+  border: 1px solid black;
   padding: 5px;
   border-radius: 10px;
   transition: all 0.3s;
@@ -57,8 +56,8 @@
 .ingredient-name-btn:hover {
   background-color: #444;
   color: #fff;
-}
-
+} */
+/* 
 .ingredient-name input,
 .ingredient-name button,
 .category input,
@@ -67,7 +66,7 @@
   vertical-align: middle;
   border: 2px solid black;
   padding: 5px;
-}
+} */
 
 .category select {
   margin-right: 10px;
@@ -84,7 +83,6 @@
   background-color: #e9eaec;
   color: #333;
   z-index: 15;
-  transition: all 0.2s;
   border-bottom: 1px solid #666;
   cursor: pointer;
 }
@@ -137,7 +135,7 @@
   box-sizing: border-box;
   background-color: #f2ca58;
   padding: 10px;
-  transition: all 0.8s ease;
+  transition: transform 0.8s ease;
   transform: translateY(750px);
 }
 
@@ -182,7 +180,7 @@
   color: #e47921;
   border: 2px solid #e47921;
   box-sizing: border-box;
-  transition: all 0.8s ease;
+  transition: transform 0.8s ease;
   transform: translateY(750px);
 }
 
@@ -207,7 +205,7 @@
   color: #e47921;
   border: 2px solid #e47921;
   box-sizing: border-box;
-  transition: all 0.8s ease;
+  transition: transform 0.8s ease;
   transform: translateY(750px);
 }
 
@@ -221,23 +219,28 @@
   color: #fff;
   border: 2px solid #e47921;
 }
- @media (min-width: 1024px) {
-  .banner{
+
+.ingredientes {
+  padding-bottom: 200px;
+}
+
+@media (min-width: 1024px) {
+  .banner {
     display: block;
     width: 100%;
     height: 400px;
-    background:url(../image/bg2.jpg) no-repeat;
-    background-size:100%;
+    background: url(../image/bg2.jpg) no-repeat;
+    background-size: 100%;
     position: relative;
     text-align: center;
     line-height: 50px;
-}
-  .banner::after{
+  }
+  .banner::after {
     content: '';
-     position:  absolute;
-    width:100%;
+    position: absolute;
+    width: 100%;
     height: 100%;
-    top:0;
+    top: 0;
     left: 0;
     background-color: rgba(29, 29, 29, 0.3);
   }
@@ -245,14 +248,13 @@
     font-size: 24px;
   }
   .banner div {
-    position:absolute;
+    position: absolute;
     margin-top: 100px;
     z-index: 100;
     width: 600px;
     padding: 20px;
     left: calc(50% - 300px);
-    color:#fff;
+    color: #fff;
     word-wrap: break-word;
   }
-
- }
+}
