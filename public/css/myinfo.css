@@ -176,9 +176,8 @@ margin-top:10px;
 }
 .my-post-content p{
   display: inline-block;
-  width: 80px;
+  width: 100%;
   margin-bottom: 10px;
-  padding:0 40px;
   line-height: 1.3;
 }
 .my-post-content span{
@@ -261,6 +260,22 @@ margin-top:10px;
     font-size:15px;
     border-radius: 30px;
   }
+  .post{
+    height: 330px;
+  }
+  .my-post-content li{
+    height: 330px;
+    margin:10px 0;
+  }
+  .post>div{
+    height: 330px;
+    padding:140px;
+    box-sizing: border-box;
+  }
+  .post>div>div{
+    transform: none;
+    font-size:20px;
+  }
 }
 @media (min-width:768px) and (max-width:1024px){
   .my-name{
@@ -291,6 +306,25 @@ margin-top:10px;
     border-radius: 30px;
     font-size:14px;
   }
+  .post{
+    height: 290px;
+  }
+  .my-post-content li{
+    height: 290px;
+    margin:10px 0;
+  }
+  .post>div{
+    height: 290px;
+    padding:100px;
+    box-sizing: border-box;
+  }
+  .post>div>div{
+    transform: none;
+    font-size:20px;
+  }
+  .my-post-content p {
+    /* width:200px; */
+  }
 }
 @media (min-width:481px) and (max-width:767px){
   
@@ -320,6 +354,27 @@ margin-top:10px;
     padding:10px;
     font-size: 12px;
   }
+  .post{
+    height: 250px;
+  }
+  .my-post-content li{
+    height: 250px;
+    margin:10px 0;
+  }
+  .post>div{
+    height: 250px;
+    padding-top:110px;
+    box-sizing: border-box;
+  }
+  .post>div>div{
+    transform: none;
+    font-size:16px;
+    text-align: center;
+  }
+  .my-post-content p {
+    /* width:150px; */
+    /* border:1px solid red */
+  }
 }
 @media (min-width:396px) and (max-width:480px){
   main{
@@ -348,6 +403,25 @@ margin-top:10px;
   #tab1,#tab2,#tab3{
     padding:10px;
   }
+  .post{
+    height: 200px;
+  }
+  .my-post-content li{
+    height: 200px;
+    margin:10px 0;
+  }
+  .post>div{
+    height: 200px;
+    padding-top: 70px;
+    box-sizing: border-box;
+  }
+  .post>div>div{
+    transform: none;
+    font-size:14px;
+  }
+  .my-post-content p {
+    width:130px;
+  }
 }
 
 @media (min-width:319px) and (max-width:395px){
@@ -375,5 +449,15 @@ margin-top:10px;
     width:100%;
     height: 100%;
     line-height: 100px;
+  }
+  .post{
+    /* height: 330px; */
+  }
+  .post>div>div{
+    font-size:14px;
+  }
+  .my-post-content p {
+      padding:0;
+      width:80px;
   }
 }
