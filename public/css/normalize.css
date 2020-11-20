@@ -95,6 +95,35 @@ nav {
   height: 80%;
   background-color: #fff;
 }
+@media (min-width: 1024px) {
+  .container-wrapper {
+    width:100%;
+    /* background-color:rgb(255, 173, 42,0.3) */
+    background-color: rgba(3, 3, 3, 0.8);
+  }
+  .container {
+    max-width: 1024px;
+    margin: 0 auto;
+    background-color: rgb(247, 247, 247);
+    /* box-shadow: 0 0 10px 0 rgb(247, 247, 247,0.7); */
+  }
+  
+  header {
+    width: 1024px;
+    height: 80px;
+    line-height: 80px;
+    background-color: var(--main-color);
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    left:calc(50% - 512px);
+    /* display: none; */
+  }
+  nav{
+    width: 1024px;
+    left: calc(50% - 512px);
+  }
+}
 
 @media (min-width: 319px) and (max-width: 400px) {
   .nav-list > li {
