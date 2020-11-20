@@ -176,9 +176,8 @@ margin-top:10px;
 }
 .my-post-content p{
   display: inline-block;
-  width: 80px;
+  width: 100%;
   margin-bottom: 10px;
-  padding:0 40px;
   line-height: 1.3;
 }
 .my-post-content span{
@@ -260,6 +259,22 @@ margin-top:10px;
     margin-right:15px;
     font-size:15px;
     border-radius: 30px;
+  }
+  .post{
+    height: 330px;
+  }
+  .my-post-content li{
+    height: 330px;
+    margin:10px 0;
+  }
+  .post>div{
+    height: 330px;
+    padding:140px;
+    box-sizing: border-box;
+  }
+  .post>div>div{
+    transform: none;
+    font-size:20px;
   }
 }
 @media (min-width:768px) and (max-width:1024px){
@@ -375,5 +390,16 @@ margin-top:10px;
     width:100%;
     height: 100%;
     line-height: 100px;
+  }
+  .post{
+    /* height: 330px; */
+  }
+  .my-post-content li{
+    /* height: 330px; */
+    /* margin:10px 0; */
+  }
+
+  .my-post-content p {
+      padding:0 40px;
   }
 }
