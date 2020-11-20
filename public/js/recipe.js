@@ -75,23 +75,3 @@ $bookMark.onclick = e => {
   const userId = JSON.parse(window.sessionStorage.getItem('login'));
   window.sessionStorage.setItem(userId.id, JSON.stringify(url));
 };
-
-  // console.log(target.textContent);
-  // const ReadData = await fetch('/cartmemos');
-  // const res = await ReadData.json();
-  // console.log(res);
-  // const dataInfo = res.map(elem => elem.content);
-  // console.log(dataInfo);
-  // memoState.push(target.textContent);
-  // memoState = [...new Set(memoState)];
-
-  // console.log(memoState);
-  // const dataId = res.length ? Math.max(...res.map(data => data.id.substring(9))) + 1 : 1;
-
-  // memoState.forEach(async item => {
-  //   const createData = await fetch('/cartmemos', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({ id: `cart-item${dataId}`, content: item, completed: false })
-  //   });
-  // });
