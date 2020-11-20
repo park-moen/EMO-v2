@@ -91,7 +91,7 @@ header {
   position: relative;
   display: block;
   padding: 15px;
-  background-color: #ddd;
+  background-color: #e9eaec;
   color: #333;
   z-index: 15;
   transition: all 0.2s;
@@ -145,7 +145,7 @@ header {
   border: 2px solid black;
   border-radius: 20px 20px 0 0;
   box-sizing: border-box;
-  background-color: #ddd587;
+  background-color: #f2ca58;
   padding: 10px;
   transition: all 0.8s ease;
   transform: translateY(750px);

@@ -1,36 +1,37 @@
-const $myInfoCategory = document.querySelector('.my-info-category') 
+const $myInfoCategory = document.querySelector('.my-info-category');
 
 $myInfoCategory.onclick = (e) => {
-  if(e.target.matches('#tab1,#tab2,#tab3')){
-    document.querySelectorAll('.tab').forEach($tab => {
-      $tab.classList.toggle('active', e.target.id=== $tab.classList[1] )
-    })
+  if (e.target.matches('#tab1,#tab2,#tab3')) {
+    document.querySelectorAll('.tab').forEach(($tab) => {
+      $tab.classList.toggle('active', e.target.id === $tab.classList[1]);
+    });
     // e.target.nextElementSibling.classList.add('active');
   }
-}
-// let users = '';
-// const $myName = document.querySelector('.my-name');
+};
 
-// // 닉네임으로 렌더하기
-// const fetchUsers = async () => {
-//   try {
-//     const getLoginData = sessionStorage.getItem('login');
-//     const loginResponse = JSON.parse(getLoginData);
-//     const loginNick = loginResponse.id;
+let users = '';
+const $myName = document.querySelector('.my-name');
 
-//     const res = await fetch(`/users/${loginNick}`);
-//     users = await res.json();
-//     render();
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
+const render = () => {
+  $myName.textContent = users.nickname;
+};
 
-// const render = () => {
-//   $myName.textContent = users.nickName;
-// };
+// 닉네임으로 렌더하기
+const fetchUsers = async () => {
+  try {
+    const getLoginData = sessionStorage.getItem('login');
+    const loginResponse = JSON.parse(getLoginData);
+    const loginNick = loginResponse.id;
 
-// window.onload = fetchUsers;
+    const res = await fetch(`/users/${loginNick}`);
+    users = await res.json();
+    render();
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+window.onload = fetchUsers;
 
 // // const getQueryString = (url) => {
 // //   const str = url.split('=');
