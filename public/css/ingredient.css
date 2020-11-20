@@ -270,11 +270,11 @@
     margin:20px 10px;
   }
   .cookEnter {
-    position: static;
+    position: fixed;
   float:left;
   }
   .refresh {
-    position: static;
+    position: fixed;
     float:right
   }
 }
