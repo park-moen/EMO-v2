@@ -257,4 +257,24 @@
     color: #fff;
     word-wrap: break-word;
   }
+  .ingre-item-container{
+    width: 1024px;
+    box-sizing: border-box;
+  }
+  .cookEnter-wrap{
+    width:180px;
+    position: absolute;
+    right:0;
+    z-index:100;
+    bottom:70px;
+    margin:20px 10px;
+  }
+  .cookEnter {
+    position: static;
+  float:left;
+  }
+  .refresh {
+    position: static;
+    float:right
+  }
 }
