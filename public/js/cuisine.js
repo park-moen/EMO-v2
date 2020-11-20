@@ -83,9 +83,11 @@ window.onload = () => {
   $preview.scrollLeft += 10;
 };
 
+const urls = [];
 $containerWrap.onclick = e => {
   if (!e.target.matches('.fa-bookmark') && !e.target.matches('.bookmark')) return;
   e.preventDefault();
+  urls.push(e.target.getAttribute('href'));
 
   const userInfo = JSON.parse(window.sessionStorage.getItem('login'));
   window.sessionStorage.setItem(userInfo.id, JSON.stringify(e.target.getAttribute('href')));

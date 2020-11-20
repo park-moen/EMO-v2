@@ -1,3 +1,8 @@
+body {
+  overflow: hidden;
+  height: 812px;
+}
+
 .intro {
   position: absolute;
   width: 100%;
@@ -6,6 +11,7 @@
   background-color: var(--main-color);
   background-size: contain;
   z-index: 5;
+  overflow: hidden;
 }
 
 .intro.play {
@@ -13,11 +19,13 @@
   animation-duration: 3s;
   animation-delay: 2s;
   animation-fill-mode: forwards;
+  overflow: hidden;
 }
 
 .container {
   height: 100vh;
   background-color: var(--main-color);
+  overflow: hidden;
 }
 
 .container .login-inner {

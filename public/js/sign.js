@@ -22,7 +22,7 @@ $form.onsubmit = (() => {
     nickname: false,
     get valid() {
       return this.id && this.idDb && this.pw && this.pwCheck && this.nickname;
-    }
+    },
   };
 
   $userId.oninput = (() => {
@@ -31,7 +31,7 @@ $form.onsubmit = (() => {
       const getFetch = async () => {
         const data = await fetch('/users');
         const users = await data.json();
-        const usersId = users.map(user => user.id);
+        const usersId = users.map((user) => user.id);
         const valid = signReg.test(target.value);
         const valid2 = !usersId.includes(target.value);
 
@@ -58,16 +58,13 @@ $form.onsubmit = (() => {
           $idReg.classList.remove('block');
         }
 
-
         validationStatus.idDb = valid2;
         $signUp.disabled = !validationStatus.valid2;
         console.log(validationStatus);
       };
       getFetch();
-
     }, 100);
   })();
-
 
   $userPw.oninput = (() => {
     const signReg = /^[A-Za-z0-9]{6,12}$/;
@@ -83,7 +80,6 @@ $form.onsubmit = (() => {
         $pwReg.classList.remove('block');
       }
 
-
       validationStatus.pw = valid;
       console.log(validationStatus);
 
@@ -91,22 +87,20 @@ $form.onsubmit = (() => {
     }, 300);
   })();
 
-  $userPwCheck.oninput = (() => _.debounce(({ target }) => {
-    const valid = $userPw.value === target.value ? true : false;
-    if ($userPw.value !== target.value) {
-      $alertPw.classList.add('block');
+  $userPwCheck.oninput = (() =>
+    _.debounce(({ target }) => {
+      const valid = $userPw.value === target.value ? true : false;
+      if ($userPw.value !== target.value) {
+        $alertPw.classList.add('block');
+      }
+      if ($userPw.value === target.value) {
+        $alertPw.classList.remove('block');
+      }
 
-    }
-    if ($userPw.value === target.value) {
-      $alertPw.classList.remove('block');
-
-    }
-
-    validationStatus.pwCheck = valid;
-    $signUp.disabled = !validationStatus.valid;
-    console.log(validationStatus);
-
-  }, 100))();
+      validationStatus.pwCheck = valid;
+      $signUp.disabled = !validationStatus.valid;
+      console.log(validationStatus);
+    }, 100))();
 
   $userNickname.oninput = (() => {
     const nameReg = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9]{1,10}$/;
@@ -130,17 +124,16 @@ $form.onsubmit = (() => {
     $overlay.style.display = 'block';
   };
 
-  return async e => {
+  return async (e) => {
     e.preventDefault();
     const res = await fetch('/users', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       // eslint-disable-next-line max-len
-      body: JSON.stringify({ id: $userId.value, password: $userPw.value, nickname: $userNickname.value })
+      body: JSON.stringify({ id: $userId.value, password: $userPw.value, nickname: $userNickname.value }),
     });
   };
 })();
-
 
 $btnOk.onclick = () => {
   $popup.style.display = 'none';
@@ -152,4 +145,4 @@ $overlay.onclick = () => {
   $popup.style.display = 'none';
   $overlay.style.display = 'none';
   window.location.assign('ingredient.html');
-}
+};
