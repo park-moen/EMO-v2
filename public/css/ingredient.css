@@ -126,7 +126,8 @@
   /* display: none; */
   overflow: scroll;
   position: fixed;
-  width: 100%;
+  max-width: 100%;
+  width: 1024px;
   height: 200px;
   bottom: 60px;
   z-index: 20;
@@ -165,12 +166,21 @@
   line-height: 15px;
 }
 
-.cookEnter {
+.container-btn-wrap {
+  text-align: right;
   position: fixed;
+  max-width: 100%;
+  width: 1024px;
+  height: 60px;
+  z-index: 20;
+  bottom: 260px;
+}
+
+.cookEnter {
+  display: inline-block;
   width: 100px;
   height: 50px;
   border-radius: 10px;
-  right: 80px;
   bottom: 270px;
   transform: translate(50%);
   z-index: 15;
@@ -191,11 +201,10 @@
 }
 
 .refresh {
-  position: fixed;
+  display: inline-block;
   width: 50px;
   height: 50px;
   border-radius: 10px;
-  right: 25px;
   bottom: 270px;
   transform: translate(50%);
   z-index: 15;
@@ -235,6 +244,7 @@
     text-align: center;
     line-height: 50px;
   }
+
   .banner::after {
     content: '';
     position: absolute;
