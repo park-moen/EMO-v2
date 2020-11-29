@@ -1,7 +1,61 @@
-
-@media (min-width: 1024px) {
+body {
+  background-color: #f8f8f8;
+}
+header {
+  position: relative;
+}
+.back-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  border: 0;
+  background-color: transparent;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+}
+.difficulty {
+  border: 2px solid #555;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  color: #f8f8f8;
+  padding: 5px;
+  position: absolute;
+  font-size: 25px;
+  font-weight: 400;
+  top: 10px;
+  right: 10px;
+}
+.img-wrapper {
+  position: relative;
+}
+/* .bookmark {
+  padding: 10px;
+} */
+.preview {
+  height: 60px;
+  border-bottom: 2px solid #888;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+.preview::-webkit-scrollbar {
+  display: none;
+}
+.preview-list > li {
+  font-weight: 600;
+  color: #777;
+  margin: 10px 5px;
+  padding: 10px 15px;
+  border: 2px solid #888;
+  border-radius: 15px;
+  display: inline-block;
+  cursor: pointer;
+}
+/* 데스크탑 사이즈 */
+/* @media (min-width: 1025px) {
   .container-wrap {
-    margin: 10px 20px;
+    margin: 10px 0;
   }
   main {
     width: 100%;
@@ -10,69 +64,245 @@
   }
   .cuisine-container {
     display: inline-block;
-    width: calc(100%/3);
-    font-size: 25px;
+    width: calc(100% / 3);
+    font-size: 18px;
+    font-weight: 600;
     margin-top: 20px;
     margin-bottom: 20px;
-    border: 5px solid #dfe6e9;
-    border-radius: 10px;
     box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 0px 3px 10px 0 rgba(0,0,0,0.1);
+
   }
   figure {
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    max-width: 90%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: #fff;
   }
   img {
-    width: 100%; 
-    margin-bottom: 10px;
+   transform: scale(1.5);
+  }
+  .img-wrapper {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
   }
   figcaption {
     display: inline-block;
     margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 20px;
   }
   .fa-bookmark {
-    display: inline-block;
+    margin-top: 10px;
     margin-right: 10px;
+    float: right;
   }
-}
+  .fa-bookmark::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+} */
 
-@media (max-width: 1023px) {
+/* 중간 사이즈 */
+@media (min-width: 768px) {
   .container-wrap {
-    margin: 10px 20px;
+    margin: 10px 0;
   }
   main {
     width: 100%;
-    max-width: 700px;
-    font-size: 25px;
-    font-weight: 800;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
     margin: 0 auto;
   }
   .cuisine-container {
-    width: 80%;
+    width: 90%;
     margin: auto;
-    border: 10px solid slategrey;
-    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #fff;
   }
   figure {
-    width: 100%;
+    background-color: #fff;
+    width: 48%;
+    float: left;
+    border:5px solid transparent;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+    margin:1%
   }
   img {
     width: 100%;
     margin-bottom: 10px;
+    display: block;
+  }
+  .img-wrapper {
+    width: 100%;
+    height: 330px;
+    overflow: hidden;
+    transform-origin: scale(1.5);
+  }
+  figcaption {
+    /* display: inline-block; */
+    margin-left: 10px;
+    float:left;
+    padding: 10px 0;
+  }
+  .cuisine {
+    /* content: '';
+    display: block;
+    clear: both; */
+    position: relative;
+  }
+  .fa-bookmark {
+    margin-top: 10px;
+    margin-right: 20px;
+    float:right;
+    position: absolute;
+    bottom:10px;
+    right:0;
+  }
+}
+
+/* 모바일 사이즈 */
+@media (min-width:375px) and (max-width: 767px)  {
+  .container-wrap {
+    margin: 10px 0;
+  }
+  main {
+    width: 100%;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 auto;
+  }
+  .cuisine-container {
+    width: 85%;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: #fff;
+  }
+
+
+  figure {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+    justify-content: space-between;
+    padding:10px;
+    box-sizing: border-box;
+  }
+  img {
+    width: 100%;
+    max-height: 90%;
+  }
+  .img-wrapper {
+    /* margin-bottom:20px ; */
+    width: 100%;
+    height: 300px;
+    transform-origin: scale(1.7);
+  }
+  figcaption {
+    display: inline-block;
+    margin-left: 10px;
+    width: 100%;
+    position: relative;
+  }
+
+  .cuisine {
+    position: relative;
+  }
+  .fa-bookmark {
+    margin-top: 10px;
+    margin-right: 20px;
+    float:right;
+    position: absolute;
+    bottom:10px;
+    right:0;
+  }
+}
+@media (min-width:319px) and (max-width: 374px)  {
+  .container-wrap {
+    margin: 10px 0;
+  }
+  main {
+    width: 100%;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 auto;
+  }
+  .cuisine-container {
+    width: 85%;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: #fff;
+  }
+
+
+  figure {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+    justify-content: space-between;
+    padding:10px;
+    box-sizing: border-box;
+  }
+  img {
+    width: 100%;
+    max-height: 90%;
+  }
+  .img-wrapper {
+    /* margin-bottom:20px ; */
+    width: 100%;
+    height: 200px;
+    transform-origin: scale(1.5);
   }
   figcaption {
     display: inline-block;
     margin-left: 10px;
   }
+  
+  .cuisine {
+    position: relative;
+  }
   .fa-bookmark {
-    display: inline-block;
-    margin-right: 10px;
-  } 
+    margin-top: 10px;
+    margin-right: 20px;
+    float:right;
+    position: absolute;
+    bottom:10px;
+    right:0;
+  }
+}
+.popup {
+  border: 1px solid;
+  text-align: center;
+  width: 200px;
+  height: auto;
+  background-color: #fff;
+  padding: 20px;
+  position: fixed;
+  z-index: 2;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
 }
