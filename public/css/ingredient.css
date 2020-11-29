@@ -46,28 +46,6 @@
   /* background-color: #fff; */
 }
 
-/* .ingredient-name-btn {
-  border: 1px solid black;
-  padding: 5px;
-  border-radius: 10px;
-  transition: all 0.3s;
-}
-
-.ingredient-name-btn:hover {
-  background-color: #444;
-  color: #fff;
-} */
-/* 
-.ingredient-name input,
-.ingredient-name button,
-.category input,
-.category button,
-.category select {
-  vertical-align: middle;
-  border: 2px solid black;
-  padding: 5px;
-} */
-
 .category select {
   margin-right: 10px;
 }
@@ -266,25 +244,5 @@
     left: calc(50% - 300px);
     color: #fff;
     word-wrap: break-word;
-  }
-  .ingre-item-container{
-    width: 1024px;
-    box-sizing: border-box;
-  }
-  .cookEnter-wrap{
-    width:180px;
-    position: absolute;
-    right:0;
-    z-index:100;
-    bottom:70px;
-    margin:20px 10px;
-  }
-  .cookEnter {
-    position: fixed;
-  float:left;
-  }
-  .refresh {
-    position: fixed;
-    float:right
   }
 }
