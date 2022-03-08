@@ -1,7 +1,5 @@
-
 // State
 let result = [];
-
 
 // DOMs
 const $containerWrap = document.querySelector('.container-wrap');
@@ -13,7 +11,6 @@ const $previewItem = document.querySelector('.preview-item');
 const $link = document.querySelector('.bookmark');
 const $popup = document.querySelector('.popup');
 const $overlay = document.querySelector('.overlay');
-
 
 const renderMain = res => {
   let html = '';
@@ -39,7 +36,9 @@ const renderMain = res => {
 const renderPrev = res => {
   let li = '';
 
-  res.forEach(item => { li += `<li class="preview-item">${item}</li>`; });
+  res.forEach(item => {
+    li += `<li class="preview-item">${item}</li>`;
+  });
   $previewList.innerHTML = li;
 };
 
@@ -63,7 +62,9 @@ const fetchIng = async ingredientes => {
   }
 };
 
-$backBtn.onclick = () => { window.location.assign('/ingredient.html'); };
+$backBtn.onclick = () => {
+  window.location.assign('/ingredient.html');
+};
 
 // $previewList.onclick = ({ target }) => {
 //   if (!target.classList.contains('preview-item')) return;
@@ -90,7 +91,10 @@ $containerWrap.onclick = e => {
   urls.push(e.target.getAttribute('href'));
 
   const userInfo = JSON.parse(window.sessionStorage.getItem('login'));
-  window.sessionStorage.setItem(userInfo.id, JSON.stringify(e.target.getAttribute('href')));
+  window.sessionStorage.setItem(
+    userInfo.id,
+    JSON.stringify(e.target.getAttribute('href'))
+  );
   $popup.style.display = 'block';
   $overlay.style.display = 'block';
   setTimeout(() => {

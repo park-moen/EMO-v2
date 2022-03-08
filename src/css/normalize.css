@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200;400;600;700;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@200;400;600;700;900&display=swap'); */
 @font-face {
   font-family: 'GimJe';
   font-style: normal;
   font-weight: 800;
-  src: url('../fonts/GIMJE-L.TTF') format('truetype');
+  src: url('../assets/fonts/GIMJE-L.TTF') format('truetype');
 }
 
 :root {
@@ -17,12 +17,11 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
 }
-.clearfix::after{
+.clearfix::after {
   content: '';
   display: block;
   clear: both;
 }
-
 
 button {
   background-color: transparent;
@@ -36,8 +35,8 @@ body {
 }
 .container {
   max-width: 100%;
-  width:1024px;
-  margin:0 auto;
+  width: 1024px;
+  margin: 0 auto;
 }
 header {
   width: 100%;
@@ -97,7 +96,7 @@ nav {
 }
 @media (min-width: 1024px) {
   .container-wrapper {
-    width:100%;
+    width: 100%;
     /* background-color:rgb(255, 173, 42,0.3) */
     background-color: rgba(3, 3, 3, 0.8);
   }
@@ -115,26 +114,26 @@ nav {
     font-size: 20px;
     text-align: center;
     color: #fff;
-    left:calc(50% - 512px);
+    left: calc(50% - 512px);
     /* display: none; */
   }
-  nav{
+  nav {
     width: 1024px;
     left: calc(50% - 512px);
   }
 }
 
 /* @media (min-width: 319px) and (max-width: 400px) { */
-  .nav-list > li {
-    font-size: 14px;
-    line-height: 60px;
-    text-align: center;
-  }
-  .nav-list > li > a {
-    width: 60px;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 1.2;
-    word-spacing: 1.2rem;
-  }
+.nav-list > li {
+  font-size: 14px;
+  line-height: 60px;
+  text-align: center;
+}
+.nav-list > li > a {
+  width: 60px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.2;
+  word-spacing: 1.2rem;
+}
 /* } */

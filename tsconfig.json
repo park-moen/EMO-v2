@@ -1,0 +1,35 @@
+{
+	"compilerOptions": {
+		// type check 용도로 사용할 경우 제외 가능
+		// "outDir": "./dist", // ts는 type 검사만 하고 compiler는 babel이 담당해서 출력을 따로 지정하지 않음
+		"target": "es5",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": false,
+		"typeRoots": ["src/types"],
+
+		"skipLibCheck": true,
+		// 서로 다른 모듈 방식을 호환하는 용도로 사용 (CommonJs로 작성된 lib를 ESM으로 호환하기 위해서는 true로 설정해야 함)
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		// 모든 파일을 모듈로 만들기를 강제하는 용도 (true로 설정하면 inport/export를 사용하지 않은 파일은 에러를 발생 시킨다.)
+		"isolatedModules": true,
+		"noImplicitAny": true,
+		// true로 설절하는 경우 tsconfig를 단순 타입 체크용도로 사용 목적
+		"noEmit": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"baseUrl": ".",
+		"paths": {
+			"Resource/*": ["./src/js/*"],
+			"Router/*": ["./src/router/*"],
+			"CSS": ["./src/css/*"],
+			"Image/*": ["./src/assets/image/*"]
+		}
+	},
+	"include": ["src"]
+}
