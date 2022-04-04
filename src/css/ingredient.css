@@ -1,248 +1,248 @@
 /* 기본 css*/
 .banner {
-  display: none;
+	display: none;
 }
 .fa-chevron-down {
-  float: right;
-  cursor: pointer;
-  transition: transform 1s;
+	float: right;
+	cursor: pointer;
+	transition: transform 1s;
 }
 
 .fa-chevron-down.active {
-  transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .ingredient > ul {
-  min-height: 50px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+	min-height: 50px;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 .main-inner {
-  margin: 40px 20px 40px;
-  text-align: center;
+	margin: 40px 20px 40px;
+	text-align: center;
 }
 
 .ingredient-name h3,
 .category h3 {
-  display: inline-block;
-  padding: 20px;
-  text-align: left;
-  /* background-color: #444; */
+	display: inline-block;
+	padding: 20px;
+	text-align: left;
+	/* background-color: #444; */
 }
 
 .category h3 .ingredient-list-title {
-  padding: 20px 0;
-  text-align: left;
+	padding: 20px 0;
+	text-align: left;
 }
 
 .ingredient-name li,
 .category li {
-  display: inline-block;
-  padding: 20px;
-  vertical-align: middle;
-  min-width: 300px;
-  /* background-color: #fff; */
+	display: inline-block;
+	padding: 20px;
+	vertical-align: middle;
+	min-width: 300px;
+	/* background-color: #fff; */
 }
 
 .category select {
-  margin-right: 10px;
+	margin-right: 10px;
 }
 
 .ingredient-name button {
-  margin-left: 10px;
+	margin-left: 10px;
 }
 
 .category {
-  position: relative;
-  display: block;
-  padding: 15px;
-  background-color: #e9eaec;
-  color: #333;
-  z-index: 15;
-  border-bottom: 1px solid #666;
-  cursor: pointer;
+	position: relative;
+	display: block;
+	padding: 15px;
+	background-color: #e9eaec;
+	color: #333;
+	z-index: 15;
+	border-bottom: 1px solid #666;
+	cursor: pointer;
 }
 
 .ingredient {
-  display: none;
+	display: none;
 }
 
 .ingredient > ul > li.active {
-  color: #e47921;
-  border: 2px solid #e47921;
+	color: #e47921;
+	border: 2px solid #e47921;
 }
 
 .ingredient.view {
-  display: block;
+	display: block;
 }
 
 .ingredient ul {
-  padding-left: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .ingredient ul li {
-  font-weight: 600;
-  color: #777;
-  margin: 10px 5px;
-  padding: 10px 15px;
-  border: 2px solid #888;
-  border-radius: 15px;
-  display: inline-block;
-  cursor: pointer;
+	font-weight: 600;
+	color: #777;
+	margin: 10px 5px;
+	padding: 10px 15px;
+	border: 2px solid #888;
+	border-radius: 15px;
+	display: inline-block;
+	cursor: pointer;
 }
 
 .ingredient ul li:hover {
-  color: #e47921;
-  border: 2px solid #e47921;
+	color: #e47921;
+	border: 2px solid #e47921;
 }
 
 .ingre-item-container {
-  /* display: none; */
-  overflow: scroll;
-  position: fixed;
-  max-width: 100%;
-  width: 1024px;
-  height: 200px;
-  bottom: 60px;
-  z-index: 20;
-  border: 2px solid black;
-  border-radius: 20px 20px 0 0;
-  box-sizing: border-box;
-  background-color: #f2ca58;
-  padding: 10px;
-  transition: transform 0.8s ease;
-  transform: translateY(750px);
+	/* display: none; */
+	overflow: scroll;
+	position: fixed;
+	max-width: 100%;
+	width: 1024px;
+	height: 200px;
+	bottom: 60px;
+	z-index: 20;
+	border: 2px solid black;
+	border-radius: 20px 20px 0 0;
+	box-sizing: border-box;
+	background-color: #f2ca58;
+	padding: 10px;
+	transition: transform 0.8s ease;
+	transform: translateY(750px);
 }
 
 .ingre-item-container.active {
-  transform: translateY(0px);
+	transform: translateY(0px);
 }
 
 .ingre-item {
-  font-weight: 600;
-  color: #777;
-  margin: 10px 5px;
-  padding: 10px 15px;
-  border: 2px solid #888;
-  border-radius: 15px;
-  display: inline-block;
-  background-color: #fff;
+	font-weight: 600;
+	color: #777;
+	margin: 10px 5px;
+	padding: 10px 15px;
+	border: 2px solid #888;
+	border-radius: 15px;
+	display: inline-block;
+	background-color: #fff;
 }
 
 .remove-ingre-item {
-  display: inline-block;
-  margin-left: 5px;
-  width: 15px;
-  height: 15px;
-  border-radius: 15px;
-  text-align: center;
-  text-indent: -2.5px;
-  line-height: 15px;
+	display: inline-block;
+	margin-left: 5px;
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	text-align: center;
+	text-indent: -2.5px;
+	line-height: 15px;
 }
 
 .container-btn-wrap {
-  text-align: right;
-  position: fixed;
-  max-width: 100%;
-  width: 1024px;
-  height: 60px;
-  z-index: 20;
-  bottom: 260px;
+	text-align: right;
+	position: fixed;
+	max-width: 100%;
+	width: 1024px;
+	height: 60px;
+	z-index: 20;
+	bottom: 260px;
 }
 
 .cookEnter {
-  display: inline-block;
-  width: 100px;
-  height: 50px;
-  border-radius: 10px;
-  bottom: 270px;
-  transform: translate(50%);
-  z-index: 15;
-  line-height: 50px;
-  text-align: center;
-  background-color: #fff;
-  color: #e47921;
-  border: 2px solid #e47921;
-  box-sizing: border-box;
-  transition: transform 0.8s ease;
-  transform: translateY(750px);
+	display: inline-block;
+	width: 100px;
+	height: 50px;
+	border-radius: 10px;
+	bottom: 270px;
+	transform: translate(50%);
+	z-index: 15;
+	line-height: 50px;
+	text-align: center;
+	background-color: #fff;
+	color: #e47921;
+	border: 2px solid #e47921;
+	box-sizing: border-box;
+	transition: transform 0.8s ease;
+	transform: translateY(750px);
 }
 
 .cookEnter:hover {
-  background-color: #e47921;
-  color: #fff;
-  border: 2px solid #e47921;
+	background-color: #e47921;
+	color: #fff;
+	border: 2px solid #e47921;
 }
 
 .refresh {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  bottom: 270px;
-  transform: translate(50%);
-  z-index: 15;
-  line-height: 50px;
-  text-align: center;
-  background-color: #fff;
-  color: #e47921;
-  border: 2px solid #e47921;
-  box-sizing: border-box;
-  transition: transform 0.8s ease;
-  transform: translateY(750px);
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border-radius: 10px;
+	bottom: 270px;
+	transform: translate(50%);
+	z-index: 15;
+	line-height: 50px;
+	text-align: center;
+	background-color: #fff;
+	color: #e47921;
+	border: 2px solid #e47921;
+	box-sizing: border-box;
+	transition: transform 0.8s ease;
+	transform: translateY(750px);
 }
 
 .refresh.active,
 .cookEnter.active {
-  transform: translateY(0px);
+	transform: translateY(0px);
 }
 
 .refresh:hover {
-  background-color: #e47921;
-  color: #fff;
-  border: 2px solid #e47921;
+	background-color: #e47921;
+	color: #fff;
+	border: 2px solid #e47921;
 }
 
 .ingredientes {
-  padding-bottom: 200px;
+	padding-bottom: 200px;
 }
 
 @media (min-width: 1024px) {
-  .banner {
-    display: block;
-    width: 100%;
-    height: 400px;
-    background: url(../image/bg2.jpg) no-repeat;
-    background-size: 100%;
-    position: relative;
-    text-align: center;
-    line-height: 50px;
-  }
+	.banner {
+		display: block;
+		width: 100%;
+		height: 400px;
+		/* background: url(../image/bg2.jpg) no-repeat; */
+		background-size: 100%;
+		position: relative;
+		text-align: center;
+		line-height: 50px;
+	}
 
-  .banner::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(29, 29, 29, 0.3);
-  }
-  .banner h2 {
-    font-size: 24px;
-  }
-  .banner div {
-    position: absolute;
-    margin-top: 100px;
-    z-index: 100;
-    width: 600px;
-    padding: 20px;
-    left: calc(50% - 300px);
-    color: #fff;
-    word-wrap: break-word;
-  }
+	.banner::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: rgba(29, 29, 29, 0.3);
+	}
+	.banner h2 {
+		font-size: 24px;
+	}
+	.banner div {
+		position: absolute;
+		margin-top: 100px;
+		z-index: 100;
+		width: 600px;
+		padding: 20px;
+		left: calc(50% - 300px);
+		color: #fff;
+		word-wrap: break-word;
+	}
 }

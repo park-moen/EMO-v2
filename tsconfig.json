@@ -27,6 +27,7 @@
 		"paths": {
 			"Resource/*": ["./src/js/*"],
 			"Router/*": ["./src/router/*"],
+			"Page": ["./src/pages/*"],
 			"CSS": ["./src/css/*"],
 			"Image/*": ["./src/assets/image/*"]
 		}

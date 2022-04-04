@@ -1,120 +1,120 @@
 body {
-  background-color: var(--main-color);
+	background-color: var(--main-color);
 }
 .intro {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  background: url(../assets/image/로딩페이지.png) no-repeat center;
-  background-color: var(--main-color);
-  background-size: contain;
-  z-index: 5;
-  overflow: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	background: url(../assets/image/로딩페이지.png) no-repeat center;
+	background-color: var(--main-color);
+	background-size: contain;
+	z-index: 5;
+	overflow: hidden;
 }
 
 .intro.play {
-  animation-name: intro;
-  animation-duration: 3s;
-  animation-delay: 2s;
-  animation-fill-mode: forwards;
-  overflow: hidden;
+	animation-name: intro;
+	animation-duration: 3s;
+	animation-delay: 2s;
+	animation-fill-mode: forwards;
+	overflow: hidden;
 }
 
 .container {
-  height: 100vh;
-  background-color: var(--main-color);
-  overflow: hidden;
+	height: 100vh;
+	background-color: var(--main-color);
+	overflow: hidden;
 }
 
 .container .login-inner {
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  padding: 0;
-  transform: translateY(-50%);
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	padding: 0;
+	transform: translateY(-50%);
 }
 
 fieldset {
-  text-align: center;
+	text-align: center;
 }
 
 .login-title {
-  font-size: 3.5rem;
-  text-align: center;
-  color: #fff;
-  padding: 0px 0px 100px;
-  /* background-color: #555; */
+	font-size: 3.5rem;
+	text-align: center;
+	color: #fff;
+	padding: 0px 0px 100px;
+	/* background-color: #555; */
 }
 
 #idInput,
 #pwInput {
-  min-width: 200px;
-  display: block;
-  outline: transparent;
-  border: none;
-  border-bottom: 2px solid #fff;
-  background: transparent;
-  padding: 10px 0px;
-  margin: 0 auto;
-  color: #fff;
-  /* text-align: center; */
+	min-width: 200px;
+	display: block;
+	outline: transparent;
+	border: none;
+	border-bottom: 2px solid #fff;
+	background: transparent;
+	padding: 10px 0px;
+	margin: 0 auto;
+	color: #fff;
+	/* text-align: center; */
 }
 
 label[for='checkInput'] {
-  display: none;
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  /* text-align: right; */
-  font-size: 0.8rem;
-  color: red;
-  transform: translateY(100%);
-  z-index: 2;
+	display: none;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	/* text-align: right; */
+	font-size: 0.8rem;
+	color: red;
+	transform: translateY(100%);
+	z-index: 2;
 }
 
 .joinBtn,
 .submitBtn {
-  border: 2px solid #fff;
-  display: inline-block;
-  text-align: center;
-  margin: 0 auto;
-  padding: 10px;
-  box-sizing: border-box;
-  color: var(--main-color);
-  background-color: #fff;
-  font: var(--main-font);
-  font-size: 0.8rem;
+	border: 2px solid #fff;
+	display: inline-block;
+	text-align: center;
+	margin: 0 auto;
+	padding: 10px;
+	box-sizing: border-box;
+	color: var(--main-color);
+	background-color: #fff;
+	font: var(--main-font);
+	font-size: 0.8rem;
 }
 
 .joinBtn:hover,
 .submitBtn:hover {
-  color: #fff;
-  background-color: var(--main-color);
-  box-sizing: border-box;
+	color: #fff;
+	background-color: var(--main-color);
+	box-sizing: border-box;
 }
 
 .btn-wrap {
-  margin-top: 70px;
-  margin-left: 60px;
+	margin-top: 70px;
+	margin-left: 60px;
 }
 
 ::placeholder {
-  color: #fff;
-  font-size: 0.8rem;
+	color: #fff;
+	font-size: 0.8rem;
 }
 
 @keyframes intro {
-  0% {
-    transform: translateY(0px);
-  }
-  25% {
-    transform: translateY(-100px);
-  }
-  50% {
-    transform: translateY(200px);
-  }
-  100% {
-    transform: translateY(-100%);
-    display: none;
-  }
+	0% {
+		transform: translateY(0px);
+	}
+	25% {
+		transform: translateY(-100px);
+	}
+	50% {
+		transform: translateY(200px);
+	}
+	100% {
+		transform: translateY(-100%);
+		display: none;
+	}
 }

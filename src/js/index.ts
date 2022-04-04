@@ -4,15 +4,15 @@ import 'CSS/index.css';
 
 const $idInput = document.getElementById('idInput') as HTMLInputElement;
 const $pwInput = document.getElementById('pwInput') as HTMLInputElement;
-// const $joinBtn = document.querySelector('.joinBtn');
 const $submitBtn = document.querySelector('.submitBtn') as HTMLInputElement;
 const $loginForm = document.querySelector('.login-form') as HTMLFormElement;
 const $checkInput = document.querySelector('label[for="checkInput"]') as HTMLLabelElement;
 const $intro = document.querySelector('.intro') as HTMLDivElement;
+const $joinBtn = document.querySelector('.joinBtn') as HTMLAnchorElement;
 
 const fetchUsers = async () => {
 	try {
-		const res = await fetch('/users');
+		const res = await fetch('http://localhost:8080/users');
 		const userChecks = await res.json();
 
 		$loginForm.onkeyup = (e) => {
@@ -73,10 +73,11 @@ const fetchUsers = async () => {
 						nickname: newitem.nickname,
 					})
 				);
-				window.location.assign('/ingredient.html');
+				// window.location.assign('/ingredient.html');
+				console.log('로그인 확인');
 			} else {
 				$checkInput.textContent = '아이디/비밀번호를 확인해주세요';
-				// document.querySelector('label[for="checkInput"]').style.display = 'block';
+				$checkInput.style.display = 'block';
 			}
 		};
 	} catch (e) {
@@ -86,8 +87,12 @@ const fetchUsers = async () => {
 
 window.onload = fetchUsers;
 
-// form초기화
+// 초기화 목록
 $loginForm.onsubmit = (e) => {
+	e.preventDefault();
+};
+
+$joinBtn.onclick = (e) => {
 	e.preventDefault();
 };
 
