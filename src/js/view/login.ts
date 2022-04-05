@@ -1,6 +1,6 @@
-import 'CSS/reset.css';
-import 'CSS/normalize.css';
 import 'CSS/index.css';
+
+import { pushIngredientRouter } from 'Router/router';
 
 const $idInput = document.getElementById('idInput') as HTMLInputElement;
 const $pwInput = document.getElementById('pwInput') as HTMLInputElement;
@@ -10,7 +10,7 @@ const $checkInput = document.querySelector('label[for="checkInput"]') as HTMLLab
 const $intro = document.querySelector('.intro') as HTMLDivElement;
 const $joinBtn = document.querySelector('.joinBtn') as HTMLAnchorElement;
 
-const fetchUsers = async () => {
+const fetchLoginUsers = async () => {
 	try {
 		const res = await fetch('http://localhost:8080/users');
 		const userChecks = await res.json();
@@ -60,10 +60,23 @@ const fetchUsers = async () => {
 			Checksusers();
 		};
 
+		// 초기화 목록
+		$loginForm.onsubmit = (e) => {
+			e.preventDefault();
+		};
+
+		$joinBtn.onclick = (e) => {
+			e.preventDefault();
+		};
+
+		$intro.classList.add('play');
+
 		const Checksusers = () => {
+			const pathName = $submitBtn.getAttribute('route') as string;
 			const newitem = [...userChecks].find(({ id, password }) => {
 				return id === $idInput.value && password === $pwInput.value;
 			});
+
 			if (newitem) {
 				window.sessionStorage.setItem(
 					'login',
@@ -73,7 +86,8 @@ const fetchUsers = async () => {
 						nickname: newitem.nickname,
 					})
 				);
-				// window.location.assign('/ingredient.html');
+
+				pushIngredientRouter(pathName);
 				console.log('로그인 확인');
 			} else {
 				$checkInput.textContent = '아이디/비밀번호를 확인해주세요';
@@ -85,15 +99,4 @@ const fetchUsers = async () => {
 	}
 };
 
-window.onload = fetchUsers;
-
-// 초기화 목록
-$loginForm.onsubmit = (e) => {
-	e.preventDefault();
-};
-
-$joinBtn.onclick = (e) => {
-	e.preventDefault();
-};
-
-$intro.classList.add('play');
+export default fetchLoginUsers;

@@ -4,7 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	mode: 'development',
-	entry: './src/js/index.ts',
+	entry: {
+		app: './src/js/view/index.ts',
+	},
 	output: {
 		filename: '[name].js',
 		path: path.resolve(__dirname, 'dist'),
@@ -16,11 +18,15 @@ module.exports = {
 		static: './dist',
 		hot: true,
 		port: 8000,
+		historyApiFallback: {
+			index: '/index.html',
+		},
 	},
 	resolve: {
 		alias: {
-			Resource: path.resolve(__dirname, './src/js'),
-			Router: path.resolve(__dirname, './src/router'),
+			View: path.resolve(__dirname, './src/js/view'),
+			Router: path.resolve(__dirname, './src/js/router'),
+			Utils: path.resolve(__dirname, './src/js/utils'),
 			Page: path.resolve(__dirname, './src/pages'),
 			CSS: path.resolve(__dirname, './src/css'),
 			Image: path.resolve(__dirname, './src/assets/image'),

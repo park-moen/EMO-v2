@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		// type check 용도로 사용할 경우 제외 가능
 		// "outDir": "./dist", // ts는 type 검사만 하고 compiler는 babel이 담당해서 출력을 따로 지정하지 않음
-		"target": "es5",
+		"target": "es6",
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": false,
 		"typeRoots": ["src/types"],
@@ -25,8 +25,9 @@
 		"noUnusedParameters": true,
 		"baseUrl": ".",
 		"paths": {
-			"Resource/*": ["./src/js/*"],
-			"Router/*": ["./src/router/*"],
+			"View/*": ["src/js/view/*"],
+			"Router/*": ["src/js/router/*"],
+			"Utils/*": ["src/js/utils/*"],
 			"Page": ["./src/pages/*"],
 			"CSS": ["./src/css/*"],
 			"Image/*": ["./src/assets/image/*"]
