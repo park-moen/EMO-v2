@@ -1,4 +1,4 @@
-import 'CSS/index.css';
+import 'CSS/login.css';
 
 import { pushIngredientRouter } from 'Router/router';
 

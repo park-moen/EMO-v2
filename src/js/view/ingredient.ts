@@ -1,4 +1,5 @@
 import 'CSS/ingredient.css';
+import { pushCuisineRouter } from 'Router/router';
 
 let ingredientes: any = [];
 
@@ -94,9 +95,12 @@ const emptyArrFilter = () => {
 // 	}
 // })();
 
-$cookEnter.onclick = () => {
+$cookEnter.onclick = async () => {
 	window.sessionStorage.setItem('ingredientes', JSON.stringify(ingredientes));
-	window.location.assign('/cuisine.html');
+
+	const pathName = $cookEnter.getAttribute('route');
+
+	if (pathName) pushCuisineRouter(pathName);
 };
 
 $refresh.onclick = () => {
