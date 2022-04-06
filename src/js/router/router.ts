@@ -1,45 +1,77 @@
 import loginTemplate from 'Page/login.hbs';
 import ingredientTemplate from 'Page/ingredient.hbs';
 import cuisineTemplate from 'Page/cuisine.hbs';
-import navigationBarTemplate from 'Page/navigationBar.hbs';
+import memoTemplate from 'Page/memo.hbs';
+
+import { conditionDisplayNav } from 'View/navigationBar';
 
 type RoutesType = {
 	[key: string]: string;
 };
 
-type popPageRouteType = 'ingredient' | 'cuisine' | 'recipe' | 'myinfo';
+type NarrowRouteType = 'ingredient' | 'cuisine' | 'recipe' | 'myinfo' | 'meno' | 'recommend';
 
 const $rouutEl = document.getElementById('app') as HTMLDivElement;
 
 const Login = loginTemplate();
+// const Logout = logoutTemplate();
 const Ingredient = ingredientTemplate();
 const Cuisine = cuisineTemplate();
-const navigationBar = navigationBarTemplate();
+// const Recipe = recipeTemplate();
+// const Myinfo = myinfoTemplate();
+const Memo = memoTemplate();
 
 const routes: RoutesType = {
 	'/': Login,
 	'/login': Login,
+	// '/logout': Logout,
 	'/ingredient': Ingredient,
 	'/cuisine': Cuisine,
+	// '/recipe': Recipe,
+	// '/myinfo': Myinfo,
+	'/memo': Memo,
 };
 
-function renderHTML(route: string, isNav?: boolean) {
-	if (isNav) {
-		$rouutEl.innerHTML = route + navigationBar;
-	} else {
-		$rouutEl.innerHTML = route;
-	}
+function renderHTML(route: string, isNav: boolean) {
+	conditionDisplayNav(isNav);
+	$rouutEl.innerHTML = route;
+}
+
+// commonPopBtn 구현
+export function popPriviousPage(type: NarrowRouteType) {
+	console.log(type);
 }
 
 export async function initialRoutes() {
-	renderHTML(routes['/']);
+	renderHTML(routes['/'], false);
 
 	const loginImport = await import('View/login');
 	const loginController = loginImport;
 
 	loginController.default();
 
-	window.onpopstate = () => renderHTML(location.pathname);
+	window.onpopstate = () => renderHTML(location.pathname, true);
+}
+
+export async function pushNavRouter(pathName: string) {
+	renderHTML(routes[pathName], true);
+
+	switch (pathName) {
+		case '/ingredient':
+			await import('View/ingredient');
+			break;
+		case '/memo':
+			await import('View/memo');
+			break;
+		case '/recommend':
+			console.log('recommend');
+			break;
+		case '/myinfo':
+			console.log('myinfo');
+			break;
+	}
+
+	history.pushState({}, pathName, location.origin + pathName);
 }
 
 export async function pushIngredientRouter(pathName: string) {
@@ -57,9 +89,4 @@ export async function pushCuisineRouter(pathName: string) {
 	await import('View/cuisine');
 
 	history.pushState({}, pathName, location.origin + pathName);
-}
-
-// commonPopBtn 구현
-export function popPriviousPage(type: popPageRouteType) {
-	console.log(type);
 }

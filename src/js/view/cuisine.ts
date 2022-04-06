@@ -9,9 +9,6 @@ type ingredientesDataType = {
 	recipe: string[];
 };
 
-// State
-let result = [];
-
 // DOMs
 const $containerWrap = document.querySelector('.container-wrap') as HTMLDivElement;
 const $backBtn = document.querySelector('.back-btn') as HTMLButtonElement;
@@ -19,10 +16,6 @@ const $preview = document.querySelector('.preview') as HTMLDivElement;
 const $previewList = document.querySelector('.preview-list') as HTMLUListElement;
 const $popup = document.querySelector('.popup') as HTMLDivElement;
 const $overlay = document.querySelector('.overlay') as HTMLDivElement;
-
-const $cuisineContainer = document.querySelector('.cuisine-container');
-const $previewItem = document.querySelector('.preview-item');
-const $link = document.querySelector('.bookmark');
 
 const renderMain = (res: ingredientesDataType[]) => {
 	let html = '';
