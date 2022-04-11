@@ -2,15 +2,28 @@ import 'CSS/navigationBar.css';
 
 import navigationTemplate from 'Page/navigationBar.hbs';
 
-import { pushNavRouter } from 'Router/router';
+import { pushRouter } from 'Router/router';
 
-export async function connectNavToStaticFooter() {
-	const $staticFooter = document.querySelector('.static-footer') as HTMLElement;
+const NavBar = {
+	showRenderView: async () => navigationTemplate(),
 
-	$staticFooter.innerHTML = navigationTemplate();
+	renderAfter: async () => {
+		const $navList = document.querySelector('.nav-list') as HTMLUListElement;
 
-	handleMoveNav();
-}
+		$navList.onclick = (e) => {
+			e.preventDefault();
+
+			console.log('xxx');
+
+			if (e.target instanceof HTMLLIElement) {
+				console.log(e.target.children[0].getAttribute('route'));
+
+				pushRouter(e.target.children[0].getAttribute('route') as string);
+			}
+			if (e.target instanceof HTMLAnchorElement) pushRouter(e.target.getAttribute('route') as string);
+		};
+	},
+};
 
 export function conditionDisplayNav(isNav: boolean) {
 	const $nav = document.querySelector('nav') as HTMLElement;
@@ -22,17 +35,4 @@ export function conditionDisplayNav(isNav: boolean) {
 	}
 }
 
-function handleMoveNav() {
-	const $navList = document.querySelector('.nav-list') as HTMLUListElement;
-
-	$navList.onclick = (e) => {
-		e.preventDefault();
-
-		if (e.target instanceof HTMLLIElement) {
-			console.log(e.target.children[0].getAttribute('route'));
-
-			pushNavRouter(e.target.children[0].getAttribute('route') as string);
-		}
-		if (e.target instanceof HTMLAnchorElement) pushNavRouter(e.target.getAttribute('route') as string);
-	};
-}
+export default NavBar;

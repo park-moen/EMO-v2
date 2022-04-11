@@ -1,0 +1,18 @@
+import 'CSS/reset.css';
+import 'CSS/normalize.css';
+
+import NavBar from 'View/navigationBar';
+import { initialRoutes } from 'Router/router';
+import { conditionDisplayNav } from 'View/navigationBar';
+
+const $footer = document.getElementById('static-footer') as HTMLElement;
+
+window.onload = async () => {
+	$footer.innerHTML = await NavBar.showRenderView();
+	await NavBar.renderAfter();
+
+	conditionDisplayNav(false);
+	initialRoutes();
+};
+
+// window.onpopstate = pop

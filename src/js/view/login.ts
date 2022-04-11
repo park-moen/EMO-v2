@@ -1,102 +1,108 @@
 import 'CSS/login.css';
 
-import { pushIngredientRouter } from 'Router/router';
+import loginTemplate from 'Page/login.hbs';
 
-const $idInput = document.getElementById('idInput') as HTMLInputElement;
-const $pwInput = document.getElementById('pwInput') as HTMLInputElement;
-const $submitBtn = document.querySelector('.submitBtn') as HTMLInputElement;
-const $loginForm = document.querySelector('.login-form') as HTMLFormElement;
-const $checkInput = document.querySelector('label[for="checkInput"]') as HTMLLabelElement;
-const $intro = document.querySelector('.intro') as HTMLDivElement;
-const $joinBtn = document.querySelector('.joinBtn') as HTMLAnchorElement;
+import { pushRouter } from 'Router/router';
 
-const fetchLoginUsers = async () => {
-	try {
-		const res = await fetch('http://localhost:8080/users');
-		const userChecks = await res.json();
+const Login = {
+	showRenderView: async () => loginTemplate(),
 
-		$loginForm.onkeyup = (e) => {
-			if (e.key !== 'Enter' || $idInput.value === '') return;
-			Checksusers();
-		};
+	renderAfter: async () => {
+		const $idInput = document.getElementById('idInput') as HTMLInputElement;
+		const $pwInput = document.getElementById('pwInput') as HTMLInputElement;
+		const $submitBtn = document.querySelector('.submitBtn') as HTMLInputElement;
+		const $loginForm = document.querySelector('.login-form') as HTMLFormElement;
+		const $checkInput = document.querySelector('label[for="checkInput"]') as HTMLLabelElement;
+		const $intro = document.querySelector('.intro') as HTMLDivElement;
+		const $joinBtn = document.querySelector('.joinBtn') as HTMLAnchorElement;
 
-		$idInput.addEventListener('focusout', () => {
-			if ($idInput.value === '') {
-				$checkInput.textContent = '아이디를 입력해주세요';
-				$checkInput.style.display = 'block';
-				$idInput.focus();
-				return;
-			}
-		});
+		try {
+			const res = await fetch('http://localhost:8080/users');
+			const userChecks = await res.json();
 
-		$pwInput.addEventListener('focusout', () => {
-			if ($pwInput.value === '') {
-				$checkInput.textContent = '비밀번호를 입력해주세요';
-				$checkInput.style.display = 'block';
-				// $pwInput.focus();
-				return;
-			}
-		});
+			$loginForm.onkeyup = (e) => {
+				if (e.key !== 'Enter' || $idInput.value === '') return;
+				Checksusers();
+			};
 
-		$idInput.onkeyup = () => {
-			if (!$idInput.value) return;
-			$checkInput.textContent = '';
-			if ($idInput.value.length === 0) {
-				$checkInput.textContent = '비밀번호를 입력해주세요';
-			}
-		};
-
-		$pwInput.onkeyup = () => {
-			if (!$pwInput.value) return;
-			$checkInput.textContent = '';
-			if ($pwInput.value.length === 0) {
-				$checkInput.textContent = '비밀번호를 입력해주세요';
-			}
-		};
-
-		$submitBtn.onclick = (e) => {
-			e.preventDefault();
-			// if (!e.target.matches('.btn-wrap > .submitBtn')) return;
-			Checksusers();
-		};
-
-		// 초기화 목록
-		$loginForm.onsubmit = (e) => {
-			e.preventDefault();
-		};
-
-		$joinBtn.onclick = (e) => {
-			e.preventDefault();
-		};
-
-		$intro.classList.add('play');
-
-		const Checksusers = () => {
-			const pathName = $submitBtn.getAttribute('route') as string;
-			const newitem = [...userChecks].find(({ id, password }) => {
-				return id === $idInput.value && password === $pwInput.value;
+			$idInput.addEventListener('focusout', () => {
+				if ($idInput.value === '') {
+					$checkInput.textContent = '아이디를 입력해주세요';
+					$checkInput.style.display = 'block';
+					$idInput.focus();
+					return;
+				}
 			});
 
-			if (newitem) {
-				window.sessionStorage.setItem(
-					'login',
-					JSON.stringify({
-						id: newitem.id,
-						password: newitem.password,
-						nickname: newitem.nickname,
-					})
-				);
+			$pwInput.addEventListener('focusout', () => {
+				if ($pwInput.value === '') {
+					$checkInput.textContent = '비밀번호를 입력해주세요';
+					$checkInput.style.display = 'block';
+					// $pwInput.focus();
+					return;
+				}
+			});
 
-				pushIngredientRouter(pathName);
-				console.log('로그인 확인');
-			} else {
-				$checkInput.textContent = '아이디/비밀번호를 확인해주세요';
-				$checkInput.style.display = 'block';
-			}
-		};
-	} catch (e) {
-		console.error(e);
-	}
+			$idInput.onkeyup = () => {
+				if (!$idInput.value) return;
+				$checkInput.textContent = '';
+				if ($idInput.value.length === 0) {
+					$checkInput.textContent = '비밀번호를 입력해주세요';
+				}
+			};
+
+			$pwInput.onkeyup = () => {
+				if (!$pwInput.value) return;
+				$checkInput.textContent = '';
+				if ($pwInput.value.length === 0) {
+					$checkInput.textContent = '비밀번호를 입력해주세요';
+				}
+			};
+
+			$submitBtn.onclick = (e) => {
+				e.preventDefault();
+				// if (!e.target.matches('.btn-wrap > .submitBtn')) return;
+				Checksusers();
+			};
+
+			// 초기화 목록
+			$loginForm.onsubmit = (e) => {
+				e.preventDefault();
+			};
+
+			$joinBtn.onclick = (e) => {
+				e.preventDefault();
+			};
+
+			$intro.classList.add('play');
+
+			const Checksusers = () => {
+				const pathName = $submitBtn.getAttribute('route') as string;
+				const newitem = [...userChecks].find(({ id, password }) => {
+					return id === $idInput.value && password === $pwInput.value;
+				});
+
+				if (newitem) {
+					window.sessionStorage.setItem(
+						'login',
+						JSON.stringify({
+							id: newitem.id,
+							password: newitem.password,
+							nickname: newitem.nickname,
+						})
+					);
+
+					pushRouter(pathName);
+					console.log('로그인 확인');
+				} else {
+					$checkInput.textContent = '아이디/비밀번호를 확인해주세요';
+					$checkInput.style.display = 'block';
+				}
+			};
+		} catch (err) {
+			console.log(err);
+		}
+	},
 };
 
-export default fetchLoginUsers;
+export default Login;

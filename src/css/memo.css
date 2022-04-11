@@ -14,12 +14,12 @@ button {
 	left: 20px;
 	padding: 15px;
 }
-main {
+
+.cart-container {
 	height: 100%;
 	padding: 0 15px;
 	padding-top: 20px;
 	color: #333;
-	/* position: relative; */
 }
 
 .cart-memo {
@@ -43,7 +43,7 @@ main {
 .cart-memo-list {
 	padding: 10px;
 	overflow: auto;
-	height: 430px;
+	min-height: 300px;
 	border: 1px solid rgba(250, 169, 63, 0.6);
 }
 .cart-memo-list li {

@@ -345,28 +345,13 @@
   "cartmemos": [
     {
       "id": "cart-item1",
-      "content": "asdasd",
-      "completed": true
+      "content": "asdsad",
+      "completed": false
     },
     {
       "id": "cart-item2",
-      "content": "asdasdasd",
-      "completed": true
-    },
-    {
-      "id": "cart-item3",
-      "content": "sadfdasf",
-      "completed": true
-    },
-    {
-      "id": "cart-item4",
-      "content": "dsfasf",
-      "completed": true
-    },
-    {
-      "id": "cart-item5",
-      "content": "dsafasf",
-      "completed": true
+      "content": "asdasd",
+      "completed": false
     }
   ],
   "users": [
