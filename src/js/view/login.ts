@@ -2,7 +2,7 @@ import 'CSS/login.css';
 
 import loginTemplate from 'Page/login.hbs';
 
-import { pushRouter } from 'Router/router';
+import { pushRouter } from 'JS/router';
 
 const Login = {
 	showRenderView: async () => loginTemplate(),

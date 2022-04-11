@@ -2,7 +2,7 @@ import 'CSS/navigationBar.css';
 
 import navigationTemplate from 'Page/navigationBar.hbs';
 
-import { pushRouter } from 'Router/router';
+import { pushRouter } from 'JS/router';
 
 const NavBar = {
 	showRenderView: async () => navigationTemplate(),

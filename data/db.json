@@ -345,13 +345,18 @@
   "cartmemos": [
     {
       "id": "cart-item1",
-      "content": "asdsad",
-      "completed": false
+      "content": "asd",
+      "completed": true
     },
     {
       "id": "cart-item2",
-      "content": "asdasd",
-      "completed": false
+      "content": "asd",
+      "completed": true
+    },
+    {
+      "id": "cart-item3",
+      "content": "asd",
+      "completed": true
     }
   ],
   "users": [

@@ -25,6 +25,7 @@
 		"noUnusedParameters": true,
 		"baseUrl": ".",
 		"paths": {
+			"JS/*": ["src/js/*"],
 			"View/*": ["src/js/view/*"],
 			"Router/*": ["src/js/router/*"],
 			"Utils/*": ["src/js/utils/*"],

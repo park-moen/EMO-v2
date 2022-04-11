@@ -24,6 +24,7 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
+			JS: path.resolve(__dirname, './src/js'),
 			View: path.resolve(__dirname, './src/js/view'),
 			Router: path.resolve(__dirname, './src/js/router'),
 			Utils: path.resolve(__dirname, './src/js/utils'),

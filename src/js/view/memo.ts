@@ -19,12 +19,28 @@ const Memo = {
 		const $cartAllBtns = document.querySelector('.cart-all-btns') as HTMLDivElement;
 		const $cartAllRemove = document.querySelector('.cart-all-remove') as HTMLButtonElement;
 
+		const appropriateAllBtn = () => {
+			const isAllChecked = memoData.length && memoData.every((memo) => memo.completed);
+
+			console.log(isAllChecked);
+
+			const checkedAllBtn = $cartAllBtns.firstElementChild;
+			if (checkedAllBtn instanceof HTMLInputElement) {
+				if (isAllChecked) {
+					checkedAllBtn.checked = true;
+				} else {
+					checkedAllBtn.checked = false;
+				}
+			}
+		};
+
 		const fetchCartMemo = async () => {
 			try {
 				const res = await fetch('http://localhost:8080/cartmemos');
 				const cartmemos = await res.json();
 
 				memoData = [...cartmemos];
+
 				render();
 			} catch (err) {
 				console.error(`ERROR:${err}`);
@@ -44,6 +60,8 @@ const Memo = {
 				memoData = [];
 			}
 
+			console.log(memoData);
+
 			memoData.forEach(({ id, content, completed }) => {
 				htmlMemos =
 					`<li>
@@ -52,6 +70,8 @@ const Memo = {
 						<i class="remove">x</i>
 					</li>` + htmlMemos;
 			});
+
+			appropriateAllBtn();
 
 			$cartMemoList.innerHTML = htmlMemos;
 		};
@@ -81,6 +101,8 @@ const Memo = {
 		};
 
 		$cartMemoList.onchange = async (e) => {
+			console.log('xx');
+
 			const target = e.target as HTMLInputElement;
 			const targetId = target.id;
 
@@ -90,6 +112,8 @@ const Memo = {
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify({ completed: target.checked }),
 				});
+
+				appropriateAllBtn();
 			} catch (err) {
 				console.error(`[ERROR]:${err}`);
 			}
@@ -101,9 +125,6 @@ const Memo = {
 			if (!target.matches('.checkbox')) return;
 
 			try {
-				// const doThis = await fetch('http://localhost:8080/cartmemos');
-				// const minis = await doThis.json();
-
 				memoData.forEach(async (mini: MemoDataType) => {
 					await fetch(`http://localhost:8080/cartmemos/${mini.id}`, {
 						method: 'PATCH',
@@ -146,6 +167,7 @@ const Memo = {
 					await fetch(`http://localhost:8080/cartmemos/${mini.id}`, { method: 'DELETE' });
 				});
 
+				appropriateAllBtn();
 				render('allDelete');
 			} catch (err) {
 				console.error(`[ERROR]:${err}`);

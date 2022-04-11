@@ -2,7 +2,7 @@ import 'CSS/ingredient.css';
 
 import ingredientTemplate from 'Page/ingredient.hbs';
 
-import { pushRouter } from 'Router/router';
+import { pushRouter } from 'JS/router';
 
 const Ingredient = {
 	showRenderView: async () => ingredientTemplate(),
