@@ -13,11 +13,7 @@ const NavBar = {
 		$navList.onclick = (e) => {
 			e.preventDefault();
 
-			console.log('xxx');
-
 			if (e.target instanceof HTMLLIElement) {
-				console.log(e.target.children[0].getAttribute('route'));
-
 				pushRouter(e.target.children[0].getAttribute('route') as string);
 			}
 			if (e.target instanceof HTMLAnchorElement) pushRouter(e.target.getAttribute('route') as string);

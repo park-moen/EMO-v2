@@ -4,6 +4,7 @@ import Login from 'View/login';
 import Ingredient from 'View/ingredient';
 import Cuisine from 'View/cuisine';
 import Memo from 'View/memo';
+import Recipe from 'View/recipe';
 
 import { conditionDisplayNav } from 'View/navigationBar';
 
@@ -16,6 +17,7 @@ const routes: any = {
 	'/login': Login,
 	'/ingredient': Ingredient,
 	'/cuisine': Cuisine,
+	'/recipe': Recipe,
 	'/memo': Memo,
 };
 
@@ -26,15 +28,19 @@ export async function initialRoutes() {
 	history.pushState({}, '/login', location.origin + '/login');
 }
 
-export async function pushRouter(pathName: string) {
+export async function pushRouter(pathName: string, qureyId?: string) {
 	if (pathName === '/' || pathName === '/login') {
 		conditionDisplayNav(false);
 	} else {
 		conditionDisplayNav(true);
 	}
 
+	if (qureyId) {
+		history.pushState({}, pathName, location.origin + `${pathName}:${qureyId}`);
+	} else {
+		history.pushState({}, pathName, location.origin + `${pathName}`);
+	}
+
 	$rouutEl.innerHTML = await routes[pathName].showRenderView();
 	await routes[pathName].renderAfter();
-
-	history.pushState({}, pathName, location.origin + pathName);
 }
