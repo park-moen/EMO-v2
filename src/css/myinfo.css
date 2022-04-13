@@ -2,213 +2,226 @@
   width: 1024px;
   margin:0 auto
 } */
-main{
-  /* height: 100%; */
-  padding:5%;
-  box-sizing: border-box;
-  color:#333;
-  margin-bottom: 65px;
-  font-size:20px;
-  position: relative;
+main {
+	/* height: 100%; */
+	/* padding: 5%;
+	box-sizing: border-box;
+	color: #333;
+	margin-bottom: 65px;
+	font-size: 20px;
+	position: relative; */
 }
 
-main section h3 {
-  margin-top:20px;
-  margin-bottom:10px;
+.container-myinfo {
+	box-sizing: border-box;
+	color: #333;
+	margin-bottom: 65px;
+	font-size: 20px;
+	position: relative;
+}
+
+.title-myinfo {
+	margin-top: 20px;
+	margin-bottom: 10px;
 }
 
 .my-info {
-  padding-bottom:20px ;
-  border-bottom:1px solid black;
+	padding-bottom: 20px;
+	border-bottom: 1px solid black;
 }
 
-form{
-  float: left;
-}
-.input-wrapper{
-  position: relative;
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
-  margin-bottom:30px;
-  background: #faa93f url(../image/user.png) no-repeat center;
-  background-size: cover;
+.content-container {
+	padding: 5%;
 }
 
-.img-submit{
-  width: 0;
-  height: 0;
+.upload-image {
+	float: left;
 }
-.img-submit::after{
-  content: '+';
-  position: absolute;
-  width:100%;
-  height: 100%;
-  line-height: 200px;
-  text-align: center;
-  color:rgba(255, 255, 255,0.3);
-  font-weight: 100;
-  top:0;
-  left:0;
-  font-size:40px;
+.input-wrapper {
+	position: relative;
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+	margin-bottom: 30px;
+	background: #faa93f url(../assets/image/user.png) no-repeat center;
+	background-size: cover;
 }
 
-.img-submit:hover::after{
-  color:#fff;
-  background-color:rgb(0, 0, 0,0.4)
+my-post-content1 {
+	background: url(../assets/image/my-recipe1.jpg) no-repeat;
 }
 
-.my-info-category > li > button{
-border:3px solid rgba(235, 235, 235, 0.548);
-border-radius: 20px;
-padding:10px;
-float: left;
-margin-bottom:5px;
-margin-right:8px;
-box-sizing: border-box;
-font-weight: 600;
-font-size:10px;
-color: #333;
-
+.img-submit {
+	width: 0;
+	height: 0;
+}
+.img-submit::after {
+	content: '+';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	line-height: 200px;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.3);
+	font-weight: 100;
+	top: 0;
+	left: 0;
+	font-size: 40px;
 }
 
-.my-name{
-float:left;
-line-height: 100px;
-letter-spacing: 10px;
-margin-left:15%;
-font-size:24px;
+.img-submit:hover::after {
+	color: #fff;
+	background-color: rgb(0, 0, 0, 0.4);
+}
+
+.my-info-category > li > button {
+	border: 3px solid rgba(235, 235, 235, 0.548);
+	border-radius: 20px;
+	padding: 10px;
+	float: left;
+	margin-bottom: 5px;
+	margin-right: 8px;
+	box-sizing: border-box;
+	font-weight: 600;
+	font-size: 10px;
+	color: #333;
+}
+
+.my-name {
+	float: left;
+	line-height: 100px;
+	letter-spacing: 10px;
+	margin-left: 15%;
+	font-size: 24px;
 }
 .my-info-category > li > button.attive,
-.my-info-category > li > button:hover{
-  background-color:#faa93f ;
-  border-color:transparent;
-  color: #fff;
+.my-info-category > li > button:hover {
+	background-color: #faa93f;
+	border-color: transparent;
+	color: #fff;
 }
-.category-wrapper{
-  height: 100%;
-  position: relative;
-  height: 500px;
+.category-wrapper {
+	height: 100%;
+	position: relative;
+	height: 500px;
 }
-.my-info-category{
-  padding:2px;
-  box-sizing: border-box;
-  
-}
-
-.tab{
-  width: 100%;
-  position: absolute;
-  top:130px;
-  color:#000;
-  display: none;
-  margin-bottom:80px;
-}
-.tab.active{
-  display: block;
+.my-info-category {
+	padding: 2px;
+	box-sizing: border-box;
 }
 
-.tab>span::after{
-  content: '';
-  display: block;
-  width: 100%;
-  height: 1px;
-  margin:6px 0 10px;
-  background-color: black;
+.tab {
+	width: 100%;
+	position: absolute;
+	top: 130px;
+	color: #000;
+	display: none;
+	margin-bottom: 80px;
 }
-.my-info-category > span{
-  display: inline-block;
-  width: 100%;
-  margin: 15px 0;
+.tab.active {
+	display: block;
+}
+
+.tab > span::after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 1px;
+	margin: 6px 0 10px;
+	background-color: black;
+}
+.my-info-category > span {
+	display: inline-block;
+	width: 100%;
+	margin: 15px 0;
 }
 
 .like-recipe-content li {
-  border:2px solid transparent;
-  float: left;
-  width: 25%;
-  padding:5px;
-  box-sizing: border-box;
-  overflow: hidden;
-  height: 80px;
+	border: 2px solid transparent;
+	float: left;
+	width: 25%;
+	padding: 5px;
+	box-sizing: border-box;
+	overflow: hidden;
+	height: 80px;
 }
-.like-recipe-content li img{
-  max-height: 100%;
-  transform: scale(1.3);
+.like-recipe-content li img {
+	max-height: 100%;
+	transform: scale(1.3);
 }
 /* .like-recipe-content li:hover{
 background-color: rgba(0, 0, 0, 0.815);
 } */
 .my-recipe-content {
-border:3px dashed #ddd;
-margin-top:10px;
+	border: 3px dashed #ddd;
+	margin-top: 10px;
 }
-.my-recipe-content a{
-  display: inline-block;
-  padding:0;
-  margin:0;
-  border:0;
-  width: 100%;
-  height: 100%;
-  font-size:50px;
-  text-align: center;
+.my-recipe-content a {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	width: 100%;
+	height: 100%;
+	font-size: 50px;
+	text-align: center;
 }
 
 .my-recipe-content a:hover,
-.my-recipe-content a:active{
-  background-color: #333;
-  color:#fff;
-  border-style: none;
-  box-sizing: border-box;
+.my-recipe-content a:active {
+	background-color: #333;
+	color: #fff;
+	border-style: none;
+	box-sizing: border-box;
 }
 
-.my-post-content li{
-  height: 130px;
-  margin:10px 0;
+.my-post-content li {
+	height: 130px;
+	margin: 10px 0;
 }
-.post{
-  text-align: center;
-  height: 130px;
-  font-size: 15px;
-  border-radius: 10px;
-  border:1px solid #000;
-  box-sizing: border-box;
+.post {
+	text-align: center;
+	height: 130px;
+	font-size: 15px;
+	border-radius: 10px;
+	border: 1px solid #000;
+	box-sizing: border-box;
 }
-.my-post-content p{
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 10px;
-  line-height: 1.3;
+.my-post-content p {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 10px;
+	line-height: 1.3;
 }
-.my-post-content span{
-  display: block;
-  font-size: 14px;
+.my-post-content span {
+	display: block;
+	font-size: 14px;
 }
-.post img{
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  float:left;
-  width:50%;
-  height: 100%;
-  background-color: #000;
+.post img {
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	float: left;
+	width: 50%;
+	height: 100%;
+	background-color: #000;
 }
 
-.post>div{
-  height: 130px;
-  width:50%;
-  float: right;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  background-color: rgba(12, 12, 11, 0.753);
-  color:#fff
-  
+.post > div {
+	height: 130px;
+	width: 50%;
+	float: right;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background-color: rgba(12, 12, 11, 0.753);
+	color: #fff;
 }
-.post>div>div{
-  transform: translateY(50%);
+.post > div > div {
+	transform: translateY(50%);
 }
-.post:hover{
-  background-color: rgba(0, 0, 0, 0.856);
-  color:#fff
+.post:hover {
+	background-color: rgba(0, 0, 0, 0.856);
+	color: #fff;
 }
 
 /* @media (min-width: 1281px) {
@@ -236,228 +249,235 @@ margin-top:10px;
   }
 } */
 @media (min-width: 1024px) {
-  .tab{
-    top:120px;
-  }
-  .my-name{
-    margin-left: 140px;
-    line-height: 200px;
-  }
+	.tab {
+		top: 120px;
+	}
+	.my-name {
+		margin-left: 140px;
+		line-height: 200px;
+	}
 
-  .like-recipe-content li {
-    width: calc(100% / 3);
-    height: 330px;
-    border:10px solid transparent;
-    box-sizing: border-box;
-  }
-  .like-recipe-content li img{
-    transform: scale3d(1.3,1.3,1.3);
-    margin: 10px;
-  }
-  #tab1,#tab2,#tab3{
-    padding:10px 20px;
-    margin-right:15px;
-    font-size:15px;
-    border-radius: 30px;
-  }
-  .post{
-    height: 330px;
-  }
-  .my-post-content li{
-    height: 330px;
-    margin:10px 0;
-  }
-  .post>div{
-    height: 330px;
-    padding:140px;
-    box-sizing: border-box;
-  }
-  .post>div>div{
-    transform: none;
-    font-size:20px;
-  }
+	.like-recipe-content li {
+		width: calc(100% / 3);
+		height: 330px;
+		border: 10px solid transparent;
+		box-sizing: border-box;
+	}
+	.like-recipe-content li img {
+		transform: scale3d(1.3, 1.3, 1.3);
+		margin: 10px;
+	}
+	#tab1,
+	#tab2,
+	#tab3 {
+		padding: 10px 20px;
+		margin-right: 15px;
+		font-size: 15px;
+		border-radius: 30px;
+	}
+	.post {
+		height: 330px;
+	}
+	.my-post-content li {
+		height: 330px;
+		margin: 10px 0;
+	}
+	.post > div {
+		height: 330px;
+		padding: 140px;
+		box-sizing: border-box;
+	}
+	.post > div > div {
+		transform: none;
+		font-size: 20px;
+	}
 }
-@media (min-width:768px) and (max-width:1024px){
-  .my-name{
-    margin-left:100px;
-    font-size:24px;
-    line-height: 200px;
-  }
-  /* .category-wrapper{
+@media (min-width: 768px) and (max-width: 1024px) {
+	.my-name {
+		margin-left: 100px;
+		font-size: 24px;
+		line-height: 200px;
+	}
+	/* .category-wrapper{
     height: 800px;
   } */
-  .tab{
-    top:120px;
-  }
-  .like-recipe-content li {
-    width: 50%;
-    height: 300px;
-    border:10px solid transparent;
-    box-sizing: border-box;
-  }
-  .like-recipe-content li img{
-    transform: scale3d(1.5,1.5,1.5);
-    margin: 10px;
-    display: inline-block;
-
-  }
-  #tab1,#tab2,#tab3{
-    padding:15px;
-    border-radius: 30px;
-    font-size:14px;
-  }
-  .post{
-    height: 290px;
-  }
-  .my-post-content li{
-    height: 290px;
-    margin:10px 0;
-  }
-  .post>div{
-    height: 290px;
-    padding:100px;
-    box-sizing: border-box;
-  }
-  .post>div>div{
-    transform: none;
-    font-size:20px;
-  }
-  .my-post-content p {
-    /* width:200px; */
-  }
+	.tab {
+		top: 120px;
+	}
+	.like-recipe-content li {
+		width: 50%;
+		height: 300px;
+		border: 10px solid transparent;
+		box-sizing: border-box;
+	}
+	.like-recipe-content li img {
+		transform: scale3d(1.5, 1.5, 1.5);
+		margin: 10px;
+		display: inline-block;
+	}
+	#tab1,
+	#tab2,
+	#tab3 {
+		padding: 15px;
+		border-radius: 30px;
+		font-size: 14px;
+	}
+	.post {
+		height: 290px;
+	}
+	.my-post-content li {
+		height: 290px;
+		margin: 10px 0;
+	}
+	.post > div {
+		height: 290px;
+		padding: 100px;
+		box-sizing: border-box;
+	}
+	.post > div > div {
+		transform: none;
+		font-size: 20px;
+	}
+	.my-post-content p {
+		/* width:200px; */
+	}
 }
-@media (min-width:481px) and (max-width:767px){
-  
-  .my-name{
-    line-height: 140px;
-    margin-left:60px
-  }
-  .tab{
-    top:85px;
-  }
-  .like-recipe-content li {
-    width: 33%;
-    height: 140px;
-    border:5px solid transparent;
-    box-sizing: border-box;
-  }
-  .input-wrapper{
-    width: 130px;
-    height: 130px;
-  }
-  .img-submit::after{
-    width:100%;
-    height: 100%;
-    line-height: 130px;
-  }
-  #tab1,#tab2,#tab3{
-    padding:10px;
-    font-size: 12px;
-  }
-  .post{
-    height: 250px;
-  }
-  .my-post-content li{
-    height: 250px;
-    margin:10px 0;
-  }
-  .post>div{
-    height: 250px;
-    padding-top:110px;
-    box-sizing: border-box;
-  }
-  .post>div>div{
-    transform: none;
-    font-size:16px;
-    text-align: center;
-  }
-  .my-post-content p {
-    /* width:150px; */
-    /* border:1px solid red */
-  }
+@media (min-width: 481px) and (max-width: 767px) {
+	.my-name {
+		line-height: 140px;
+		margin-left: 60px;
+	}
+	.tab {
+		top: 85px;
+	}
+	.like-recipe-content li {
+		width: 33%;
+		height: 140px;
+		border: 5px solid transparent;
+		box-sizing: border-box;
+	}
+	.input-wrapper {
+		width: 130px;
+		height: 130px;
+	}
+	.img-submit::after {
+		width: 100%;
+		height: 100%;
+		line-height: 130px;
+	}
+	#tab1,
+	#tab2,
+	#tab3 {
+		padding: 10px;
+		font-size: 12px;
+	}
+	.post {
+		height: 250px;
+	}
+	.my-post-content li {
+		height: 250px;
+		margin: 10px 0;
+	}
+	.post > div {
+		height: 250px;
+		padding-top: 110px;
+		box-sizing: border-box;
+	}
+	.post > div > div {
+		transform: none;
+		font-size: 16px;
+		text-align: center;
+	}
+	.my-post-content p {
+		/* width:150px; */
+		/* border:1px solid red */
+	}
 }
-@media (min-width:396px) and (max-width:480px){
-  main{
-    font-size:16px;
-  }
-  
-  main section h3 {
-    margin-top:20px;
-    margin-bottom:20px;
-  }
-  .tab{
-    top:100px;
-  }
-  .my-name{
-    margin-left:120px;
-  }
-  .input-wrapper{
-    width: 130px;
-    height: 130px;
-  }
-  .img-submit::after{
-    width:100%;
-    height: 100%;
-    line-height: 130px;
-  }
-  #tab1,#tab2,#tab3{
-    padding:10px;
-  }
-  .post{
-    height: 200px;
-  }
-  .my-post-content li{
-    height: 200px;
-    margin:10px 0;
-  }
-  .post>div{
-    height: 200px;
-    padding-top: 70px;
-    box-sizing: border-box;
-  }
-  .post>div>div{
-    transform: none;
-    font-size:14px;
-  }
-  .my-post-content p {
-    width:130px;
-  }
+@media (min-width: 396px) and (max-width: 480px) {
+	main {
+		font-size: 16px;
+	}
+
+	main section h3 {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	.tab {
+		top: 100px;
+	}
+	.my-name {
+		margin-left: 120px;
+	}
+	.input-wrapper {
+		width: 130px;
+		height: 130px;
+	}
+	.img-submit::after {
+		width: 100%;
+		height: 100%;
+		line-height: 130px;
+	}
+	#tab1,
+	#tab2,
+	#tab3 {
+		padding: 10px;
+	}
+	.post {
+		height: 200px;
+	}
+	.my-post-content li {
+		height: 200px;
+		margin: 10px 0;
+	}
+	.post > div {
+		height: 200px;
+		padding-top: 70px;
+		box-sizing: border-box;
+	}
+	.post > div > div {
+		transform: none;
+		font-size: 14px;
+	}
+	.my-post-content p {
+		width: 130px;
+	}
 }
 
-@media (min-width:319px) and (max-width:395px){
-  main{
-    font-size: 14px;
-  }
-  .my-name{
-    margin-left:15%;
-    letter-spacing: 7px;
-    font-size:18px
-  }
+@media (min-width: 319px) and (max-width: 395px) {
+	main {
+		font-size: 14px;
+	}
+	.my-name {
+		margin-left: 15%;
+		letter-spacing: 7px;
+		font-size: 18px;
+	}
 
-  #tab1,#tab2,#tab3{
-    padding:10px 6px;
-  }
-  .tab>span{
-    margin:0;
-
-  }
-  .input-wrapper{
-    width: 100px;
-    height: 100px;
-  }
-  .img-submit::after{
-    width:100%;
-    height: 100%;
-    line-height: 100px;
-  }
-  .post{
-    /* height: 330px; */
-  }
-  .post>div>div{
-    font-size:14px;
-  }
-  .my-post-content p {
-      padding:0;
-      width:80px;
-  }
+	#tab1,
+	#tab2,
+	#tab3 {
+		padding: 10px 6px;
+	}
+	.tab > span {
+		margin: 0;
+	}
+	.input-wrapper {
+		width: 100px;
+		height: 100px;
+	}
+	.img-submit::after {
+		width: 100%;
+		height: 100%;
+		line-height: 100px;
+	}
+	.post {
+		/* height: 330px; */
+	}
+	.post > div > div {
+		font-size: 14px;
+	}
+	.my-post-content p {
+		padding: 0;
+		width: 80px;
+	}
 }

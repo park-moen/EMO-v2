@@ -13,9 +13,11 @@ type ingredientesDataType = {
 };
 
 const Cuisine = {
-	showRenderView: async () => cuisineTemplate(),
+	async showRenderView() {
+		return cuisineTemplate();
+	},
 
-	renderAfter: async () => {
+	async renderAfter() {
 		const $containerWrap = document.querySelector('.container-wrap') as HTMLDivElement;
 		const $backBtn = document.querySelector('.back-btn') as HTMLButtonElement;
 		const $preview = document.querySelector('.preview') as HTMLDivElement;
@@ -115,7 +117,8 @@ const Cuisine = {
 
 				if (unrefinedUserData) {
 					const refinedUserData = JSON.parse(unrefinedUserData);
-					sessionStorage.setItem(refinedUserData.id, JSON.stringify(target.getAttribute('href')));
+
+					sessionStorage.setItem(refinedUserData.id, JSON.stringify(cuisineRouteNameDom.getAttribute('route')));
 				}
 
 				$popup.style.display = 'block';

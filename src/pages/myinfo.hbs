@@ -1,0 +1,63 @@
+<div class='container-myinfo'>
+	<header class='header-myinfo'>
+		<h2>회원 정보</h2>
+	</header>
+	<main>
+		<div class='content-container'>
+			<section class='clearfix'>
+				<h3 class='title-myinfo'>회원정보</h3>
+				<div class='my-info clearfix'>
+					<span class='my-img a11y-hidden'>회원사진</span>
+					<form class='upload-image' method='GET'>
+						<fieldset class='input-wrapper'>
+							<input class='img-submit' type='file' accept='image/*' onchange='alert(this.value)' />
+						</fieldset>
+					</form>
+					<span class='my-name'></span>
+				</div>
+			</section>
+			<section class='category-wrapper'>
+				<h3 class='title-myinfo'># 카테고리</h3>
+				<ul class='my-info-category clearfix'>
+					<li class='like-recipe'>
+						<button id='tab1'># 찜한 레시피 보기</button>
+						<div class='tab tab1 active'>
+							<span># 찜한 레시피 보기</span>
+							<ul class='like-recipe-content clearfix'></ul>
+						</div>
+					</li>
+					<li class='add-my-recipe'>
+						<button id='tab2'># 나의 레시피 추가</button>
+						<div class='tab tab2'>
+							<span>나의 레시피 추가</span>
+							<div class='my-recipe-content'>
+								<!-- <p>이 기능은 현재 개발중입니다.</p> -->
+								<a href='#'>+</a>
+							</div>
+						</div>
+					</li>
+
+					<li class='view-my-post'>
+						<button id='tab3'># 나의 게시물 보기</button>
+						<div class='tab tab3'>
+							<span>나의 게시물 보기</span>
+							<ul class='my-post-content'>
+								<li>
+									<div class='post my-post-content1 clearfix'>
+										{{! <img src='../assets/image/my-recipe1.jpg' alt='이미지' /> }}
+										<div>
+											<div class='post-arr'>
+												<p>존맛탱 만두 튀김</p>
+												<span>2020.11.16</span>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</section>
+		</div>
+	</main>
+</div>

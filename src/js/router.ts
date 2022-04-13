@@ -5,6 +5,7 @@ import Ingredient from 'View/ingredient';
 import Cuisine from 'View/cuisine';
 import Memo from 'View/memo';
 import Recipe from 'View/recipe';
+import Myinfo from 'View/myinfo';
 
 import { conditionDisplayNav } from 'View/navigationBar';
 
@@ -19,6 +20,7 @@ const routes: any = {
 	'/cuisine': Cuisine,
 	'/recipe': Recipe,
 	'/memo': Memo,
+	'/myinfo': Myinfo,
 };
 
 export async function initialRoutes() {
