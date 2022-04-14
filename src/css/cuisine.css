@@ -285,9 +285,9 @@ header {
 	border: 1px solid;
 	text-align: center;
 	width: 200px;
-	height: auto;
-	/* background-color: #fff; */
-	background-color: black;
+	height: auo;
+
+	background-color: #fff;
 	padding: 20px;
 	position: fixed;
 	z-index: 2;

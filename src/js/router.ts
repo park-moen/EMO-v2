@@ -1,6 +1,7 @@
 // import memoTemplate from 'Page/memo.hbs';
 
 import Login from 'View/login';
+import Register from 'View/register';
 import Ingredient from 'View/ingredient';
 import Cuisine from 'View/cuisine';
 import Memo from 'View/memo';
@@ -17,6 +18,7 @@ const $rouutEl = document.getElementById('app') as HTMLDivElement;
 const routes: any = {
 	'/': Login,
 	'/login': Login,
+	'/register': Register,
 	'/ingredient': Ingredient,
 	'/cuisine': Cuisine,
 	'/recipe': Recipe,
@@ -33,7 +35,7 @@ export async function initialRoutes() {
 }
 
 export async function pushRouter(pathName: string, qureyId?: string) {
-	if (pathName === '/' || pathName === '/login') {
+	if (pathName === '/' || pathName === '/login' || pathName === '/register') {
 		conditionDisplayNav(false);
 	} else {
 		conditionDisplayNav(true);

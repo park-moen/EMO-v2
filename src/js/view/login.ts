@@ -72,12 +72,15 @@ const Login = {
 
 			$joinBtn.onclick = (e) => {
 				e.preventDefault();
+
+				const pathName = $joinBtn.getAttribute('route') || '';
+				pushRouter(pathName);
 			};
 
 			$intro.classList.add('play');
 
 			const Checksusers = () => {
-				const pathName = $submitBtn.getAttribute('route') as string;
+				const pathName = $submitBtn.getAttribute('route') || '';
 				const newitem = [...userChecks].find(({ id, password }) => {
 					return id === $idInput.value && password === $pwInput.value;
 				});

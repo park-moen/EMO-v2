@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/signup.css" />
-    <title>signUp</title>
-  </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/reset.css" />
+		<link rel="stylesheet" href="./css/signup.css" />
+		<title>signUp</title>
+	</head>
 
-  <body>
-    <div class="container">
-      <header class="header">
-        <h1 class="title">회원가입</h1>
-      </header>
-      <main class="main">
-        <form class="signup-form">
-          <div class="id-container">
-            <input type="text" id="user-id" autocomplete="off" placeholder="아이디" required />
-            <label for="user-id" class="a11y-hidden">ID</label>
-            <span class="alert-id">이미 사용중인 아이디입니다.</span>
-            <span class="alert-idReg">특수 문자를 제외한 영문, 숫자 6 ~ 12자로 작성해주세요.</span>
-          </div>
-          <div class="first-pw-container">
-            <input type="text" id="user-pw" autocomplete="off" placeholder="패스워드" required />
-            <label for="user-pw" class="a11y-hidden">PassWord</label>
-            <span class="alert-pwReg">특수 문자를 제외한 영문, 숫자 6 ~ 12자로 작성해주세요.</span>
-          </div>
-          <div class="second-pw-container">
-            <input type="text" id="user-pw-check" autocomplete="off" placeholder="패스워드 확인" required />
-            <label for="user-check-pw" class="a11y-hidden">PassWordCheck</label>
-            <span class="alert-pw">일치하지 않는 비밀번호입니다.</span>
-          </div>
-          <div class="name-container">
-            <input type="text" id="user-nickname" autocomplete="off" placeholder="닉네임" required />
-            <label for="user-ninkname" class="a11y-hidden">NickName</label>
-            <span class="alert-name">특수문자를 제외한 10글자 이내로 작성해주세요.</span>
-          </div>
-          <button class="sign-up" autocomplete="off" disabled>가입하기</button>
-        </form>
-        <div class="popup">
-          <h2>🍔회원 가입을 축하합니다🍔</h2>
-          <p>
-            원하는 요리 재료를 선택해서 레시피를 볼 수 있습니다. 나의 냉장고에 있는 재료를 선택해, 레시피를 살펴보세요🍏
-          </p>
-          <button class="btn-ok">OK</button>
-        </div>
-      </main>
-    </div>
-    <div class="overlay"></div>
-    <!-- <script src="./js/signup.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
-    <script src="./js/sign.js"></script>
-  </body>
+	<body>
+		<div class="container">
+			<header class="header">
+				<h1 class="title">회원가입</h1>
+			</header>
+			<main class="main">
+				<form class="signup-form">
+					<div class="id-container">
+						<input type="text" id="user-id" autocomplete="off" placeholder="아이디" required />
+						<label for="user-id" class="a11y-hidden">ID</label>
+						<span class="alert-id">이미 사용중인 아이디입니다.</span>
+						<span class="alert-idReg">특수 문자를 제외한 영문, 숫자 6 ~ 12자로 작성해주세요.</span>
+					</div>
+					<div class="first-pw-container">
+						<input type="text" id="user-pw" autocomplete="off" placeholder="패스워드" required />
+						<label for="user-pw" class="a11y-hidden">PassWord</label>
+						<span class="alert-pwReg">특수 문자를 제외한 영문, 숫자 6 ~ 12자로 작성해주세요.</span>
+					</div>
+					<div class="second-pw-container">
+						<input type="text" id="user-pw-check" autocomplete="off" placeholder="패스워드 확인" required />
+						<label for="user-check-pw" class="a11y-hidden">PassWordCheck</label>
+						<span class="alert-pw">일치하지 않는 비밀번호입니다.</span>
+					</div>
+					<div class="name-container">
+						<input type="text" id="user-nickname" autocomplete="off" placeholder="닉네임" required />
+						<label for="user-ninkname" class="a11y-hidden">NickName</label>
+						<span class="alert-name">특수문자를 제외한 10글자 이내로 작성해주세요.</span>
+					</div>
+					<button class="sign-up" autocomplete="off" disabled>가입하기</button>
+				</form>
+				<div class="popup">
+					<h2>🍔회원 가입을 축하합니다🍔</h2>
+					<p>
+						원하는 요리 재료를 선택해서 레시피를 볼 수 있습니다. 나의 냉장고에 있는 재료를 선택해, 레시피를 살펴보세요🍏
+					</p>
+					<button class="btn-ok">OK</button>
+				</div>
+			</main>
+		</div>
+		<div class="overlay"></div>
+		<!-- <script src="./js/signup.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+		<script src="./js/sign.js"></script>
+	</body>
 </html>
