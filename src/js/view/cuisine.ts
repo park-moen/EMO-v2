@@ -3,7 +3,7 @@ import { pushRouter } from 'JS/router';
 
 import cuisineTemplate from 'Page/cuisine.hbs';
 
-import imageTemplage from 'Image/어묵국.jpg';
+import imageTemplage from 'Image/깍두기볶음밥.jpg';
 
 type ingredientesDataType = {
 	id: number;
@@ -34,13 +34,13 @@ const Cuisine = {
 				html += `<div class='cuisine-container'>
 					<figure class='cuisine'>
 						<a href='#' route='/recipe?${id}'>
-							<div class='img-wrapper'>
-							<img src="${imageTemplage}" alt="${name}" />
+							<div class='cuisine-img-wrapper'>
+								<img src="${imageTemplage}" alt="${name}" />
 								<span class='difficulty'>${difficulty}</span>
 							</div>
-							<figcaption>${name}</figcaption>
+							<figcaption class='cuisine-img-name'>${name}</figcaption>
 						</a>
-						<a class='bookmark' href='#'>하이<i class='fas fa-bookmark'></i></a>
+						<a class='bookmark' href='#'>📌<i class='fas fa-bookmark'></i></a>
 					</figure>
 			</div>`;
 			});
@@ -122,12 +122,12 @@ const Cuisine = {
 					sessionStorage.setItem(refinedUserData.id, JSON.stringify(cuisineRouteNameDom.getAttribute('route')));
 				}
 
-				$popup.style.display = 'block';
+				$popup.style.display = 'flex';
 				$overlay.style.display = 'block';
 				setTimeout(() => {
 					$popup.style.display = 'none';
 					$overlay.style.display = 'none';
-				}, 1500);
+				}, 1250);
 			}
 		};
 	},
