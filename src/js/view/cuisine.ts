@@ -3,6 +3,8 @@ import { pushRouter } from 'JS/router';
 
 import cuisineTemplate from 'Page/cuisine.hbs';
 
+import imageTemplage from 'Image/어묵국.jpg';
+
 type ingredientesDataType = {
 	id: number;
 	img: string;
@@ -19,7 +21,7 @@ const Cuisine = {
 
 	async renderAfter() {
 		const $containerWrap = document.querySelector('.container-wrap') as HTMLDivElement;
-		const $backBtn = document.querySelector('.back-btn') as HTMLButtonElement;
+		const $backBtn = document.querySelector('.cuisine-back-btn') as HTMLButtonElement;
 		const $preview = document.querySelector('.preview') as HTMLDivElement;
 		const $previewList = document.querySelector('.preview-list') as HTMLUListElement;
 		const $popup = document.querySelector('.popup') as HTMLDivElement;
@@ -28,13 +30,12 @@ const Cuisine = {
 		const renderMain = (res: ingredientesDataType[]) => {
 			let html = '';
 
-			// <img src="${img}" alt="${name}" /> span.difficulty 앞에 들어갈야함
-
 			res.forEach(({ id, name, img, difficulty }) => {
 				html += `<div class='cuisine-container'>
 					<figure class='cuisine'>
 						<a href='#' route='/recipe?${id}'>
 							<div class='img-wrapper'>
+							<img src="${imageTemplage}" alt="${name}" />
 								<span class='difficulty'>${difficulty}</span>
 							</div>
 							<figcaption>${name}</figcaption>

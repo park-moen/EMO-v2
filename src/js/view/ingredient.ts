@@ -12,6 +12,7 @@ const Ingredient = {
 
 		const $ingredientes = document.querySelector('.ingredientes') as HTMLUListElement;
 		const $ingreItemContainer = document.querySelector('.ingre-item-container') as HTMLUListElement;
+		const $containerBtnWrap = document.querySelector('.container-btn-wrap') as HTMLDivElement;
 		const $refresh = document.querySelector('.refresh') as HTMLDivElement;
 		const $cookEnter = document.querySelector('.cookEnter') as HTMLDivElement;
 
@@ -38,14 +39,15 @@ const Ingredient = {
 
 			if (!target.matches('.ingredient > ul > li')) return;
 
-			if (target.textContent) {
-				ingredientName = target.textContent;
-			}
+			ingredientName = target.textContent || '';
 
+			console.log(target);
+
+			$ingredientes.style.paddingBottom = '200px';
 			$ingreItemContainer.classList.add('active');
+			$containerBtnWrap.classList.add('active');
 			$refresh.classList.add('active');
 			$cookEnter.classList.add('active');
-
 			target.classList.toggle('active');
 
 			if (target.matches('.active')) {
@@ -77,7 +79,9 @@ const Ingredient = {
 			const $eachIngredientList = [...document.querySelectorAll('.ingredient > ul > li')];
 
 			if (!ingredientes.length) {
+				$ingredientes.style.paddingBottom = '0px';
 				$ingreItemContainer.classList.remove('active');
+				$containerBtnWrap.classList.remove('active');
 				$refresh.classList.remove('active');
 				$cookEnter.classList.remove('active');
 				window.sessionStorage.clear();
@@ -105,7 +109,9 @@ const Ingredient = {
 		$refresh.onclick = () => {
 			ingredientes = [];
 
+			$ingredientes.style.paddingBottom = '0px';
 			$ingreItemContainer.classList.remove('active');
+			$containerBtnWrap.classList.remove('active');
 			$refresh.classList.remove('active');
 			$cookEnter.classList.remove('active');
 			window.sessionStorage.clear();

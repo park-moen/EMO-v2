@@ -5,7 +5,7 @@ body {
 header {
 	position: relative;
 }
-.back-btn {
+.cuisine-back-btn {
 	cursor: pointer;
 	position: absolute;
 	top: 30px;

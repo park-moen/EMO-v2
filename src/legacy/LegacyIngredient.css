@@ -1,3 +1,7 @@
+/* 기본 css*/
+.banner {
+	display: none;
+}
 .fa-chevron-down {
 	float: right;
 	cursor: pointer;
@@ -15,15 +19,50 @@
 	flex-wrap: wrap;
 }
 
+.main-inner {
+	margin: 40px 20px 40px;
+	text-align: center;
+}
+
+.ingredient-name h3,
+.category h3 {
+	display: inline-block;
+	padding: 20px;
+	text-align: left;
+	/* background-color: #444; */
+}
+
+.category h3 .ingredient-list-title {
+	padding: 20px 0;
+	text-align: left;
+}
+
+.ingredient-name li,
+.category li {
+	display: inline-block;
+	padding: 20px;
+	vertical-align: middle;
+	min-width: 300px;
+	/* background-color: #fff; */
+}
+
+.category select {
+	margin-right: 10px;
+}
+
+.ingredient-name button {
+	margin-left: 10px;
+}
+
 .category {
 	position: relative;
 	display: block;
 	padding: 15px;
 	background-color: #e9eaec;
 	color: #333;
+	z-index: 15;
 	border-bottom: 1px solid #666;
 	cursor: pointer;
-	/* z-index: 15; */
 }
 
 .ingredient {
@@ -37,7 +76,6 @@
 
 .ingredient.view {
 	display: block;
-	background-color: #fff;
 }
 
 .ingredient ul {
@@ -53,6 +91,7 @@
 	padding: 10px 15px;
 	border: 2px solid #888;
 	border-radius: 15px;
+	display: inline-block;
 	cursor: pointer;
 }
 
@@ -62,12 +101,14 @@
 }
 
 .ingre-item-container {
+	/* display: none; */
 	overflow: scroll;
 	position: fixed;
 	max-width: 100%;
 	width: 1024px;
 	height: 200px;
 	bottom: 60px;
+	z-index: 20;
 	border: 2px solid black;
 	border-radius: 20px 20px 0 0;
 	box-sizing: border-box;
@@ -104,30 +145,34 @@
 }
 
 .container-btn-wrap {
+	/* display: none; */
+	text-align: right;
 	position: fixed;
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
-	right: 0;
+	max-width: 100%;
+	width: 1024px;
+	height: 60px;
 	z-index: 20;
 	bottom: 260px;
+	border: 1px solid black;
 	transition: transform 0.8s ease;
-	transform: translateY(750px);
-	opacity: 1;
+	/* transform: translateY(750px); */
 }
 
 .cookEnter {
-	padding: 15px 17.5px;
+	display: inline-block;
+	width: 100px;
+	height: 50px;
 	border-radius: 10px;
 	bottom: 270px;
 	transform: translate(50%);
-	line-height: 20px;
+	z-index: 15;
+	line-height: 50px;
 	text-align: center;
 	background-color: #fff;
 	color: #e47921;
 	border: 2px solid #e47921;
 	box-sizing: border-box;
-	transition: transform 0.7s ease;
+	transition: transform 0.8s ease;
 	transform: translateY(750px);
 }
 
@@ -138,24 +183,25 @@
 }
 
 .refresh {
-	width: 54px;
-	height: 54px;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
 	border-radius: 10px;
 	bottom: 270px;
 	transform: translate(50%);
+	z-index: 15;
 	line-height: 50px;
 	text-align: center;
 	background-color: #fff;
 	color: #e47921;
 	border: 2px solid #e47921;
 	box-sizing: border-box;
-	transition: transform 0.7s ease;
+	transition: transform 0.8s ease;
 	transform: translateY(750px);
 }
 
 .refresh.active,
-.cookEnter.active,
-.container-btn-wrap.active {
+.cookEnter.active {
 	transform: translateY(0px);
 }
 
@@ -163,4 +209,44 @@
 	background-color: #e47921;
 	color: #fff;
 	border: 2px solid #e47921;
+}
+
+.ingredientes {
+	padding-bottom: 200px;
+}
+
+@media (min-width: 1024px) {
+	.banner {
+		display: block;
+		width: 100%;
+		height: 400px;
+		/* background: url(../image/bg2.jpg) no-repeat; */
+		background-size: 100%;
+		position: relative;
+		text-align: center;
+		line-height: 50px;
+	}
+
+	.banner::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: rgba(29, 29, 29, 0.3);
+	}
+	.banner h2 {
+		font-size: 24px;
+	}
+	.banner div {
+		position: absolute;
+		margin-top: 100px;
+		z-index: 100;
+		width: 600px;
+		padding: 20px;
+		left: calc(50% - 300px);
+		color: #fff;
+		word-wrap: break-word;
+	}
 }
