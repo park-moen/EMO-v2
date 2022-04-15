@@ -41,8 +41,6 @@ const Ingredient = {
 
 			ingredientName = target.textContent || '';
 
-			console.log(target);
-
 			$ingredientes.style.paddingBottom = '200px';
 			$ingreItemContainer.classList.add('active');
 			$containerBtnWrap.classList.add('active');

@@ -1,31 +1,25 @@
-button {
-	background-color: transparent;
-	outline: none;
-	border: none;
-	cursor: pointer;
-}
-
-.header-memo {
+.memo-header {
 	position: relative;
 }
-.header-memo .prev {
-	position: absolute;
-	top: 14px;
-	left: 20px;
-	padding: 15px;
-}
 
-.cart-container {
-	height: 100%;
+.cart-memo-container {
 	padding: 0 15px;
 	padding-top: 20px;
 	color: #333;
+	background-color: #fff;
+	min-height: 82vh;
+}
+
+.cart-memo-container > h3 {
+	color: #333;
+	font-weight: 600;
 }
 
 .cart-memo {
 	margin-top: 20px;
 }
-.cart-memo > input {
+
+.cart-memo > .cart-memo-input {
 	width: 100%;
 	padding: 15px 30px;
 	border: none;
@@ -33,22 +27,24 @@ button {
 	border-radius: 30px;
 	background-color: rgb(250, 169, 63, 0.9);
 	margin-bottom: 20px;
-	color: #333;
+	color: rgba(255, 255, 255, 0.9);
 	outline: none;
 	font-size: 18px;
 }
-.cart-memo > input::placeholder {
-	color: #fff;
+.cart-memo > .cart-memo-input::placeholder {
+	color: rgba(255, 255, 255, 0.9);
+	font-size: 15px;
+	font-weight: 500;
 }
+
 .cart-memo-list {
+	height: 40vh;
 	padding: 10px;
 	overflow: auto;
-	min-height: 300px;
 	border: 1px solid rgba(250, 169, 63, 0.6);
 }
 .cart-memo-list li {
 	position: relative;
-	/* display: block; */
 	height: 30px;
 	padding: 10px 15px;
 	margin-bottom: -1px;
@@ -75,6 +71,7 @@ button {
 	cursor: pointer;
 	user-select: none;
 }
+
 .checkbox + label::after {
 	content: '';
 	position: absolute;
@@ -86,57 +83,58 @@ button {
 	background-color: rgba(250, 169, 63, 0.3);
 }
 .checkbox:checked + label::after {
-	content: '';
-	width: 16px;
-	height: 16px;
-	position: absolute;
-	top: 50%;
-	/* left:1; */
-	transform: translate3d(0, -50%, 0);
-	/* background-color: rgba(250, 169, 63, 0.7); */
-	background-color: red;
+	background-color: rgba(250, 169, 63, 0.9);
 }
 
-.cart-memo-list i {
+.cart-memo-list .remove {
 	position: absolute;
 	top: 50%;
 	transform: translate3d(0, -50%, 0);
 	right: 15px;
 	padding: 5px 9px;
-	/* border:1px solid rgba(250,169,63,0.8); */
-	border-radius: 20px;
 	cursor: pointer;
-	color: rgb(158, 158, 158);
+	color: rgba(0, 0, 0, 0.4);
 }
-.cart-memo-list i:hover {
+.cart-memo-list .remove:hover {
+	border: 1px sold transparent;
+	border-radius: 20px;
 	color: #fff;
-	/* padding:5px 9px; */
-	background-color: rgba(250, 169, 63, 0.8);
+	background-color: rgba(250, 169, 63, 0.7);
 }
 .cart-all-btns {
 	position: relative;
 	height: 50px;
-	bottom: 0;
-	/* padding: 10px 15px;
-  margin-bottom: -1px; */
+	padding: 10px 15px;
 }
 .cart-all-btns .checkbox + label::after {
 	background-color: transparent;
-	width: 20px;
-	height: 20px;
+	width: 17px;
+	height: 17px;
 	border: 2px solid rgba(250, 169, 63, 0.7);
 	box-sizing: border-box;
 }
 .cart-all-btns .checkbox:checked + label::after {
-	/* background-color: rgba(250, 169, 63, 0.8); */
-	background: red;
+	background-color: rgba(250, 169, 63, 0.8);
 }
+
+.cart-all-btns label[for='cart-all-check'] {
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.7);
+	font-weight: 500;
+}
+
 .cart-all-remove {
+	background-color: transparent;
+	outline: none;
+	border: none;
+	cursor: pointer;
 	position: absolute;
 	right: 10px;
 	top: 50%;
 	transform: translate3d(0, -50%, 0);
 	font-size: 16px;
+	color: rgba(0, 0, 0, 0.7);
+	font-weight: 500;
 }
 
 .clearfix::after {

@@ -1,42 +1,35 @@
-/* .container{
-  width: 1024px;
-  margin:0 auto
-} */
-main {
-	/* height: 100%; */
-	/* padding: 5%;
+.myinfo-container {
 	box-sizing: border-box;
-	color: #333;
-	margin-bottom: 65px;
 	font-size: 20px;
-	position: relative; */
+	background-color: #fff;
 }
 
-.container-myinfo {
-	box-sizing: border-box;
-	color: #333;
-	margin-bottom: 65px;
+.myinfo-main {
+	color: rgba(0, 0, 0, 0.6);
 	font-size: 20px;
 	position: relative;
 }
 
-.title-myinfo {
-	margin-top: 20px;
-	margin-bottom: 10px;
+.content-container {
+	padding: 5%;
+	height: 100vh;
+}
+
+.content-container > section {
+	margin-bottom: 40px;
+}
+
+.myinfo-title {
+	margin: 20px 0;
 }
 
 .my-info {
-	padding-bottom: 20px;
 	border-bottom: 1px solid black;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
-.content-container {
-	padding: 5%;
-}
-
-.upload-image {
-	float: left;
-}
 .input-wrapper {
 	position: relative;
 	border-radius: 50%;
@@ -48,14 +41,11 @@ main {
 	background-size: cover;
 }
 
-my-post-content1 {
-	background: url(../assets/image/my-recipe1.jpg) no-repeat;
-}
-
 .img-submit {
 	width: 0;
 	height: 0;
 }
+
 .img-submit::after {
 	content: '+';
 	position: absolute;
@@ -75,50 +65,59 @@ my-post-content1 {
 	background-color: rgb(0, 0, 0, 0.4);
 }
 
-.my-info-category > li > button {
-	border: 3px solid rgba(235, 235, 235, 0.548);
-	border-radius: 20px;
-	padding: 10px;
-	float: left;
-	margin-bottom: 5px;
-	margin-right: 8px;
-	box-sizing: border-box;
-	font-weight: 600;
-	font-size: 10px;
-	color: #333;
-}
-
 .my-name {
-	float: left;
-	line-height: 100px;
 	letter-spacing: 10px;
-	margin-left: 15%;
+	/* margin-left: 15%; */
 	font-size: 24px;
 }
+
+.category-wrapper {
+	height: 40%;
+	position: relative;
+}
+
+.my-info-category {
+	box-sizing: border-box;
+	display: flex;
+	gap: 15px;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+/* 모바일 뷰 필요 */
+.my-info-category > li > button {
+	border: 3px solid rgba(235, 235, 235, 1);
+	border-radius: 20px;
+	font-weight: 700;
+	font-size: 10px;
+	color: rgba(0, 0, 0, 0.6);
+}
+
 .my-info-category > li > button.attive,
 .my-info-category > li > button:hover {
 	background-color: #faa93f;
 	border-color: transparent;
 	color: #fff;
 }
-.category-wrapper {
-	height: 100%;
-	position: relative;
-	height: 500px;
-}
-.my-info-category {
-	padding: 2px;
-	box-sizing: border-box;
-}
 
 .tab {
 	width: 100%;
 	position: absolute;
-	top: 130px;
+	top: 150px;
+	left: 0;
 	color: #000;
 	display: none;
 	margin-bottom: 80px;
 }
+
+#tab1,
+#tab2,
+#tab3 {
+	padding: 15px;
+	border-radius: 30px;
+	font-size: 14px;
+}
+
 .tab.active {
 	display: block;
 }
@@ -131,20 +130,24 @@ my-post-content1 {
 	margin: 6px 0 10px;
 	background-color: black;
 }
-.my-info-category > span {
+
+.my-info-category span {
 	display: inline-block;
 	width: 100%;
-	margin: 15px 0;
+	color: rgba(0, 0, 0, 0.6);
+	margin-top: 10px;
 }
 
+/* 찜한 레시피 보기 style */
 .like-recipe-content li {
-	border: 2px solid transparent;
+	/* border: 2px solid transparent;
 	float: left;
 	width: 25%;
-	padding: 5px;
+	padding: 5px; */
+	margin-top: 10px;
 	box-sizing: border-box;
 	overflow: hidden;
-	height: 80px;
+	height: 100px;
 }
 .like-recipe-content li img {
 	max-height: 100%;
@@ -153,6 +156,7 @@ my-post-content1 {
 /* .like-recipe-content li:hover{
 background-color: rgba(0, 0, 0, 0.815);
 } */
+
 .my-recipe-content {
 	border: 3px dashed #ddd;
 	margin-top: 10px;
@@ -176,79 +180,54 @@ background-color: rgba(0, 0, 0, 0.815);
 	box-sizing: border-box;
 }
 
-.my-post-content li {
-	height: 130px;
-	margin: 10px 0;
-}
 .post {
-	text-align: center;
-	height: 130px;
-	font-size: 15px;
-	border-radius: 10px;
-	border: 1px solid #000;
-	box-sizing: border-box;
+	height: 200px;
 }
-.my-post-content p {
-	display: inline-block;
-	width: 100%;
-	margin-bottom: 10px;
-	line-height: 1.3;
-}
-.my-post-content span {
-	display: block;
-	font-size: 14px;
-}
-.post img {
-	border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-	float: left;
-	width: 50%;
-	height: 100%;
-	background-color: #000;
+
+.my-post-content {
+	background: url(../assets/image/my-recipe1.jpg) no-repeat;
+	background-size: 100%;
+	background-position: center;
 }
 
 .post > div {
-	height: 130px;
+	height: 100%;
 	width: 50%;
 	float: right;
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
 	background-color: rgba(12, 12, 11, 0.753);
-	color: #fff;
+	text-align: center;
+	font-size: 18px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
-.post > div > div {
-	transform: translateY(50%);
+
+.post-arr {
+	/* justify-content: center; */
+
+	/* transform: translateY(60%); */
 }
+
+.my-post-content p {
+	margin-bottom: 10px;
+	/* line-height: 1.3; */
+	color: rgba(255, 255, 255, 0.8);
+}
+.my-post-content span {
+	display: block;
+	font-size: 16px;
+	color: rgba(255, 255, 255, 0.6);
+}
+.post img {
+	height: 100%;
+}
+
 .post:hover {
 	background-color: rgba(0, 0, 0, 0.856);
 	color: #fff;
 }
 
-/* @media (min-width: 1281px) {
-  .tab{
-    top:120px;
-  }
-  .my-name{
-    line-height: 200px;
-  }
-  .like-recipe-content li {
-    width: calc(100% / 3);
-    height: 300px;
-    border:10px solid transparent;
-    box-sizing: border-box;
-  }
-  .like-recipe-content li img{
-    transform: scale3d(1.5,1.5,1.5);
-    margin: 10px;
-  }
-  #tab1,#tab2,#tab3{
-    padding:15px 30px;
-    margin-right:15px;
-    font-size:16px;
-    border-radius: 30px;
-  }
-} */
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
 	.tab {
 		top: 120px;
 	}
@@ -291,70 +270,49 @@ background-color: rgba(0, 0, 0, 0.815);
 		transform: none;
 		font-size: 20px;
 	}
-}
+} */
+
 @media (min-width: 768px) and (max-width: 1024px) {
 	.my-name {
-		margin-left: 100px;
-		font-size: 24px;
+		font-size: 32px;
 		line-height: 200px;
 	}
-	/* .category-wrapper{
-    height: 800px;
-  } */
-	.tab {
-		top: 120px;
+
+	.content-container {
+		padding: 5%;
+		/* height: 90vh; */
 	}
+
 	.like-recipe-content li {
-		width: 50%;
-		height: 300px;
-		border: 10px solid transparent;
-		box-sizing: border-box;
+		width: 40%;
+		height: 200px;
 	}
 	.like-recipe-content li img {
 		transform: scale3d(1.5, 1.5, 1.5);
 		margin: 10px;
 		display: inline-block;
 	}
-	#tab1,
-	#tab2,
-	#tab3 {
-		padding: 15px;
-		border-radius: 30px;
-		font-size: 14px;
+
+	.my-post-content p {
+		font-size: 24px;
 	}
-	.post {
-		height: 290px;
-	}
-	.my-post-content li {
-		height: 290px;
-		margin: 10px 0;
-	}
-	.post > div {
-		height: 290px;
-		padding: 100px;
-		box-sizing: border-box;
-	}
-	.post > div > div {
-		transform: none;
+
+	.my-post-content span {
 		font-size: 20px;
 	}
-	.my-post-content p {
-		/* width:200px; */
-	}
 }
+
 @media (min-width: 481px) and (max-width: 767px) {
 	.my-name {
-		line-height: 140px;
-		margin-left: 60px;
-	}
-	.tab {
-		top: 85px;
+		font-size: 28px;
 	}
 	.like-recipe-content li {
 		width: 33%;
 		height: 140px;
-		border: 5px solid transparent;
-		box-sizing: border-box;
+	}
+
+	.tab {
+		top: 120px;
 	}
 	.input-wrapper {
 		width: 130px;
@@ -371,95 +329,59 @@ background-color: rgba(0, 0, 0, 0.815);
 		padding: 10px;
 		font-size: 12px;
 	}
-	.post {
-		height: 250px;
-	}
-	.my-post-content li {
-		height: 250px;
-		margin: 10px 0;
-	}
-	.post > div {
-		height: 250px;
-		padding-top: 110px;
-		box-sizing: border-box;
-	}
-	.post > div > div {
-		transform: none;
-		font-size: 16px;
-		text-align: center;
-	}
-	.my-post-content p {
-		/* width:150px; */
-		/* border:1px solid red */
-	}
 }
-@media (min-width: 396px) and (max-width: 480px) {
-	main {
-		font-size: 16px;
-	}
 
-	main section h3 {
-		margin-top: 20px;
-		margin-bottom: 20px;
+@media (min-width: 396px) and (max-width: 480px) {
+	.my-name {
+		font-size: 24px;
 	}
 	.tab {
-		top: 100px;
-	}
-	.my-name {
-		margin-left: 120px;
+		top: 120px;
 	}
 	.input-wrapper {
-		width: 130px;
-		height: 130px;
+		width: 110px;
+		height: 110px;
 	}
 	.img-submit::after {
 		width: 100%;
 		height: 100%;
-		line-height: 130px;
+		line-height: 120px;
 	}
 	#tab1,
 	#tab2,
 	#tab3 {
 		padding: 10px;
+		font-size: 12px;
 	}
-	.post {
-		height: 200px;
-	}
-	.my-post-content li {
-		height: 200px;
-		margin: 10px 0;
-	}
-	.post > div {
-		height: 200px;
-		padding-top: 70px;
-		box-sizing: border-box;
-	}
-	.post > div > div {
-		transform: none;
-		font-size: 14px;
-	}
-	.my-post-content p {
-		width: 130px;
+
+	.my-info-category {
+		gap: 4px;
 	}
 }
 
 @media (min-width: 319px) and (max-width: 395px) {
-	main {
-		font-size: 14px;
-	}
-	.my-name {
-		margin-left: 15%;
-		letter-spacing: 7px;
-		font-size: 18px;
+	.content-container {
+		padding: 5%;
+		height: 110vh;
 	}
 
+	.tab {
+		top: 100px;
+	}
+
+	.my-name {
+		letter-spacing: 7px;
+		font-size: 20px;
+	}
 	#tab1,
 	#tab2,
 	#tab3 {
 		padding: 10px 6px;
+		font-size: 10px;
 	}
-	.tab > span {
-		margin: 0;
+
+	.my-info-category {
+		gap: 2.5px;
 	}
 	.input-wrapper {
 		width: 100px;
@@ -470,14 +392,12 @@ background-color: rgba(0, 0, 0, 0.815);
 		height: 100%;
 		line-height: 100px;
 	}
-	.post {
-		/* height: 330px; */
+
+	.post > div {
+		font-size: 16px;
 	}
-	.post > div > div {
+
+	.my-post-content span {
 		font-size: 14px;
-	}
-	.my-post-content p {
-		padding: 0;
-		width: 80px;
 	}
 }

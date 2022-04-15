@@ -342,23 +342,7 @@
       ]
     }
   ],
-  "cartmemos": [
-    {
-      "id": "cart-item1",
-      "content": "asd",
-      "completed": true
-    },
-    {
-      "id": "cart-item2",
-      "content": "asd",
-      "completed": true
-    },
-    {
-      "id": "cart-item3",
-      "content": "asd",
-      "completed": true
-    }
-  ],
+  "cartmemos": [],
   "users": [
     {
       "id": "asd",

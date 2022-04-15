@@ -1,0 +1,211 @@
+.total-recommend-container {
+	background-color: #f8f8f8;
+}
+
+.recommend-header {
+	position: relative;
+}
+
+.recommend-difficulty {
+	border: 2px solid #888;
+	border-radius: 50%;
+	background-color: var(--main-color);
+	color: #f8f8f8;
+	padding: 5px;
+	position: absolute;
+	font-size: 25px;
+	font-weight: 400;
+	top: 10px;
+	right: 10px;
+}
+.recommend-img-wrapper {
+	position: relative;
+}
+
+/* 공통 style */
+.recommend-container-wrap {
+	margin: 10px 0;
+}
+
+.recommend-main {
+	width: 100%;
+	color: #333;
+	font-weight: 600;
+	margin: 0 auto;
+	font-size: 18px;
+}
+
+.recommend-container {
+	width: 90%;
+	margin: auto;
+	margin-bottom: 20px;
+	background-color: #fff;
+}
+
+.recommend-img-wrapper {
+	margin-bottom: 20px;
+	width: 100%;
+	height: 330px;
+	transform-origin: scale(1.5);
+}
+
+.recommend-img-wrapper img {
+	width: 100%;
+	max-height: 90%;
+}
+
+.recommend-img-name {
+	display: inline-block;
+	margin-left: 10px;
+	position: relative;
+	color: #333;
+	font-size: 18px;
+}
+
+.bookmark {
+	margin-top: 10px;
+	margin-right: 20px;
+	float: right;
+	font-size: 20px;
+	position: absolute;
+	bottom: 10px;
+	right: 0;
+}
+
+.fa-bookmark {
+	margin-top: 10px;
+	margin-right: 20px;
+	float: right;
+	position: absolute;
+	bottom: 10px;
+	right: 0;
+}
+
+@media (min-width: 768px) {
+	.recommend-main {
+		font-size: 18px;
+	}
+
+	.recommend-wrap {
+		margin: 40px 0;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.recommend-container {
+		width: 45%;
+	}
+
+	.recommend {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 10px;
+		box-sizing: border-box;
+		position: relative;
+		border: 5px solid transparent;
+	}
+
+	.recommend-img-name {
+		font-size: 24px;
+	}
+
+	/* 여기부터 */
+	.bookmark {
+		font-size: 28px;
+	}
+}
+
+/* 모바일 사이즈 */
+@media (min-width: 375px) and (max-width: 767px) {
+	.recommend-main {
+		font-size: 14px;
+	}
+
+	.recommend-container {
+		width: 85%;
+	}
+
+	.recommend {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 10px;
+		box-sizing: border-box;
+		position: relative;
+	}
+
+	.recommend-img-wrapper {
+		height: 300px;
+		transform-origin: scale(1.7);
+	}
+
+	.recommend-img-name {
+		font-size: 22.5px;
+	}
+
+	/* 여기부터 */
+	.bookmark {
+		font-size: 25px;
+	}
+}
+@media (min-width: 319px) and (max-width: 374px) {
+	.recommend-main {
+		font-size: 14px;
+	}
+
+	.recommend-container {
+		width: 85%;
+	}
+
+	.recommend {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 10px;
+		box-sizing: border-box;
+		position: relative;
+	}
+
+	.recommend-img-wrapper {
+		height: 200px;
+		transform-origin: scale(1.5);
+	}
+
+	.recommend-img-name {
+		display: inline-block;
+		margin-left: 10px;
+		font-size: 18px;
+		color: #333;
+	}
+	.bookmark {
+		font-size: 20px;
+	}
+}
+
+/* .popup {
+	border: none;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 1.4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 50px;
+	background-color: #f8f8f8;
+	padding: 15px;
+	position: fixed;
+	z-index: 2;
+	top: 35%;
+	left: 50%;
+	transform: translateX(-50%);
+	display: none;
+}
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 1;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: none;
+} */
