@@ -1,5 +1,6 @@
 .total-cuisine-container {
 	background-color: #f8f8f8;
+	min-height: 100vh;
 }
 
 .cuisine-header {

@@ -342,7 +342,43 @@
       ]
     }
   ],
-  "cartmemos": [],
+  "cartmemos": [
+    {
+      "id": "cart-item1",
+      "content": "sadfsadf",
+      "completed": false
+    },
+    {
+      "id": "cart-item2",
+      "content": "sdfasdf",
+      "completed": false
+    },
+    {
+      "id": "cart-item3",
+      "content": "asdfasdf",
+      "completed": false
+    },
+    {
+      "id": "cart-item4",
+      "content": "asdfsadf",
+      "completed": false
+    },
+    {
+      "id": "cart-item5",
+      "content": "sadfsaf",
+      "completed": false
+    },
+    {
+      "id": "cart-item6",
+      "content": "sadfsad",
+      "completed": false
+    },
+    {
+      "id": "cart-item7",
+      "content": "asdfsadf",
+      "completed": false
+    }
+  ],
   "users": [
     {
       "id": "asd",
@@ -378,6 +414,11 @@
       "id": "123123123",
       "password": "123123",
       "nickname": "123"
+    },
+    {
+      "id": "asd111",
+      "password": "asdasd11",
+      "nickname": "ㅋㅋ"
     }
   ]
 }

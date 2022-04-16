@@ -30,9 +30,15 @@ button {
 	cursor: pointer;
 }
 
+html {
+	height: 100%;
+}
+
 body {
 	font-family: var(--main-font);
+	height: 100%;
 }
+
 .container {
 	max-width: 100%;
 	width: 1024px;
@@ -46,6 +52,10 @@ header {
 	font-size: 20px;
 	text-align: center;
 	color: #fff;
+}
+
+#app {
+	height: 100%;
 }
 /* nav {
 	width: 100%;

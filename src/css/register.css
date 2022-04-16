@@ -47,21 +47,27 @@
 
 .register-container {
 	max-width: 1024px;
-	width: 780px;
+	/* width: 780px; */
+	height: 100vh;
 	margin: 0 auto;
+	background: #fff;
 }
+
 .register-header {
 	margin-bottom: 90px;
 }
+
 .register-title {
 	font-size: 35px;
 }
+
 .register-main {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
+
 .register-container input::placeholder {
 	color: #faa93f;
 }
@@ -71,7 +77,6 @@
 #user-pw-check,
 #user-nickname {
 	display: block;
-	background: #f8f8f8;
 	border: 0;
 	border-bottom: 1px solid #faa93f;
 	margin-bottom: 20px;
@@ -116,4 +121,22 @@ span[class^='alert'] {
 }
 .block {
 	display: block !important;
+}
+
+@media (min-width: 768px) {
+	.register-header {
+		margin-bottom: 150px;
+	}
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+	.register-header {
+		margin-bottom: 110px;
+	}
+}
+
+@media (min-width: 319px) and (max-width: 374px) {
+	.register-header {
+		margin-bottom: 110px;
+	}
 }
