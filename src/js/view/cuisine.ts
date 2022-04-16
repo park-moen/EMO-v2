@@ -1,9 +1,11 @@
 import 'CSS/cuisine.css';
-import { pushRouter } from 'JS/router';
 
 import cuisineTemplate from 'Page/cuisine.hbs';
 
 import imageTemplage from 'Image/깍두기볶음밥.jpg';
+
+import { pushRouter } from 'JS/router';
+import { timeModal } from 'JS/utils';
 
 type ingredientesDataType = {
 	id: number;
@@ -14,7 +16,15 @@ type ingredientesDataType = {
 	recipe: string[];
 };
 
-const Cuisine = {
+type Cuisine = {
+	urls: string[];
+	showRenderView: () => Promise<string>;
+	renderAfter: () => Promise<void>;
+	pushCuisineRoute: (target: HTMLElement) => void;
+};
+
+const Cuisine: Cuisine = {
+	urls: [],
 	async showRenderView() {
 		return cuisineTemplate();
 	},
@@ -24,8 +34,6 @@ const Cuisine = {
 		const $backBtn = document.querySelector('.cuisine-back-btn') as HTMLButtonElement;
 		const $preview = document.querySelector('.preview') as HTMLDivElement;
 		const $previewList = document.querySelector('.preview-list') as HTMLUListElement;
-		const $popup = document.querySelector('.popup') as HTMLDivElement;
-		const $overlay = document.querySelector('.overlay') as HTMLDivElement;
 
 		const renderMain = (res: ingredientesDataType[]) => {
 			let html = '';
@@ -33,14 +41,14 @@ const Cuisine = {
 			res.forEach(({ id, name, img, difficulty }) => {
 				html += `<div class='cuisine-container'>
 					<figure class='cuisine'>
-						<a class="cuisine-wrapper" href='#' route='/recipe?${id}'>
+						<a class="cuisine-wrapper" href='#' route='/recipe:${id}'>
 							<div class='cuisine-img-wrapper'>
 								<img src="${imageTemplage}" alt="${name}" />
 								<span class='difficulty'>${difficulty}</span>
 							</div>
 							<figcaption class='cuisine-img-name'>${name}</figcaption>
 						</a>
-						<a class='bookmark' href='#' route='/recipe?${id}'>📌<i class='fas fa-bookmark'></i></a>
+						<a class='bookmark' href='#' route='/recipe:${id}'>📌<i class='fas fa-bookmark'></i></a>
 					</figure>
 			</div>`;
 			});
@@ -71,8 +79,6 @@ const Cuisine = {
 					}
 				});
 
-				console.log(result);
-
 				renderMain([...new Set(result)]);
 			} catch (e) {
 				console.error(e);
@@ -81,7 +87,6 @@ const Cuisine = {
 
 		// back btn route 연결하기
 		$backBtn.onclick = () => {
-			// window.location.assign('/ingredient.html');
 			console.log('뒤로가기');
 		};
 
@@ -97,33 +102,21 @@ const Cuisine = {
 			}
 		})();
 
-		const urls: string[] = [];
 		$containerWrap.onclick = (e) => {
 			const target = e.target as HTMLDivElement;
 
 			e.preventDefault();
 
-			// console.log(target.parentElement?.matches);
-
 			if (!target.matches('.fa-bookmark') && !target.matches('.bookmark')) {
 				this.pushCuisineRoute(target);
 			} else {
-				urls.push(target.getAttribute('route') || '');
+				const userData = JSON.parse(sessionStorage.getItem('login') || '');
 
-				const unrefinedUserData = sessionStorage.getItem('login');
+				this.urls = [...new Set([...this.urls, target.getAttribute('route') || ''])];
 
-				if (unrefinedUserData) {
-					const refinedUserData = JSON.parse(unrefinedUserData);
+				sessionStorage.setItem(userData.id, JSON.stringify(this.urls));
 
-					sessionStorage.setItem(refinedUserData.id, JSON.stringify(urls));
-				}
-
-				$popup.style.display = 'flex';
-				$overlay.style.display = 'block';
-				setTimeout(() => {
-					$popup.style.display = 'none';
-					$overlay.style.display = 'none';
-				}, 1250);
+				timeModal();
 			}
 		};
 	},
@@ -132,9 +125,11 @@ const Cuisine = {
 		let fullPathName: string[] | undefined = [];
 
 		if (target.parentElement?.matches('.cuisine-wrapper')) {
-			fullPathName = target.parentElement?.getAttribute('route')?.split('?');
+			fullPathName = target.parentElement?.getAttribute('route')?.split(':');
 		} else if (target.parentElement?.matches('.cuisine-img-wrapper')) {
-			fullPathName = target.parentElement?.parentElement?.getAttribute('route')?.split('?');
+			fullPathName = target.parentElement?.parentElement?.getAttribute('route')?.split(':');
+		} else if (target.matches('.cuisine')) {
+			fullPathName = target.firstElementChild?.getAttribute('route')?.split(':');
 		}
 
 		if (fullPathName) {

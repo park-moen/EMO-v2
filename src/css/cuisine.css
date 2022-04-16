@@ -85,6 +85,7 @@
 }
 
 .cuisine-img-name {
+	width: 85%;
 	display: inline-block;
 	margin-left: 10px;
 	position: relative;

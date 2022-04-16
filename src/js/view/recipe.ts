@@ -4,6 +4,8 @@ import recipeTemplate from 'Page/recipe.hbs';
 
 import imageTemp from 'Image/김치볶음밥.jpg';
 
+import { timeModal } from 'JS/utils';
+
 type FoodListData = {
 	id: number;
 	name: string;
@@ -49,11 +51,15 @@ const Recipe: Recipe = {
 		};
 
 		$bookMark.onclick = (e) => {
-			const url = window.location.href;
-			const userId = JSON.parse(window.sessionStorage.getItem('login') || '');
-
 			e.preventDefault();
-			window.sessionStorage.setItem(userId.id, JSON.stringify(url));
+
+			const url = window.location.pathname;
+			const userId = JSON.parse(window.sessionStorage.getItem('login') || '').id;
+			const bookmarks = JSON.parse(window.sessionStorage.getItem(userId || '') || '[]');
+
+			window.sessionStorage.setItem(userId, JSON.stringify([...new Set([...bookmarks, url])]));
+
+			timeModal();
 		};
 	},
 
