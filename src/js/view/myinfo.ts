@@ -21,13 +21,13 @@ type CuisinAllListType = {
 
 type Myinfo = {
 	users: UserType;
-	addToCart: CuisinAllListType;
+	addToCart: CuisinAllListType[];
 	showRenderView: () => Promise<string>;
 	renderAfter: () => Promise<void>;
 	fetchUsers: () => Promise<void>;
 	fetchImg: () => Promise<void>;
 	renderName: () => void;
-	renderImg: () => void;
+	renderImg: (bookmarkIds: string[]) => void;
 };
 
 const Myinfo: Myinfo = {
@@ -37,14 +37,16 @@ const Myinfo: Myinfo = {
 		nickname: '',
 	},
 
-	addToCart: {
-		id: 0,
-		name: '',
-		img: '',
-		difficulty: '',
-		ingredient: [],
-		recipe: [],
-	},
+	addToCart: [
+		{
+			id: 0,
+			name: '',
+			img: '',
+			difficulty: '',
+			ingredient: [],
+			recipe: [],
+		},
+	],
 
 	async showRenderView() {
 		return myinfoTemplate();
@@ -85,18 +87,18 @@ const Myinfo: Myinfo = {
 	async fetchImg() {
 		const parse = JSON.parse(sessionStorage.getItem('login') || '');
 
-		const bookmark = sessionStorage.getItem(parse.id) ? JSON.parse(sessionStorage.getItem(parse.id) || '') : '';
+		const bookmarks: string[] = sessionStorage.getItem(parse.id)
+			? JSON.parse(sessionStorage.getItem(parse.id) || '')
+			: '';
 
-		if (bookmark) {
-			const bookmarkId = bookmark.split('?')[1];
+		if (bookmarks) {
+			const bookmarkIds = bookmarks.map((bookmark) => bookmark.split('?')[1]);
 
 			try {
 				const data = await fetch('http://localhost:8080/cuisine');
-				const res: CuisinAllListType[] = await data.json();
 
-				this.addToCart = res.find((data) => data.id === Number(bookmarkId)) as CuisinAllListType;
-
-				this.renderImg();
+				this.addToCart = await data.json();
+				this.renderImg(bookmarkIds);
 			} catch (e) {
 				console.error(e);
 			}
@@ -109,16 +111,18 @@ const Myinfo: Myinfo = {
 		$myName.textContent = this.users.nickname;
 	},
 
-	renderImg() {
+	renderImg(bookmarkIds) {
 		const $likeRecipe = document.querySelector('.like-recipe-content') as HTMLUListElement;
 		let html = '';
 
-		html += `
+		bookmarkIds.forEach((id) => {
+			html += `
       <li>
         <a href="#">
           <img src=${imageTemplate}>
         </a>
       </li>`;
+		});
 
 		$likeRecipe.innerHTML = html;
 	},

@@ -33,14 +33,14 @@ const Cuisine = {
 			res.forEach(({ id, name, img, difficulty }) => {
 				html += `<div class='cuisine-container'>
 					<figure class='cuisine'>
-						<a href='#' route='/recipe?${id}'>
+						<a class="cuisine-wrapper" href='#' route='/recipe?${id}'>
 							<div class='cuisine-img-wrapper'>
 								<img src="${imageTemplage}" alt="${name}" />
 								<span class='difficulty'>${difficulty}</span>
 							</div>
 							<figcaption class='cuisine-img-name'>${name}</figcaption>
 						</a>
-						<a class='bookmark' href='#'>📌<i class='fas fa-bookmark'></i></a>
+						<a class='bookmark' href='#' route='/recipe?${id}'>📌<i class='fas fa-bookmark'></i></a>
 					</figure>
 			</div>`;
 			});
@@ -71,6 +71,8 @@ const Cuisine = {
 					}
 				});
 
+				console.log(result);
+
 				renderMain([...new Set(result)]);
 			} catch (e) {
 				console.error(e);
@@ -95,31 +97,25 @@ const Cuisine = {
 			}
 		})();
 
-		const urls = [];
+		const urls: string[] = [];
 		$containerWrap.onclick = (e) => {
 			const target = e.target as HTMLDivElement;
-			const cuisineRouteNameDom = document.querySelector('.cuisine')?.firstElementChild as HTMLAnchorElement;
 
 			e.preventDefault();
 
+			// console.log(target.parentElement?.matches);
+
 			if (!target.matches('.fa-bookmark') && !target.matches('.bookmark')) {
-				const fullPathName = cuisineRouteNameDom.getAttribute('route')?.split('?');
-
-				if (fullPathName) {
-					const pathName = fullPathName[0];
-					const qureyId = fullPathName[1];
-
-					pushRouter(pathName, qureyId);
-				}
+				this.pushCuisineRoute(target);
 			} else {
-				urls.push(target.getAttribute('href'));
+				urls.push(target.getAttribute('route') || '');
 
 				const unrefinedUserData = sessionStorage.getItem('login');
 
 				if (unrefinedUserData) {
 					const refinedUserData = JSON.parse(unrefinedUserData);
 
-					sessionStorage.setItem(refinedUserData.id, JSON.stringify(cuisineRouteNameDom.getAttribute('route')));
+					sessionStorage.setItem(refinedUserData.id, JSON.stringify(urls));
 				}
 
 				$popup.style.display = 'flex';
@@ -130,6 +126,23 @@ const Cuisine = {
 				}, 1250);
 			}
 		};
+	},
+
+	pushCuisineRoute(target: HTMLElement) {
+		let fullPathName: string[] | undefined = [];
+
+		if (target.parentElement?.matches('.cuisine-wrapper')) {
+			fullPathName = target.parentElement?.getAttribute('route')?.split('?');
+		} else if (target.parentElement?.matches('.cuisine-img-wrapper')) {
+			fullPathName = target.parentElement?.parentElement?.getAttribute('route')?.split('?');
+		}
+
+		if (fullPathName) {
+			const pathName = fullPathName[0];
+			const queryId = fullPathName[1];
+
+			pushRouter(pathName, queryId);
+		}
 	},
 };
 

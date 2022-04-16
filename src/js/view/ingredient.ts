@@ -82,7 +82,6 @@ const Ingredient = {
 				$containerBtnWrap.classList.remove('active');
 				$refresh.classList.remove('active');
 				$cookEnter.classList.remove('active');
-				window.sessionStorage.clear();
 
 				$ingredientListSuperset.forEach((nodeItem) => {
 					nodeItem.classList.remove('view');
@@ -112,7 +111,6 @@ const Ingredient = {
 			$containerBtnWrap.classList.remove('active');
 			$refresh.classList.remove('active');
 			$cookEnter.classList.remove('active');
-			window.sessionStorage.clear();
 
 			[...$ingreItemContainer.children].forEach((itemNode) => itemNode.remove());
 			[...document.querySelectorAll('.ingredient')].forEach((nodeItem) => {
