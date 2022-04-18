@@ -1,3 +1,12 @@
+.ingredient-container {
+	background-color: var(--main-color);
+	height: 100%;
+}
+
+.ingredientes {
+	padding-bottom: 59px;
+}
+
 .fa-chevron-down {
 	float: right;
 	cursor: pointer;
@@ -23,16 +32,10 @@
 	color: #333;
 	border-bottom: 1px solid #666;
 	cursor: pointer;
-	/* z-index: 15; */
 }
 
 .ingredient {
 	display: none;
-}
-
-.ingredient > ul > li.active {
-	color: #e47921;
-	border: 2px solid #e47921;
 }
 
 .ingredient.view {
@@ -46,7 +49,7 @@
 	padding-bottom: 10px;
 }
 
-.ingredient ul li {
+.ingredient > ul > li {
 	font-weight: 600;
 	color: #777;
 	margin: 10px 5px;
@@ -56,9 +59,15 @@
 	cursor: pointer;
 }
 
-.ingredient ul li:hover {
+.ingredient > ul > li.active {
 	color: #e47921;
 	border: 2px solid #e47921;
+}
+
+.ingredient ul li:hover {
+	color: rgba(228, 121, 33, 0.7);
+	border: 2px solid rgba(228, 121, 33, 0.7);
+	/* border: 2px solid #e47921; */
 }
 
 .ingre-item-container {
@@ -163,4 +172,16 @@
 	background-color: #e47921;
 	color: #fff;
 	border: 2px solid #e47921;
+}
+
+@media (min-width: 768px) {
+	.ingredientes {
+		padding-bottom: 19px;
+	}
+}
+
+@media (min-width: 333px) and (max-width: 767px) {
+	.ingredientes {
+		padding-bottom: 59px;
+	}
 }

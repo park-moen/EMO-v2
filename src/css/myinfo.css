@@ -12,7 +12,7 @@
 
 .content-container {
 	padding: 5%;
-	height: 100vh;
+	min-height: 100vh;
 }
 
 .content-container > section {
@@ -107,7 +107,8 @@
 	left: 0;
 	color: #000;
 	display: none;
-	margin-bottom: 80px;
+
+	padding-bottom: 80px;
 }
 
 #tab1,
@@ -136,6 +137,12 @@
 	width: 100%;
 	color: rgba(0, 0, 0, 0.6);
 	margin-top: 10px;
+}
+
+.like-recipe-content {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 25px;
 }
 
 /* 찜한 레시피 보기 style */
@@ -274,18 +281,18 @@ background-color: rgba(0, 0, 0, 0.815);
 
 @media (min-width: 768px) and (max-width: 1024px) {
 	.my-name {
-		font-size: 32px;
-		line-height: 200px;
+		/* font-size: 32px; */
+		/* line-height: 200px; */
 	}
 
 	.content-container {
-		padding: 5%;
+		/* padding: 5%; */
 		/* height: 90vh; */
 	}
 
 	.like-recipe-content li {
 		width: 40%;
-		height: 200px;
+		/* height: 200px; */
 	}
 	.like-recipe-content li img {
 		transform: scale3d(1.5, 1.5, 1.5);
@@ -332,6 +339,11 @@ background-color: rgba(0, 0, 0, 0.815);
 }
 
 @media (min-width: 396px) and (max-width: 480px) {
+	.content-container {
+		padding: 5%;
+		height: 90vh;
+	}
+
 	.my-name {
 		font-size: 24px;
 	}
@@ -357,12 +369,26 @@ background-color: rgba(0, 0, 0, 0.815);
 	.my-info-category {
 		gap: 4px;
 	}
+
+	.like-recipe-content {
+		gap: 10px;
+	}
+
+	.like-recipe-content li {
+		margin-top: 0;
+		height: 95px;
+	}
+
+	.like-recipe-content li img {
+		transform: scale(0.95);
+	}
 }
 
 @media (min-width: 319px) and (max-width: 395px) {
 	.content-container {
-		padding: 5%;
-		height: 110vh;
+		/* padding: 5%; */
+		/* padding: 25px; */
+		/* height: 110vh; */
 	}
 
 	.tab {
@@ -399,5 +425,18 @@ background-color: rgba(0, 0, 0, 0.815);
 
 	.my-post-content span {
 		font-size: 14px;
+	}
+
+	.like-recipe-content {
+		gap: 10px;
+	}
+
+	.like-recipe-content li {
+		margin-top: 0;
+		height: 95px;
+	}
+
+	.like-recipe-content li img {
+		transform: scale(0.95);
 	}
 }

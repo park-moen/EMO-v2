@@ -33,7 +33,6 @@ const Recipe: Recipe = {
 
 	async renderAfter() {
 		const $backBtn = document.querySelector('.back-btn') as HTMLButtonElement;
-		const $stuffList = document.querySelector('.stuff-list') as HTMLUListElement;
 		const $bookMark = document.querySelector('.book-mark') as HTMLAnchorElement;
 
 		await this.fetchFoodList();
@@ -43,23 +42,21 @@ const Recipe: Recipe = {
 			console.log('recipe 뒤로가기');
 		};
 
-		$stuffList.onclick = (e) => {
-			const target = e.target as HTMLUListElement;
-
-			if (!target.matches('.stuff-list > li')) return;
-			target.classList.remove('not-stuff');
-		};
-
 		$bookMark.onclick = (e) => {
+			$bookMark.classList.add(`route="/recipe:${this.foodList.id}"`);
 			e.preventDefault();
 
+			console.log($bookMark);
+
 			const url = window.location.pathname;
-			const userId = JSON.parse(window.sessionStorage.getItem('login') || '').id;
+			const userId = JSON.parse(window.sessionStorage.getItem('login') || '{}').id;
 			const bookmarks = JSON.parse(window.sessionStorage.getItem(userId || '') || '[]');
 
-			window.sessionStorage.setItem(userId, JSON.stringify([...new Set([...bookmarks, url])]));
+			console.log(bookmarks);
 
 			timeModal();
+
+			window.sessionStorage.setItem(userId, JSON.stringify([...new Set([...bookmarks, url])]));
 		};
 	},
 
@@ -89,6 +86,8 @@ const Recipe: Recipe = {
 			const queryId = location.pathname.split(':')[1];
 			const data = await fetch(`http://localhost:8080/cuisine/${queryId}`);
 			const result = await data.json();
+
+			console.log(result);
 
 			this.foodList = result;
 

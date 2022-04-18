@@ -9,6 +9,7 @@ const $footer = document.getElementById('static-footer') as HTMLElement;
 
 window.onload = async () => {
 	$footer.innerHTML = await NavBar.showRenderView();
+
 	await NavBar.renderAfter();
 
 	conditionDisplayNav(false);

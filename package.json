@@ -1,6 +1,6 @@
 {
 	"name": "emo",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "이 재료로 모해먹지?",
 	"main": "index.js",
 	"scripts": {
@@ -10,12 +10,12 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Jeong-seyoung/EMO.git"
+		"url": "git+https://github.com/park-moen/EMO-v2"
 	},
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/Jeong-seyoung/EMO/issues"
+		"url": "https://github.com/park-moen/EMO-v2/issues"
 	},
 	"homepage": "https://github.com/Jeong-seyoung/EMO#readme",
 	"devDependencies": {
@@ -41,5 +41,10 @@
 		"webpack": "^5.70.0",
 		"webpack-cli": "^4.9.2",
 		"webpack-dev-server": "^4.7.4"
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^6.1.1",
+		"@fortawesome/free-regular-svg-icons": "^6.1.1",
+		"@fortawesome/free-solid-svg-icons": "^6.1.1"
 	}
 }

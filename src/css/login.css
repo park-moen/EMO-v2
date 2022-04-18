@@ -1,6 +1,12 @@
-body {
+/* body {
 	background-color: var(--main-color);
-}
+} */
+
+/* .login-container {
+	background-color: var(--main-color);
+	height: 100vh;
+} */
+
 .intro {
 	position: absolute;
 	width: 100%;
@@ -20,13 +26,13 @@ body {
 	overflow: hidden;
 }
 
-.container {
+.login-container {
 	height: 100vh;
 	background-color: var(--main-color);
 	overflow: auto;
 }
 
-.container .login-inner {
+.login-container .login-inner {
 	position: absolute;
 	width: 100%;
 	top: 50%;
