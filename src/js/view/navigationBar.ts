@@ -3,11 +3,16 @@ import 'CSS/navigationBar.css';
 import navigationTemplate from 'Page/navigationBar.hbs';
 
 import { pushRouter } from 'JS/router';
+import { AbstractViewType } from 'Type/commonType';
 
-const NavBar = {
-	showRenderView: async () => navigationTemplate(),
+interface NavBar extends AbstractViewType {}
 
-	renderAfter: async () => {
+const NavBar: NavBar = {
+	async showRenderView() {
+		return navigationTemplate();
+	},
+
+	async renderAfter() {
 		const $navList = document.querySelector('.nav-list') as HTMLUListElement;
 
 		$navList.onclick = (e) => {
@@ -20,15 +25,5 @@ const NavBar = {
 		};
 	},
 };
-
-export function conditionDisplayNav(isNav: boolean) {
-	const $nav = document.querySelector('nav') as HTMLElement;
-
-	if (isNav) {
-		$nav.style.display = 'block';
-	} else {
-		$nav.style.display = 'none';
-	}
-}
 
 export default NavBar;

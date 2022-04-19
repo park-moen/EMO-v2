@@ -3,18 +3,13 @@ import { pushRouter } from 'JS/router';
 
 import registerTemplate from 'Page/register.hbs';
 
-type userDataType = {
-	id: string;
-	password: string;
-	nickname: string;
-};
+import { UserDataType, AbstractViewType } from 'Type/commonType';
+import { HTTPLocal } from 'Util/constantValue';
 
-type Register = {
-	showRenderView: () => Promise<string>;
-	renderAfter: () => Promise<void>;
+interface Register extends AbstractViewType {
 	fetchUsers: (signReg: RegExp) => Promise<void>;
-	postFetchUser: (userInfo: userDataType) => Promise<void>;
-};
+	postFetchUser: (userInfo: UserDataType) => Promise<void>;
+}
 
 const Register: Register = {
 	async showRenderView() {
@@ -82,7 +77,7 @@ const Register: Register = {
 		});
 
 		$popupOkBtn.addEventListener('click', () => {
-			const userInfo: userDataType = {
+			const userInfo: UserDataType = {
 				id: $userId.value,
 				password: $userPw.value,
 				nickname: $nickname.value,
@@ -128,8 +123,8 @@ const Register: Register = {
 		const $idSame = document.querySelector('.alert-id') as HTMLSpanElement;
 		const $idReg = document.querySelector('.alert-idReg') as HTMLSpanElement;
 
-		const data = await fetch('http://localhost:8080/users');
-		const users: userDataType[] = await data.json();
+		const data = await fetch(`${HTTPLocal}/users`);
+		const users: UserDataType[] = await data.json();
 		const userId = users.map((user) => user.id);
 
 		$userId.addEventListener('focusout', () => {
@@ -148,7 +143,7 @@ const Register: Register = {
 	},
 
 	async postFetchUser(userInfo) {
-		await fetch('http://localhost:8080/users', {
+		await fetch(`${HTTPLocal}/users`, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(userInfo),

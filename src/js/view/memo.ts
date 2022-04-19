@@ -2,83 +2,51 @@ import 'CSS/memo.css';
 
 import memoTemplate from 'Page/memo.hbs';
 
+import { AbstractViewType } from 'Type/commonType';
+import { HTTPLocal } from 'Util/constantValue';
+
 type MemoDataType = {
 	id: string;
 	content: string;
 	completed: boolean;
 };
 
-const Memo = {
-	showRenderView: async () => memoTemplate(),
+type RenderMemoViewParams = {
+	cartMemoListDOM: HTMLUListElement;
+	cartAllBtnsDOM: HTMLDivElement;
+};
 
-	renderAfter: async () => {
-		let memoData: MemoDataType[] = [];
+interface Memo extends AbstractViewType {
+	memoAllInfomation: MemoDataType[];
+	fetchMemoInfomation: (passDOM: RenderMemoViewParams) => Promise<void>;
+	renderMemoView: (
+		necessaryDOM: RenderMemoViewParams,
+		renderType?: 'add' | 'allDelete',
+		newData?: MemoDataType
+	) => void;
+	autoChangeAllBtn: (cartAllBtnsDOM: HTMLDivElement) => void;
+	getnewMemoId: () => number;
+}
 
+const Memo: Memo = {
+	memoAllInfomation: [],
+
+	async showRenderView() {
+		return memoTemplate();
+	},
+
+	async renderAfter() {
 		const $cartInput = document.querySelector('.cart-memo-input') as HTMLInputElement;
 		const $cartMemoList = document.querySelector('.cart-memo-list') as HTMLUListElement;
 		const $cartAllBtns = document.querySelector('.cart-all-btns') as HTMLDivElement;
 		const $cartAllRemove = document.querySelector('.cart-all-remove') as HTMLButtonElement;
 
-		const appropriateAllBtn = () => {
-			const isAllChecked = memoData.length && memoData.every((memo) => memo.completed);
-
-			console.log(isAllChecked);
-
-			const checkedAllBtn = $cartAllBtns.firstElementChild;
-			if (checkedAllBtn instanceof HTMLInputElement) {
-				if (isAllChecked) {
-					checkedAllBtn.checked = true;
-				} else {
-					checkedAllBtn.checked = false;
-				}
-			}
+		const renderMemoViewParams = {
+			cartMemoListDOM: $cartMemoList,
+			cartAllBtnsDOM: $cartAllBtns,
 		};
 
-		const fetchCartMemo = async () => {
-			try {
-				const res = await fetch('http://localhost:8080/cartmemos');
-				const cartmemos = await res.json();
-
-				memoData = [...cartmemos];
-
-				render();
-			} catch (err) {
-				console.error(`ERROR:${err}`);
-			}
-		};
-
-		fetchCartMemo();
-
-		const render = (renderType?: 'add' | 'allDelete', newData?: MemoDataType) => {
-			let htmlMemos = '';
-
-			if (newData && renderType === 'add') {
-				memoData.push(newData);
-			}
-
-			if (renderType === 'allDelete') {
-				memoData = [];
-			}
-
-			console.log(memoData);
-
-			memoData.forEach(({ id, content, completed }) => {
-				htmlMemos =
-					`<li>
-						<input id="${id}" class="checkbox" type ="checkbox" ${completed ? 'checked' : ''}>
-						<label for="${id}">${content}</label>
-						<i class="remove">x</i>
-					</li>` + htmlMemos;
-			});
-
-			appropriateAllBtn();
-
-			$cartMemoList.innerHTML = htmlMemos;
-		};
-
-		const getnewMemoId = () => {
-			return memoData.length ? memoData.length + 1 : 1;
-		};
+		await this.fetchMemoInfomation(renderMemoViewParams);
 
 		$cartInput.onkeyup = async (e) => {
 			const target = e.target as HTMLInputElement;
@@ -86,14 +54,15 @@ const Memo = {
 			if (e.key !== 'Enter' || !target.value) return;
 			try {
 				const content = target.value;
-				const newMemo = { id: `cart-item${getnewMemoId()}`, content, completed: false };
-				await fetch('http://localhost:8080/cartmemos', {
+				const newMemo = { id: `cart-item${this.getnewMemoId()}`, content, completed: false };
+
+				await fetch(`${HTTPLocal}/cartmemos`, {
 					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify(newMemo),
 				});
-				// render()
-				render('add', newMemo);
+
+				this.renderMemoView(renderMemoViewParams, 'add', newMemo);
 			} catch (err) {
 				console.error(`[ERROR],${err}`);
 			}
@@ -101,19 +70,17 @@ const Memo = {
 		};
 
 		$cartMemoList.onchange = async (e) => {
-			console.log('xx');
-
 			const target = e.target as HTMLInputElement;
 			const targetId = target.id;
 
 			try {
-				await fetch(`http://localhost:8080/cartmemos/${targetId}`, {
+				await fetch(`${HTTPLocal}/cartmemos/${targetId}`, {
 					method: 'PATCH',
 					headers: { 'Content-Type': 'application/json' },
 					body: JSON.stringify({ completed: target.checked }),
 				});
 
-				appropriateAllBtn();
+				this.autoChangeAllBtn($cartAllBtns);
 			} catch (err) {
 				console.error(`[ERROR]:${err}`);
 			}
@@ -125,15 +92,15 @@ const Memo = {
 			if (!target.matches('.checkbox')) return;
 
 			try {
-				memoData.forEach(async (mini: MemoDataType) => {
-					await fetch(`http://localhost:8080/cartmemos/${mini.id}`, {
+				this.memoAllInfomation.forEach(async (mini: MemoDataType) => {
+					await fetch(`${HTTPLocal}/cartmemos/${mini.id}`, {
 						method: 'PATCH',
 						headers: { 'Content-Type': 'application/json' },
 						body: JSON.stringify({ completed: target.checked }),
 					});
 				});
 
-				fetchCartMemo();
+				this.fetchMemoInfomation(renderMemoViewParams);
 			} catch (err) {
 				console.error(`[ERROR]:${err}`);
 			}
@@ -147,10 +114,10 @@ const Memo = {
 			try {
 				if (target.parentNode?.firstElementChild) {
 					const targetId = target.parentNode.firstElementChild.id;
-					const res = await fetch(`http://localhost:8080/cartmemos/${targetId}`, { method: 'DELETE' });
-					memoData = await res.json();
+					const res = await fetch(`${HTTPLocal}/cartmemos/${targetId}`, { method: 'DELETE' });
+					this.memoAllInfomation = await res.json();
 
-					fetchCartMemo();
+					this.fetchMemoInfomation(renderMemoViewParams);
 				}
 			} catch (err) {
 				console.error(`[ERROR]:${err}`);
@@ -163,16 +130,69 @@ const Memo = {
 			if (!target.matches('.cart-all-btns > .cart-all-remove')) return;
 
 			try {
-				memoData.forEach(async (mini: MemoDataType) => {
-					await fetch(`http://localhost:8080/cartmemos/${mini.id}`, { method: 'DELETE' });
+				this.memoAllInfomation.forEach(async (mini: MemoDataType) => {
+					await fetch(`${HTTPLocal}/cartmemos/${mini.id}`, { method: 'DELETE' });
 				});
 
-				appropriateAllBtn();
-				render('allDelete');
+				this.autoChangeAllBtn($cartAllBtns);
+				this.renderMemoView(renderMemoViewParams, 'allDelete');
 			} catch (err) {
 				console.error(`[ERROR]:${err}`);
 			}
 		};
+	},
+
+	async fetchMemoInfomation(passDOM) {
+		try {
+			const res = await fetch(`${HTTPLocal}/cartmemos`);
+			const cartMemos = await res.json();
+
+			this.memoAllInfomation = [...cartMemos];
+
+			this.renderMemoView(passDOM);
+		} catch (err) {
+			console.error(`ERROR:${err}`);
+		}
+	},
+
+	renderMemoView(necessaryDOM, renderType, newData) {
+		let htmlMemos = '';
+
+		if (newData && renderType === 'add') {
+			this.memoAllInfomation.push(newData);
+		}
+
+		if (renderType === 'allDelete') {
+			this.memoAllInfomation = [];
+		}
+
+		this.memoAllInfomation.forEach(({ id, content, completed }) => {
+			htmlMemos =
+				`<li>
+						<input id="${id}" class="checkbox" type ="checkbox" ${completed ? 'checked' : ''}>
+						<label for="${id}">${content}</label>
+						<i class="remove">x</i>
+					</li>` + htmlMemos;
+		});
+
+		this.autoChangeAllBtn(necessaryDOM.cartAllBtnsDOM);
+
+		necessaryDOM.cartMemoListDOM.innerHTML = htmlMemos;
+	},
+
+	autoChangeAllBtn(cartAllBtnsDOM) {
+		const isAllChecked = this.memoAllInfomation.length && this.memoAllInfomation.every((memo) => memo.completed);
+		const checkedAllBtn = cartAllBtnsDOM.firstElementChild as HTMLInputElement;
+
+		if (isAllChecked) {
+			checkedAllBtn.checked = true;
+		} else {
+			checkedAllBtn.checked = false;
+		}
+	},
+
+	getnewMemoId() {
+		return this.memoAllInfomation.length ? this.memoAllInfomation.length + 1 : 1;
 	},
 };
 

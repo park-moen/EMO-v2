@@ -4,25 +4,16 @@ import recipeTemplate from 'Page/recipe.hbs';
 
 import imageTemp from 'Image/김치볶음밥.jpg';
 
-import { timeModal } from 'JS/utils';
+import { timeModal } from 'Util/index';
+import { HTTPLocal } from 'Util/constantValue';
+import { AbstractViewType, CuisineDataType } from 'Type/commonType';
 
-type FoodListData = {
-	id: number;
-	name: string;
-	img: string;
-	difficulty: string;
-	ingredient: string[];
-	recipe: string[];
-};
-
-type Recipe = {
-	foodList: FoodListData;
-	showRenderView: () => Promise<string>;
-	renderAfter: () => Promise<void>;
-	filterData: (ingredient: string[]) => void;
+interface Recipe extends AbstractViewType {
+	foodList: CuisineDataType;
+	filterData: () => void;
 	fetchFoodList: () => Promise<void>;
-	renderFetchView: ({ ingredient, recipe }: { ingredient: string[]; recipe: string[] }) => void;
-};
+	renderFetchView: () => void;
+}
 
 const Recipe: Recipe = {
 	foodList: { id: 0, name: '', img: '', difficulty: '', ingredient: [], recipe: [] },
@@ -60,9 +51,34 @@ const Recipe: Recipe = {
 		};
 	},
 
-	renderFetchView({ ingredient, recipe }) {
+	async fetchFoodList() {
+		try {
+			const $mainImage = document.querySelector('.main-image > img') as HTMLImageElement;
+			const $foodName = document.querySelector('.food-name') as HTMLHeadingElement;
+			const $lastSpan = document.querySelector('.food-title span:nth-child(3)') as HTMLSpanElement;
+
+			const queryId = location.pathname.split(':')[1];
+			const data = await fetch(`${HTTPLocal}/cuisine/${queryId}`);
+			const result = await data.json();
+
+			this.foodList = result;
+
+			$foodName.textContent = this.foodList.name;
+			$lastSpan.textContent = this.foodList.difficulty;
+			$mainImage.setAttribute('src', imageTemp);
+
+			this.renderFetchView();
+			this.filterData();
+		} catch (e) {
+			console.error(`error: ${e}`);
+		}
+	},
+
+	renderFetchView() {
 		const $stuffList = document.querySelector('.stuff-list') as HTMLUListElement;
 		const $recipe = document.querySelector('.recipe') as HTMLUListElement;
+
+		const { ingredient, recipe } = this.foodList;
 
 		let stuffHtml = '';
 		let recipeHtml = '';
@@ -78,31 +94,9 @@ const Recipe: Recipe = {
 		$recipe.innerHTML = recipeHtml;
 	},
 
-	async fetchFoodList() {
-		try {
-			const $mainImage = document.querySelector('.main-image > img') as HTMLImageElement;
-			const $foodName = document.querySelector('.food-name') as HTMLHeadingElement;
-			const $lastSpan = document.querySelector('.food-title span:nth-child(3)') as HTMLSpanElement;
-			const queryId = location.pathname.split(':')[1];
-			const data = await fetch(`http://localhost:8080/cuisine/${queryId}`);
-			const result = await data.json();
+	filterData() {
+		const { ingredient } = this.foodList;
 
-			console.log(result);
-
-			this.foodList = result;
-
-			$foodName.textContent = this.foodList.name;
-			$lastSpan.textContent = this.foodList.difficulty;
-			$mainImage.setAttribute('src', imageTemp);
-
-			this.renderFetchView(result);
-			this.filterData(result.ingredient);
-		} catch (e) {
-			console.error(`error: ${e}`);
-		}
-	},
-
-	filterData(ingredient) {
 		const $stuffList = document.querySelector('.stuff-list') as HTMLUListElement;
 		const getLocation = JSON.parse(window.sessionStorage.getItem('ingredientes') || '');
 		const data = ingredient.filter((_, i) => !getLocation.includes(ingredient[i]));

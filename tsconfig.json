@@ -27,11 +27,14 @@
 		"paths": {
 			"JS/*": ["src/js/*"],
 			"View/*": ["src/js/view/*"],
+			"Util/*": ["src/js/util/*"],
 			"Router/*": ["src/js/router/*"],
-			"Utils/*": ["src/js/utils/*"],
+			"Utils/*": ["src/js/util/*"],
 			"Page": ["./src/pages/*"],
 			"CSS": ["./src/css/*"],
-			"Image/*": ["./src/assets/image/*"]
+			"Image/*": ["./src/assets/image/*"],
+			"Icon/*": ["./src/assets/icon/*"],
+			"Type/*": ["./src/types/*"]
 		}
 	},
 	"include": ["src"]

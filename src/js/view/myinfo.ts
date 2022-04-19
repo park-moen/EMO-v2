@@ -4,31 +4,23 @@ import myinfoTemplate from 'Page/myinfo.hbs';
 
 import imageTemplate from 'Image/my-recipe1.jpg';
 
+import { AbstractViewType, CuisineDataType } from 'Type/commonType';
+import { HTTPLocal } from 'Util/constantValue';
+
 type UserType = {
 	id: string;
 	password: string;
 	nickname: string;
 };
 
-type CuisinAllListType = {
-	id: number;
-	name: string;
-	img: string;
-	difficulty: string;
-	ingredient: string[];
-	recipe: string[];
-};
-
-type Myinfo = {
+interface Myinfo extends AbstractViewType {
 	users: UserType;
-	addToCart: CuisinAllListType[];
-	showRenderView: () => Promise<string>;
-	renderAfter: () => Promise<void>;
-	fetchUsers: () => Promise<void>;
-	fetchImg: () => Promise<void>;
+	addToCart: CuisineDataType[];
+	fetchUsersInfomation: () => Promise<void>;
+	fetchImgInfomation: () => Promise<void>;
 	renderName: () => void;
 	renderImg: (bookmarkIds: string[]) => void;
-};
+}
 
 const Myinfo: Myinfo = {
 	users: {
@@ -55,8 +47,8 @@ const Myinfo: Myinfo = {
 	async renderAfter() {
 		const $myInfoCategory = document.querySelector('.my-info-category') as HTMLUListElement;
 
-		this.fetchUsers();
-		this.fetchImg();
+		await this.fetchUsersInfomation();
+		await this.fetchImgInfomation();
 
 		$myInfoCategory.onclick = (e) => {
 			const target = e.target as HTMLUListElement;
@@ -65,39 +57,37 @@ const Myinfo: Myinfo = {
 				document.querySelectorAll('.tab').forEach(($tab) => {
 					$tab.classList.toggle('active', target.id === $tab.classList[1]);
 				});
-				// e.target.nextElementSibling.classList.add('active');
 			}
 		};
 	},
 
-	async fetchUsers() {
+	async fetchUsersInfomation() {
 		try {
 			const getLoginData = sessionStorage.getItem('login');
 			const loginResponse = JSON.parse(getLoginData || '');
 			const loginNick = loginResponse.id;
-			const res = await fetch(`http://localhost:8080/users/${loginNick}`);
+			const result = await fetch(`${HTTPLocal}/users/${loginNick}`);
 
-			this.users = await res.json();
+			this.users = await result.json();
 			this.renderName();
 		} catch (err) {
 			console.error(err);
 		}
 	},
 
-	async fetchImg() {
-		const parse = JSON.parse(sessionStorage.getItem('login') || '');
-
+	async fetchImgInfomation() {
+		const parse = JSON.parse(sessionStorage.getItem('login') || '{}');
 		const bookmarks: string[] = sessionStorage.getItem(parse.id)
-			? JSON.parse(sessionStorage.getItem(parse.id) || '')
+			? JSON.parse(sessionStorage.getItem(parse.id) || '[]')
 			: '';
 
 		if (bookmarks) {
 			const bookmarkIds = bookmarks.map((bookmark) => bookmark.split('?')[1]);
 
 			try {
-				const data = await fetch('http://localhost:8080/cuisine');
-
+				const data = await fetch(`${HTTPLocal}/cuisine`);
 				this.addToCart = await data.json();
+
 				this.renderImg(bookmarkIds);
 			} catch (e) {
 				console.error(e);

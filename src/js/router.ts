@@ -9,7 +9,7 @@ import Recipe from 'View/recipe';
 import Myinfo from 'View/myinfo';
 import Recommend from 'View/recommend';
 
-import { conditionDisplayNav } from 'View/navigationBar';
+import { conditionDisplayNav } from 'Util/index';
 
 const $rouutEl = document.getElementById('app') as HTMLDivElement;
 

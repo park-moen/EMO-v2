@@ -4,72 +4,54 @@ import recommendTempale from 'Page/recommend.hbs';
 
 import imageTemplate from 'Image/감자짜글이.jpg';
 
-type CuisineDataType = {
-	id: number;
-	img: string;
-	name: string;
-	difficulty: string;
-	ingredient: string[];
-	recipe: string[];
-};
+import { AbstractViewType, CuisineDataType } from 'Type/commonType';
+import { HTTPLocal } from 'Util/constantValue';
 
-type Recommend = {
-	showRenderView: () => Promise<string>;
-	renderAfter: () => Promise<void>;
-	getFatch: (randomIdList: number[]) => void;
-	fetchAll: () => void;
-	randomId: (data: CuisineDataType[]) => void;
+interface Recommend extends AbstractViewType {
+	cuisineAllInfomation: CuisineDataType[];
+
+	fatchNecessaryInfomation: (randomIdList: number[]) => void;
+	fetchAllInfomation: () => void;
 	renderPrev: (cuisines: CuisineDataType[]) => void;
-};
+	randomId: () => void;
+}
 
 const Recommend: Recommend = {
+	cuisineAllInfomation: [],
+
 	async showRenderView() {
 		return recommendTempale();
 	},
 
 	async renderAfter() {
-		this.fetchAll();
+		this.fetchAllInfomation();
 	},
 
-	async fetchAll() {
+	async fetchAllInfomation() {
 		try {
-			const data = await fetch('http://localhost:8080/cuisine');
-			const res = await data.json();
+			const data = await fetch(`${HTTPLocal}/cuisine`);
+			this.cuisineAllInfomation = await data.json();
 
-			this.randomId(res);
+			this.randomId();
 		} catch (e) {
 			console.error(e);
 		}
 	},
 
-	getFatch(dataes) {
+	fatchNecessaryInfomation(randomIdList) {
 		const cuisines: CuisineDataType[] = [];
 
 		try {
-			dataes.forEach(async (data) => {
-				const result = await fetch(`http://localhost:8080/cuisine/${data}`);
-				const res = await result.json();
+			randomIdList.forEach(async (id) => {
+				const data = await fetch(`${HTTPLocal}/cuisine/${id}`);
+				const result = await data.json();
 
-				cuisines.push(res);
+				cuisines.push(result);
 				this.renderPrev(cuisines);
 			});
 		} catch (err) {
 			console.error(err);
 		}
-	},
-
-	randomId(cuisineDataes) {
-		let randomCuisineList: number[] = [];
-
-		for (const _ of cuisineDataes) {
-			if (randomCuisineList.length === 3) break;
-			const random = Math.floor(Math.random() * cuisineDataes.length + 1);
-
-			randomCuisineList.push(random === 0 ? random + 1 : random);
-			randomCuisineList = [...new Set(randomCuisineList)];
-		}
-
-		this.getFatch(randomCuisineList);
 	},
 
 	renderPrev(cuisines) {
@@ -93,14 +75,28 @@ const Recommend: Recommend = {
 						<a class='bookmark' href='#'>📌<i class='fas fa-bookmark'></i></a>
 					</figure>
 				</div>`;
-
-			console.log(html);
 		});
 
 		$containerWrap.innerHTML = html;
 
 		// const $routeTargetDom = document.querySelector('.recommend-container > ');
 		// console.log($routeTargetDom);
+	},
+
+	randomId() {
+		const { length: stateLength } = this.cuisineAllInfomation;
+
+		let randomCuisineIdList: number[] = [];
+
+		for (const _ of this.cuisineAllInfomation) {
+			if (randomCuisineIdList.length === 3) break;
+			const random = Math.floor(Math.random() * stateLength + 1);
+
+			randomCuisineIdList.push(random === 0 ? random + 1 : random);
+			randomCuisineIdList = [...new Set(randomCuisineIdList)];
+		}
+
+		this.fatchNecessaryInfomation(randomCuisineIdList);
 	},
 };
 

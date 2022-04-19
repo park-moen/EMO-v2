@@ -9,3 +9,13 @@ export const timeModal = () => {
 		$overlay.style.display = 'none';
 	}, 1250);
 };
+
+export function conditionDisplayNav(isNav: boolean) {
+	const $nav = document.querySelector('nav') as HTMLElement;
+
+	if (isNav) {
+		$nav.style.display = 'block';
+	} else {
+		$nav.style.display = 'none';
+	}
+}

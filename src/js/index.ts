@@ -3,7 +3,7 @@ import 'CSS/normalize.css';
 
 import NavBar from 'View/navigationBar';
 import { initialRoutes } from 'JS/router';
-import { conditionDisplayNav } from 'View/navigationBar';
+import { conditionDisplayNav } from 'Util/index';
 
 const $footer = document.getElementById('static-footer') as HTMLElement;
 

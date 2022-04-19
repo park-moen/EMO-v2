@@ -2,12 +2,24 @@ import 'CSS/login.css';
 
 import loginTemplate from 'Page/login.hbs';
 
+import { AbstractViewType, UserDataType } from 'Type/commonType';
 import { pushRouter } from 'JS/router';
+import { HTTPLocal } from 'Util/constantValue';
 
-const Login = {
-	showRenderView: async () => loginTemplate(),
+interface Login extends AbstractViewType {
+	userAllInfomation: UserDataType[];
+	fetchUserInfomation: () => Promise<void>;
+	checksUsers: () => void;
+}
 
-	renderAfter: async () => {
+const Login: Login = {
+	userAllInfomation: [],
+
+	async showRenderView() {
+		return loginTemplate();
+	},
+
+	async renderAfter() {
 		const $idInput = document.getElementById('idInput') as HTMLInputElement;
 		const $pwInput = document.getElementById('pwInput') as HTMLInputElement;
 		const $submitBtn = document.querySelector('.submitBtn') as HTMLInputElement;
@@ -16,13 +28,13 @@ const Login = {
 		const $intro = document.querySelector('.intro') as HTMLDivElement;
 		const $joinBtn = document.querySelector('.joinBtn') as HTMLAnchorElement;
 
-		try {
-			const res = await fetch('http://localhost:8080/users');
-			const userChecks = await res.json();
+		await this.fetchUserInfomation();
 
+		try {
 			$loginForm.onkeyup = (e) => {
 				if (e.key !== 'Enter' || $idInput.value === '') return;
-				Checksusers();
+
+				this.checksUsers();
 			};
 
 			$idInput.addEventListener('focusout', () => {
@@ -30,6 +42,7 @@ const Login = {
 					$checkInput.textContent = '아이디를 입력해주세요';
 					$checkInput.style.display = 'block';
 					$idInput.focus();
+
 					return;
 				}
 			});
@@ -38,31 +51,31 @@ const Login = {
 				if ($pwInput.value === '') {
 					$checkInput.textContent = '비밀번호를 입력해주세요';
 					$checkInput.style.display = 'block';
-					// $pwInput.focus();
+
 					return;
 				}
 			});
 
 			$idInput.onkeyup = () => {
 				if (!$idInput.value) return;
+
+				if ($idInput.value.length === 0) $checkInput.textContent = '비밀번호를 입력해주세요';
+
 				$checkInput.textContent = '';
-				if ($idInput.value.length === 0) {
-					$checkInput.textContent = '비밀번호를 입력해주세요';
-				}
 			};
 
 			$pwInput.onkeyup = () => {
 				if (!$pwInput.value) return;
+
+				if ($pwInput.value.length === 0) $checkInput.textContent = '비밀번호를 입력해주세요';
+
 				$checkInput.textContent = '';
-				if ($pwInput.value.length === 0) {
-					$checkInput.textContent = '비밀번호를 입력해주세요';
-				}
 			};
 
 			$submitBtn.onclick = (e) => {
 				e.preventDefault();
-				// if (!e.target.matches('.btn-wrap > .submitBtn')) return;
-				Checksusers();
+
+				this.checksUsers();
 			};
 
 			// 초기화 목록
@@ -78,32 +91,45 @@ const Login = {
 			};
 
 			$intro.classList.add('play');
-
-			const Checksusers = () => {
-				const pathName = $submitBtn.getAttribute('route') || '';
-				const newitem = [...userChecks].find(({ id, password }) => {
-					return id === $idInput.value && password === $pwInput.value;
-				});
-
-				if (newitem) {
-					window.sessionStorage.setItem(
-						'login',
-						JSON.stringify({
-							id: newitem.id,
-							password: newitem.password,
-							nickname: newitem.nickname,
-						})
-					);
-
-					pushRouter(pathName);
-					console.log('로그인 확인');
-				} else {
-					$checkInput.textContent = '아이디/비밀번호를 확인해주세요';
-					$checkInput.style.display = 'block';
-				}
-			};
 		} catch (err) {
 			console.log(err);
+		}
+	},
+
+	async fetchUserInfomation() {
+		try {
+			const result = await fetch(`${HTTPLocal}/users`);
+			this.userAllInfomation = await result.json();
+		} catch (err) {
+			console.error(err);
+		}
+	},
+
+	checksUsers() {
+		const $idInput = document.getElementById('idInput') as HTMLInputElement;
+		const $pwInput = document.getElementById('pwInput') as HTMLInputElement;
+		const $submitBtn = document.querySelector('.submitBtn') as HTMLInputElement;
+		const $checkInput = document.querySelector('label[for="checkInput"]') as HTMLLabelElement;
+
+		const pathName = $submitBtn.getAttribute('route') || '';
+		const newitem = [...this.userAllInfomation].find(
+			({ id, password }) => id === $idInput.value && password === $pwInput.value
+		);
+
+		if (newitem) {
+			window.sessionStorage.setItem(
+				'login',
+				JSON.stringify({
+					id: newitem.id,
+					password: newitem.password,
+					nickname: newitem.nickname,
+				})
+			);
+
+			pushRouter(pathName);
+		} else {
+			$checkInput.textContent = '아이디/비밀번호를 확인해주세요';
+			$checkInput.style.display = 'block';
 		}
 	},
 };
