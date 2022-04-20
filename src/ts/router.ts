@@ -35,6 +35,12 @@ export async function initialRoutes() {
 }
 
 export async function pushRouter(pathName: string, qureyId?: string, backPageType?: 'cuisine' | 'recommend') {
+	if (pathName === sessionStorage.getItem('pageStack')) {
+		return;
+	}
+
+	sessionStorage.setItem('pageStack', pathName);
+
 	if (pathName === '/' || pathName === '/login' || pathName === '/register') {
 		conditionDisplayNav(false);
 	} else {
@@ -44,7 +50,7 @@ export async function pushRouter(pathName: string, qureyId?: string, backPageTyp
 	if (qureyId) {
 		history.pushState({ backPageType }, pathName, location.origin + `${pathName}:${qureyId}`);
 	} else {
-		history.pushState({}, pathName, location.origin + `${pathName}`);
+		history.pushState({ isSameRoute: pathName }, pathName, location.origin + `${pathName}`);
 	}
 
 	$rouutEl.innerHTML = await routes[pathName].showRenderView();

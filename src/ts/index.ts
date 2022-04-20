@@ -11,6 +11,8 @@ const $footer = document.getElementById('static-footer') as HTMLElement;
 
 imageAllUpload();
 
+sessionStorage.setItem('pageStack', '/login');
+
 window.onload = async () => {
 	$footer.innerHTML = await NavBar.showRenderView();
 
