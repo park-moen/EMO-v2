@@ -2,8 +2,9 @@ import 'CSS/navigationBar.css';
 
 import navigationTemplate from 'Page/navigationBar.hbs';
 
-import { pushRouter } from 'JS/router';
 import { AbstractViewType } from 'Type/commonType';
+
+import { pushRouter } from 'TS/router';
 
 interface NavBar extends AbstractViewType {}
 

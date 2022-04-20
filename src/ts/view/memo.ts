@@ -3,6 +3,7 @@ import 'CSS/memo.css';
 import memoTemplate from 'Page/memo.hbs';
 
 import { AbstractViewType } from 'Type/commonType';
+
 import { HTTPLocal } from 'Util/constantValue';
 
 type MemoDataType = {
@@ -24,6 +25,7 @@ interface Memo extends AbstractViewType {
 		renderType?: 'add' | 'allDelete',
 		newData?: MemoDataType
 	) => void;
+	renderPrev: (necessaryDOM: RenderMemoViewParams) => void;
 	autoChangeAllBtn: (cartAllBtnsDOM: HTMLDivElement) => void;
 	getnewMemoId: () => number;
 }
@@ -44,6 +46,7 @@ const Memo: Memo = {
 		const renderMemoViewParams = {
 			cartMemoListDOM: $cartMemoList,
 			cartAllBtnsDOM: $cartAllBtns,
+			cartCheckBtnDOM: HTMLInputElement,
 		};
 
 		await this.fetchMemoInfomation(renderMemoViewParams);
@@ -80,7 +83,7 @@ const Memo: Memo = {
 					body: JSON.stringify({ completed: target.checked }),
 				});
 
-				this.autoChangeAllBtn($cartAllBtns);
+				this.fetchMemoInfomation(renderMemoViewParams);
 			} catch (err) {
 				console.error(`[ERROR]:${err}`);
 			}
@@ -92,13 +95,15 @@ const Memo: Memo = {
 			if (!target.matches('.checkbox')) return;
 
 			try {
-				this.memoAllInfomation.forEach(async (mini: MemoDataType) => {
+				this.memoAllInfomation.map(async (mini: MemoDataType) => {
 					await fetch(`${HTTPLocal}/cartmemos/${mini.id}`, {
 						method: 'PATCH',
 						headers: { 'Content-Type': 'application/json' },
 						body: JSON.stringify({ completed: target.checked }),
 					});
 				});
+
+				this.memoAllInfomation = this.memoAllInfomation.map((data) => ({ ...data, completed: target.checked }));
 
 				this.fetchMemoInfomation(renderMemoViewParams);
 			} catch (err) {
@@ -153,6 +158,23 @@ const Memo: Memo = {
 		} catch (err) {
 			console.error(`ERROR:${err}`);
 		}
+	},
+
+	renderPrev(necessaryDOM) {
+		let htmlMemos = '';
+
+		this.memoAllInfomation.forEach(({ id, content, completed }) => {
+			htmlMemos =
+				`<li>
+						<input id="${id}" class="checkbox" type ="checkbox" ${completed ? 'checked' : ''}>
+						<label for="${id}">${content}</label>
+						<i class="remove">x</i>
+					</li>` + htmlMemos;
+		});
+
+		this.autoChangeAllBtn(necessaryDOM.cartAllBtnsDOM);
+
+		necessaryDOM.cartMemoListDOM.innerHTML = htmlMemos;
 	},
 
 	renderMemoView(necessaryDOM, renderType, newData) {

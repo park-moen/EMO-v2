@@ -3,7 +3,8 @@ import 'CSS/login.css';
 import loginTemplate from 'Page/login.hbs';
 
 import { AbstractViewType, UserDataType } from 'Type/commonType';
-import { pushRouter } from 'JS/router';
+
+import { pushRouter } from 'TS/router';
 import { HTTPLocal } from 'Util/constantValue';
 
 interface Login extends AbstractViewType {
@@ -92,7 +93,7 @@ const Login: Login = {
 
 			$intro.classList.add('play');
 		} catch (err) {
-			console.log(err);
+			console.error(err);
 		}
 	},
 

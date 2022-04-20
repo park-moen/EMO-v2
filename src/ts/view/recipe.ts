@@ -2,21 +2,36 @@ import 'CSS/recipe.css';
 
 import recipeTemplate from 'Page/recipe.hbs';
 
-import imageTemp from 'Image/김치볶음밥.jpg';
+import { AbstractViewType, CuisineDataType } from 'Type/commonType';
 
+import { pushRouter } from 'TS/router';
 import { timeModal } from 'Util/index';
 import { HTTPLocal } from 'Util/constantValue';
-import { AbstractViewType, CuisineDataType } from 'Type/commonType';
+import { addToCartIcon, removeToCartIcon } from 'Icon/iconCollection';
+
+type isAddToCartReturnValue = {
+	checkAddToCart: boolean;
+	bookmarks: string[];
+	url: string;
+	userId: string;
+};
 
 interface Recipe extends AbstractViewType {
 	foodList: CuisineDataType;
+	readonly visibilityOpacity: '1';
+	readonly nonVisibilityOpacity: '0';
 	filterData: () => void;
-	fetchFoodList: () => Promise<void>;
-	renderFetchView: () => void;
+	fetchFoodList: (passageDOM: HTMLAnchorElement) => Promise<void>;
+	renderFetchView: (bookmarkDOM: HTMLAnchorElement) => void;
+	relatedIconData: () => Readonly<isAddToCartReturnValue>;
 }
 
 const Recipe: Recipe = {
 	foodList: { id: 0, name: '', img: '', difficulty: '', ingredient: [], recipe: [] },
+
+	visibilityOpacity: '1',
+
+	nonVisibilityOpacity: '0',
 
 	async showRenderView() {
 		return recipeTemplate();
@@ -26,32 +41,39 @@ const Recipe: Recipe = {
 		const $backBtn = document.querySelector('.back-btn') as HTMLButtonElement;
 		const $bookMark = document.querySelector('.book-mark') as HTMLAnchorElement;
 
-		await this.fetchFoodList();
+		await this.fetchFoodList($bookMark);
 
 		// back button
 		$backBtn.onclick = () => {
-			console.log('recipe 뒤로가기');
+			if (history.state.backPageType === 'cuisine') {
+				pushRouter('/cuisine');
+			} else {
+				pushRouter('/recommend');
+			}
 		};
 
 		$bookMark.onclick = (e) => {
-			$bookMark.classList.add(`route="/recipe:${this.foodList.id}"`);
 			e.preventDefault();
 
-			console.log($bookMark);
+			const { url, userId, bookmarks, checkAddToCart } = this.relatedIconData();
+			const addToCartSVG = $bookMark.firstElementChild as SVGAElement;
 
-			const url = window.location.pathname;
-			const userId = JSON.parse(window.sessionStorage.getItem('login') || '{}').id;
-			const bookmarks = JSON.parse(window.sessionStorage.getItem(userId || '') || '[]');
+			if (checkAddToCart) {
+				const removeAddtoCart = bookmarks.filter((haveUrl) => haveUrl !== url);
 
-			console.log(bookmarks);
+				timeModal('remove');
+				sessionStorage.setItem(userId, JSON.stringify(removeAddtoCart));
+				addToCartSVG.style.opacity = this.nonVisibilityOpacity;
+			} else {
+				timeModal('add');
+				sessionStorage.setItem(userId, JSON.stringify([...new Set([...bookmarks, url])]));
 
-			timeModal();
-
-			window.sessionStorage.setItem(userId, JSON.stringify([...new Set([...bookmarks, url])]));
+				addToCartSVG.style.opacity = this.visibilityOpacity;
+			}
 		};
 	},
 
-	async fetchFoodList() {
+	async fetchFoodList(passageDOM) {
 		try {
 			const $mainImage = document.querySelector('.main-image > img') as HTMLImageElement;
 			const $foodName = document.querySelector('.food-name') as HTMLHeadingElement;
@@ -65,19 +87,19 @@ const Recipe: Recipe = {
 
 			$foodName.textContent = this.foodList.name;
 			$lastSpan.textContent = this.foodList.difficulty;
-			$mainImage.setAttribute('src', imageTemp);
+			$mainImage.setAttribute('src', this.foodList.img);
 
-			this.renderFetchView();
+			this.renderFetchView(passageDOM);
 			this.filterData();
 		} catch (e) {
 			console.error(`error: ${e}`);
 		}
 	},
 
-	renderFetchView() {
+	renderFetchView(bookmarkDOM) {
 		const $stuffList = document.querySelector('.stuff-list') as HTMLUListElement;
 		const $recipe = document.querySelector('.recipe') as HTMLUListElement;
-
+		const { checkAddToCart } = this.relatedIconData();
 		const { ingredient, recipe } = this.foodList;
 
 		let stuffHtml = '';
@@ -90,8 +112,25 @@ const Recipe: Recipe = {
 			recipeHtml += `<li>${$list}</li>`;
 		});
 
+		bookmarkDOM.append(addToCartIcon.node[0], removeToCartIcon.node[0]);
 		$stuffList.innerHTML = stuffHtml;
 		$recipe.innerHTML = recipeHtml;
+
+		const addToCartElement = bookmarkDOM.firstElementChild as SVGAElement;
+
+		if (checkAddToCart) {
+			addToCartElement.style.opacity = this.visibilityOpacity;
+		} else {
+			addToCartElement.style.opacity = this.nonVisibilityOpacity;
+		}
+	},
+
+	relatedIconData() {
+		const url = window.location.pathname;
+		const userId = JSON.parse(window.sessionStorage.getItem('login') || '{}').id;
+		const bookmarks: string[] = JSON.parse(window.sessionStorage.getItem(userId || '') || '[]');
+
+		return { checkAddToCart: bookmarks.includes(url), bookmarks, url, userId };
 	},
 
 	filterData() {

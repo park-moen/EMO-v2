@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	mode: 'development',
 	entry: {
-		app: './src/js/index.ts',
+		app: './src/ts/index.ts',
 	},
 	output: {
 		filename: '[name].js',
@@ -24,11 +24,11 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-			JS: path.resolve(__dirname, './src/js'),
-			View: path.resolve(__dirname, './src/js/view'),
-			Util: path.resolve(__dirname, './src/js/util'),
-			Router: path.resolve(__dirname, './src/js/router'),
-			Utils: path.resolve(__dirname, './src/js/utils'),
+			TS: path.resolve(__dirname, './src/ts'),
+			View: path.resolve(__dirname, './src/ts/view'),
+			Util: path.resolve(__dirname, './src/ts/util'),
+			Router: path.resolve(__dirname, './src/ts/router'),
+			Utils: path.resolve(__dirname, './src/ts/utils'),
 			Page: path.resolve(__dirname, './src/pages'),
 			CSS: path.resolve(__dirname, './src/css'),
 			Image: path.resolve(__dirname, './src/assets/image'),

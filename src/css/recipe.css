@@ -13,10 +13,9 @@
 .back-btn {
 	cursor: pointer;
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	left: 15px;
-	border: 0;
+	top: 0;
+	left: 0;
+	padding: 30px 40px;
 	background-color: transparent;
 	color: #fff;
 	font-size: 16px;
@@ -42,6 +41,9 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	position: relative;
+	padding-right: 30px;
+	/* border: 1px solid black; */
 }
 .food-name {
 	/* display: inline; */
@@ -55,14 +57,13 @@
 	font-size: 16px;
 	font-weight: 600;
 }
-.book-mark {
-	font-size: 20px;
+.food-title .fa-bookmark {
+	position: absolute;
+	font-size: 22.5px;
+	padding: 10px;
+	bottom: 22.5px;
+	right: 0;
 }
-/* .fa-bookmark {
-	line-height: 30px;
-	padding-left: 5%;
-	font-size: 20px;
-} */
 .super-stuff h2 {
 	margin-bottom: 20px;
 	font-size: 16px;
@@ -104,23 +105,7 @@
 	background-color: #fff;
 	color: #333;
 }
-/* .red:active {
-  background-color: blueviolet;
-} */
-/* .sub-stuff h2 {
-  margin-bottom: 20px;
-  font-size: 16px;
-}
-.sub-stuff ul {
-  display: flex;
-  justify-content: start;
-  margin-bottom: 30px;
-  margin-left: 20px;
-}
-.sub-stuff ul > li {
-  padding-right: 15px;
-  font-size: 14px;
-} */
+
 .recipe {
 	list-style: decimal;
 	margin-left: 20px;

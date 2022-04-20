@@ -141,7 +141,7 @@
 }
 
 .cookEnter:hover {
-	background-color: #e47921;
+	background-color: rgba(228, 121, 33, 0.9);
 	color: #fff;
 	border: 2px solid #e47921;
 }
@@ -152,8 +152,9 @@
 	border-radius: 10px;
 	bottom: 270px;
 	transform: translate(50%);
-	line-height: 50px;
-	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: #fff;
 	color: #e47921;
 	border: 2px solid #e47921;
@@ -169,19 +170,11 @@
 }
 
 .refresh:hover {
-	background-color: #e47921;
+	background-color: rgba(228, 121, 33, 0.9);
 	color: #fff;
 	border: 2px solid #e47921;
 }
 
-@media (min-width: 768px) {
-	.ingredientes {
-		padding-bottom: 19px;
-	}
-}
-
-@media (min-width: 333px) and (max-width: 767px) {
-	.ingredientes {
-		padding-bottom: 59px;
-	}
+.refresh > svg {
+	font-size: 24px;
 }

@@ -1,11 +1,15 @@
 import 'CSS/reset.css';
 import 'CSS/normalize.css';
 
-import NavBar from 'View/navigationBar';
-import { initialRoutes } from 'JS/router';
-import { conditionDisplayNav } from 'Util/index';
+import imageAllUpload from 'Image/index';
+
+import NavBar from 'TS/view/navigationBar';
+import { initialRoutes } from 'TS/router';
+import { conditionDisplayNav } from 'TS/util/index';
 
 const $footer = document.getElementById('static-footer') as HTMLElement;
+
+imageAllUpload();
 
 window.onload = async () => {
 	$footer.innerHTML = await NavBar.showRenderView();
@@ -16,4 +20,6 @@ window.onload = async () => {
 	initialRoutes();
 };
 
-// window.onpopstate = pop
+window.onpopstate = () => {
+	console.log('app.ts에서 pop 이벤트 발생');
+};

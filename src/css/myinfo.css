@@ -4,6 +4,20 @@
 	background-color: #fff;
 }
 
+.header-myinfo {
+	position: relative;
+}
+
+.logout {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 30px 20px;
+	color: rgba(235, 235, 235, 1);
+	font-size: 14px;
+}
+
 .myinfo-main {
 	color: rgba(0, 0, 0, 0.6);
 	font-size: 20px;
@@ -86,19 +100,19 @@
 
 /* 모바일 뷰 필요 */
 .my-info-category > li > button {
-	border: 3px solid rgba(235, 235, 235, 1);
+	/* border: 3px solid rgba(235, 235, 235, 1);
 	border-radius: 20px;
 	font-weight: 700;
 	font-size: 10px;
-	color: rgba(0, 0, 0, 0.6);
+	color: rgba(0, 0, 0, 0.6); */
 }
-
+/* 
 .my-info-category > li > button.attive,
 .my-info-category > li > button:hover {
 	background-color: #faa93f;
 	border-color: transparent;
 	color: #fff;
-}
+} */
 
 .tab {
 	width: 100%;
@@ -114,9 +128,22 @@
 #tab1,
 #tab2,
 #tab3 {
+	border: 3px solid rgba(235, 235, 235, 1);
+	color: rgba(0, 0, 0, 0.6);
+	border-radius: 20px;
+	font-weight: 700;
 	padding: 15px;
 	border-radius: 30px;
 	font-size: 14px;
+}
+
+#tab1.active,
+#tab2.active,
+#tab3.active {
+	background-color: #faa93f;
+	border-color: transparent;
+	color: #fff;
+	font-weight: 500;
 }
 
 .tab.active {
@@ -139,26 +166,32 @@
 	margin-top: 10px;
 }
 
+/* asdasdkasjdflkjsak;ldjf;dlksaf
+sadfdals;kjfkdsajfl;as
+asdfjasdfjkdaslf
+ */
+
 .like-recipe-content {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 25px;
+
+	gap: 5%;
+	row-gap: 15px;
 }
 
 /* 찜한 레시피 보기 style */
 .like-recipe-content li {
-	/* border: 2px solid transparent;
-	float: left;
-	width: 25%;
-	padding: 5px; */
+	width: 30%;
+	height: 120px;
 	margin-top: 10px;
 	box-sizing: border-box;
 	overflow: hidden;
-	height: 100px;
 }
 .like-recipe-content li img {
-	max-height: 100%;
-	transform: scale(1.3);
+	/* transform: scale(1.3); */
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 /* .like-recipe-content li:hover{
 background-color: rgba(0, 0, 0, 0.815);
@@ -290,16 +323,6 @@ background-color: rgba(0, 0, 0, 0.815);
 		/* height: 90vh; */
 	}
 
-	.like-recipe-content li {
-		width: 40%;
-		/* height: 200px; */
-	}
-	.like-recipe-content li img {
-		transform: scale3d(1.5, 1.5, 1.5);
-		margin: 10px;
-		display: inline-block;
-	}
-
 	.my-post-content p {
 		font-size: 24px;
 	}
@@ -307,15 +330,25 @@ background-color: rgba(0, 0, 0, 0.815);
 	.my-post-content span {
 		font-size: 20px;
 	}
+
+	/* .like-recipe-content li {
+		width: 40%;
+		height: 200px;
+	}
+	.like-recipe-content li img {
+		transform: scale3d(1.5, 1.5, 1.5);
+		margin: 10px;
+		display: inline-block;
+	} */
+
+	.like-recipe-content li {
+		height: 150px;
+	}
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
 	.my-name {
 		font-size: 28px;
-	}
-	.like-recipe-content li {
-		width: 33%;
-		height: 140px;
 	}
 
 	.tab {
@@ -335,6 +368,15 @@ background-color: rgba(0, 0, 0, 0.815);
 	#tab3 {
 		padding: 10px;
 		font-size: 12px;
+	}
+
+	/* .like-recipe-content li {
+		width: 33%;
+		height: 140px;
+	} */
+
+	.like-recipe-content li {
+		height: 120px;
 	}
 }
 
@@ -370,17 +412,8 @@ background-color: rgba(0, 0, 0, 0.815);
 		gap: 4px;
 	}
 
-	.like-recipe-content {
-		gap: 10px;
-	}
-
 	.like-recipe-content li {
-		margin-top: 0;
-		height: 95px;
-	}
-
-	.like-recipe-content li img {
-		transform: scale(0.95);
+		height: 100px;
 	}
 }
 
@@ -427,16 +460,7 @@ background-color: rgba(0, 0, 0, 0.815);
 		font-size: 14px;
 	}
 
-	.like-recipe-content {
-		gap: 10px;
-	}
-
 	.like-recipe-content li {
-		margin-top: 0;
-		height: 95px;
-	}
-
-	.like-recipe-content li img {
-		transform: scale(0.95);
+		height: 80px;
 	}
 }

@@ -2,18 +2,19 @@ import 'CSS/cuisine.css';
 
 import cuisineTemplate from 'Page/cuisine.hbs';
 
-import imageTemplage from 'Image/깍두기볶음밥.jpg';
-
 import { CuisineDataType, AbstractViewType } from 'Type/commonType';
-import { pushRouter } from 'JS/router';
-import { timeModal } from 'Util/index';
+
+import { pushRouter } from 'TS/router';
+import { timeModal, dataToShowBookmark } from 'Util/index';
 import { HTTPLocal } from 'Util/constantValue';
 import { addToCartIcon, removeToCartIcon } from 'Icon/iconCollection';
 
-interface Cuisine extends AbstractViewType {
+export interface Cuisine extends AbstractViewType {
 	urls: string[];
 	cuisineAllInfomation: CuisineDataType[];
 	readonly ScrollLeftTenPX: 10;
+	readonly visibilityOpacity: '1';
+	readonly nonVisibilityOpacity: '0';
 	fetchCuisineInfomation: (ingredientesList: string[], passDOM: HTMLDivElement) => Promise<void>;
 	renderMain: (containerWrapDOM: HTMLDivElement) => void;
 	renderPrev: (ingredientesList: string[]) => void;
@@ -21,11 +22,15 @@ interface Cuisine extends AbstractViewType {
 }
 
 const Cuisine: Cuisine = {
-	urls: [], // 초기값을 세션스토리지에서 처음에 받아오면 초기화가 빈 배열로 되지 않음
+	urls: JSON.parse(sessionStorage.getItem(JSON.parse(sessionStorage.getItem('login' || '') || '{}').id) || '[]'),
 
 	cuisineAllInfomation: [],
 
 	ScrollLeftTenPX: 10,
+
+	visibilityOpacity: '1',
+
+	nonVisibilityOpacity: '0',
 
 	async showRenderView() {
 		return cuisineTemplate();
@@ -43,7 +48,7 @@ const Cuisine: Cuisine = {
 
 		// back btn route 연결하기
 		$backBtn.onclick = () => {
-			console.log('뒤로가기');
+			pushRouter('/ingredient');
 		};
 
 		$containerWrap.onclick = (e) => {
@@ -56,6 +61,7 @@ const Cuisine: Cuisine = {
 			} else {
 				const userData = JSON.parse(sessionStorage.getItem('login') || '{}');
 				const correctAnchor = target.closest('.bookmark');
+				const addToCartElement = correctAnchor?.firstElementChild as SVGAElement;
 
 				if (correctAnchor) {
 					const routeName = correctAnchor.getAttribute('route');
@@ -63,13 +69,15 @@ const Cuisine: Cuisine = {
 					if (!correctAnchor.matches('.addToCart')) {
 						this.urls = [...new Set([...this.urls, routeName || ''])];
 						correctAnchor?.classList.add('addToCart');
-						correctAnchor.innerHTML = addToCartIcon;
+						addToCartElement.style.opacity = this.visibilityOpacity;
 
-						timeModal();
+						timeModal('add');
 					} else if (correctAnchor.matches('.addToCart')) {
 						this.urls = this.urls.filter((routeURLName) => routeURLName !== routeName);
 						correctAnchor?.classList.remove('addToCart');
-						correctAnchor.innerHTML = removeToCartIcon;
+						addToCartElement.style.opacity = this.nonVisibilityOpacity;
+
+						timeModal('remove');
 					}
 				}
 
@@ -96,36 +104,25 @@ const Cuisine: Cuisine = {
 	},
 
 	renderMain(containerWrapDOM) {
-		this.cuisineAllInfomation = [...new Set(this.cuisineAllInfomation)];
-
 		let html = '';
 		if (this.cuisineAllInfomation.length) {
-			const userInfoes = JSON.parse(window.sessionStorage.getItem('login') || '{}');
-			const bookmarks: string[] = JSON.parse(window.sessionStorage.getItem(userInfoes.id) || '[]');
-			const extractBookmarkIds = bookmarks.map((data) => data.split(':')[1]);
-			const extractDatasId = this.cuisineAllInfomation.map((data) => String(data.id));
-			const overlapId = extractBookmarkIds.filter((bookmarkId) =>
-				extractDatasId.some((userInfoId) => bookmarkId === userInfoId)
-			);
+			const overlapIdList = dataToShowBookmark(this.cuisineAllInfomation);
 
 			this.cuisineAllInfomation.forEach(({ id, name, img, difficulty }) => {
 				html += `<div class='cuisine-container'>
 					<figure class='cuisine'>
 						<a class="cuisine-wrapper" href='#' route='/recipe:${id}'>
 							<div class='cuisine-img-wrapper'>
-								<img src="${imageTemplage}" alt="${name}" />
+								<img src="${img}" alt="${name}" />
 								<span class='difficulty'>${difficulty}</span>
 							</div>
 							<figcaption class='cuisine-img-name'>${name}</figcaption>
 						</a>
-						${
-							overlapId.includes(String(id))
-								? `<a class='bookmark addToCart' href='#' route='/recipe:${id}'>${addToCartIcon}</a>`
-								: `<a class='bookmark' href='#' route='/recipe:${id}'>${removeToCartIcon}</a>`
-						}
-						
+						<a class='bookmark ${overlapIdList.includes(String(id)) && 'addToCart'}' href='#' route='/recipe:${id}'>
+							${addToCartIcon.html[0] + removeToCartIcon.html[0]}
+						</a>
 					</figure>
-			</div>`;
+				</div>`;
 			});
 		} else {
 			containerWrapDOM.classList.add('no-data-container-wrap');
@@ -149,7 +146,7 @@ const Cuisine: Cuisine = {
 		$previewList.innerHTML = PrevListElement;
 	},
 
-	pushCuisineRoute(target: HTMLElement) {
+	pushCuisineRoute(target) {
 		let fullPathName: string[] | undefined = [];
 
 		if (target.parentElement?.matches('.cuisine-wrapper')) {
@@ -164,7 +161,7 @@ const Cuisine: Cuisine = {
 			const pathName = fullPathName[0];
 			const queryId = fullPathName[1];
 
-			pushRouter(pathName, queryId);
+			pushRouter(pathName, queryId, 'cuisine');
 		}
 	},
 };

@@ -1,9 +1,10 @@
 import 'CSS/register.css';
-import { pushRouter } from 'JS/router';
 
 import registerTemplate from 'Page/register.hbs';
 
 import { UserDataType, AbstractViewType } from 'Type/commonType';
+
+import { pushRouter } from 'TS/router';
 import { HTTPLocal } from 'Util/constantValue';
 
 interface Register extends AbstractViewType {

@@ -10,8 +10,9 @@
 .cuisine-back-btn {
 	cursor: pointer;
 	position: absolute;
-	top: 30px;
-	left: 15px;
+	top: 0;
+	left: 0;
+	padding: 30px 40px;
 
 	color: #fff;
 	font-size: 16px;
@@ -37,9 +38,7 @@
 	overflow-x: scroll;
 	white-space: nowrap;
 }
-/* .preview::-webkit-scrollbar {
-	display: none;
-} */
+
 .preview-list > li {
 	font-weight: 600;
 	color: #777;
@@ -52,11 +51,10 @@
 }
 
 /* 공통 style */
-.container-wrap {
+.total-cuisine-container .container-wrap {
 	margin: 22.5px 0;
 	height: 100%;
 	padding-bottom: 60px;
-	/* margin-bottom: 200px; */
 }
 
 .cuisine-main {
@@ -65,7 +63,6 @@
 	font-weight: 600;
 	margin: 0 auto;
 	font-size: 18px;
-	/* padding-bottom: 59px; */
 }
 
 .cuisine-container {
@@ -96,19 +93,12 @@
 	font-size: 18px;
 }
 
-.bookmark {
-	/* margin-top: 10px; */
-	/* margin-right: 20px; */
-	/* float: right; */
-	/* font-size: 20px; */
-	position: absolute;
-	bottom: 0;
-	right: 10px;
-	padding: 12.5px;
-}
-
-.fa-bookmark {
-	font-size: 22.5px;
+.cuisine {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	box-sizing: border-box;
+	position: relative;
 }
 
 .no-data-container {
@@ -117,6 +107,22 @@
 	justify-content: center;
 	align-items: center;
 	padding: 10px;
+}
+
+.cuisine-main .fa-bookmark {
+	font-size: 22.5px;
+	position: absolute;
+	bottom: 2.5px;
+	right: 5px;
+	padding: 10px;
+}
+
+.cuisine svg[data-prefix='fas'] {
+	opacity: 0;
+}
+
+.addToCart > svg[data-prefix='fas'] {
+	opacity: 1;
 }
 
 .no-data-container > p {
@@ -133,7 +139,6 @@
 	}
 
 	.container-wrap {
-		/* margin: 40px 0; */
 		display: flex;
 		flex-wrap: wrap;
 	}
@@ -147,11 +152,6 @@
 	}
 
 	.cuisine {
-		width: 100%;
-		box-sizing: border-box;
-		padding: 10px;
-		box-sizing: border-box;
-		position: relative;
 		border: 5px solid transparent;
 	}
 
@@ -173,14 +173,6 @@
 
 	.cuisine-container {
 		width: 85%;
-	}
-
-	.cuisine {
-		width: 100%;
-		box-sizing: border-box;
-		padding: 10px;
-		box-sizing: border-box;
-		position: relative;
 	}
 
 	.cuisine-img-wrapper {
@@ -207,14 +199,6 @@
 		width: 85%;
 	}
 
-	.cuisine {
-		width: 100%;
-		box-sizing: border-box;
-		padding: 10px;
-		box-sizing: border-box;
-		position: relative;
-	}
-
 	.cuisine-img-wrapper {
 		height: 200px;
 		transform-origin: scale(1.5);
@@ -226,7 +210,8 @@
 		font-size: 18px;
 		color: #333;
 	}
-	.bookmark {
+
+	.fa-bookmark {
 		font-size: 20px;
 	}
 
@@ -256,6 +241,22 @@
 }
 
 .popdown {
+	border: none;
+	border-radius: 5px;
+	text-align: center;
+	line-height: 1.4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 50px;
+	background-color: #f8f8f8;
+	padding: 15px;
+	position: fixed;
+	z-index: 2;
+	top: 35%;
+	left: 50%;
+	transform: translateX(-50%);
 	display: none;
 }
 

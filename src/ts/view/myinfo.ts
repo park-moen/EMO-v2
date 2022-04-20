@@ -2,9 +2,9 @@ import 'CSS/myinfo.css';
 
 import myinfoTemplate from 'Page/myinfo.hbs';
 
-import imageTemplate from 'Image/my-recipe1.jpg';
-
 import { AbstractViewType, CuisineDataType } from 'Type/commonType';
+
+import { pushRouter } from 'TS/router';
 import { HTTPLocal } from 'Util/constantValue';
 
 type UserType = {
@@ -19,7 +19,7 @@ interface Myinfo extends AbstractViewType {
 	fetchUsersInfomation: () => Promise<void>;
 	fetchImgInfomation: () => Promise<void>;
 	renderName: () => void;
-	renderImg: (bookmarkIds: string[]) => void;
+	renderImg: () => void;
 }
 
 const Myinfo: Myinfo = {
@@ -45,7 +45,11 @@ const Myinfo: Myinfo = {
 	},
 
 	async renderAfter() {
+		window.scrollTo(0, 0);
+
 		const $myInfoCategory = document.querySelector('.my-info-category') as HTMLUListElement;
+		const $tabBtnList = document.querySelectorAll('#tab1,#tab2,#tab3');
+		const $logout = document.querySelector('.logout') as HTMLButtonElement;
 
 		await this.fetchUsersInfomation();
 		await this.fetchImgInfomation();
@@ -53,11 +57,21 @@ const Myinfo: Myinfo = {
 		$myInfoCategory.onclick = (e) => {
 			const target = e.target as HTMLUListElement;
 
+			[...$tabBtnList].forEach((element) => {
+				element.classList.remove('active');
+			});
+
 			if (target.matches('#tab1,#tab2,#tab3')) {
+				target.classList.add('active');
 				document.querySelectorAll('.tab').forEach(($tab) => {
 					$tab.classList.toggle('active', target.id === $tab.classList[1]);
 				});
 			}
+		};
+
+		$logout.onclick = () => {
+			sessionStorage.clear();
+			pushRouter('/login');
 		};
 	},
 
@@ -82,13 +96,14 @@ const Myinfo: Myinfo = {
 			: '';
 
 		if (bookmarks) {
-			const bookmarkIds = bookmarks.map((bookmark) => bookmark.split('?')[1]);
+			const bookmarkIds = bookmarks.map((bookmark) => bookmark.split(':')[1]);
 
 			try {
 				const data = await fetch(`${HTTPLocal}/cuisine`);
-				this.addToCart = await data.json();
+				const result: CuisineDataType[] = await data.json();
+				this.addToCart = result.filter((cuisineData) => bookmarkIds.includes(String(cuisineData.id)));
 
-				this.renderImg(bookmarkIds);
+				this.renderImg();
 			} catch (e) {
 				console.error(e);
 			}
@@ -101,15 +116,15 @@ const Myinfo: Myinfo = {
 		$myName.textContent = this.users.nickname;
 	},
 
-	renderImg(bookmarkIds) {
+	renderImg() {
 		const $likeRecipe = document.querySelector('.like-recipe-content') as HTMLUListElement;
 		let html = '';
 
-		bookmarkIds.forEach((id) => {
+		this.addToCart.forEach(({ img }) => {
 			html += `
       <li>
         <a href="#">
-          <img src=${imageTemplate}>
+          <img src=${img}>
         </a>
       </li>`;
 		});

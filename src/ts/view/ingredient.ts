@@ -3,7 +3,9 @@ import 'CSS/ingredient.css';
 import ingredientTemplate from 'Page/ingredient.hbs';
 
 import { AbstractViewType } from 'Type/commonType';
-import { pushRouter } from 'JS/router';
+
+import { pushRouter } from 'TS/router';
+import { refreshIcon } from 'Icon/iconCollection';
 
 type EmptyArrFilterParmas = {
 	ingredientesDOM: HTMLUListElement;
@@ -16,7 +18,7 @@ type EmptyArrFilterParmas = {
 interface Ingredient extends AbstractViewType {
 	selectedIngredientes: string[];
 	readonly changedIngredientesListHeigth: '250px';
-	readonly zeroPaddingPX: '0px';
+	readonly zeroPaddingPX: '59px';
 
 	renderPrev: (containerDOM: HTMLUListElement) => void;
 	emptyArrFilter: (EmptyArrFilterParmas: EmptyArrFilterParmas) => void;
@@ -27,7 +29,7 @@ const Ingredient: Ingredient = {
 
 	changedIngredientesListHeigth: '250px',
 
-	zeroPaddingPX: '0px',
+	zeroPaddingPX: '59px',
 
 	async showRenderView() {
 		return ingredientTemplate();
@@ -39,6 +41,8 @@ const Ingredient: Ingredient = {
 		const $containerBtnWrap = document.querySelector('.container-btn-wrap') as HTMLDivElement;
 		const $refresh = document.querySelector('.refresh') as HTMLDivElement;
 		const $cookEnter = document.querySelector('.cookEnter') as HTMLDivElement;
+
+		$refresh.appendChild(refreshIcon.node[0]);
 
 		const IngredientDOMCollection = {
 			ingredientesDOM: $ingredientes,

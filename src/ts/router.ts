@@ -34,7 +34,7 @@ export async function initialRoutes() {
 	history.pushState({}, '/login', location.origin + '/login');
 }
 
-export async function pushRouter(pathName: string, qureyId?: string) {
+export async function pushRouter(pathName: string, qureyId?: string, backPageType?: 'cuisine' | 'recommend') {
 	if (pathName === '/' || pathName === '/login' || pathName === '/register') {
 		conditionDisplayNav(false);
 	} else {
@@ -42,7 +42,7 @@ export async function pushRouter(pathName: string, qureyId?: string) {
 	}
 
 	if (qureyId) {
-		history.pushState({}, pathName, location.origin + `${pathName}:${qureyId}`);
+		history.pushState({ backPageType }, pathName, location.origin + `${pathName}:${qureyId}`);
 	} else {
 		history.pushState({}, pathName, location.origin + `${pathName}`);
 	}
